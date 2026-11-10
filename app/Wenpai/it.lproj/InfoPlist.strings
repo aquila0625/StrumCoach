@@ -1,0 +1,2 @@
+"CFBundleDisplayName" = "StrumCoach";
+"NSMicrophoneUsageDescription" = "Il microfono serve all’accordatore, a valutare i tuoi esercizi di strumming e a registrare il tuo suono del metronomo. L’audio viene analizzato sul dispositivo.";

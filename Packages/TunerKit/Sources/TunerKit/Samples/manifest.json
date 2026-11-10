@@ -1,0 +1,1162 @@
+{
+ "version": 1,
+ "voices": {
+  "guitar": {
+   "sampleRate": 44100,
+   "samples": [
+    {
+     "file": "guitar/guitar_37.caf",
+     "midi": 37,
+     "f0": 69.5195,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_40.caf",
+     "midi": 40,
+     "f0": 82.4355,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_42.caf",
+     "midi": 42,
+     "f0": 92.3895,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_45.caf",
+     "midi": 45,
+     "f0": 110.0974,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_48.caf",
+     "midi": 48,
+     "f0": 130.4586,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_51.caf",
+     "midi": 51,
+     "f0": 155.5563,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_54.caf",
+     "midi": 54,
+     "f0": 185.2068,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_57.caf",
+     "midi": 57,
+     "f0": 219.7236,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_60.caf",
+     "midi": 60,
+     "f0": 261.6975,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_63.caf",
+     "midi": 63,
+     "f0": 311.4816,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_66.caf",
+     "midi": 66,
+     "f0": 371.4725,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_69.caf",
+     "midi": 69,
+     "f0": 439.7851,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_72.caf",
+     "midi": 72,
+     "f0": 522.8145,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_75.caf",
+     "midi": 75,
+     "f0": 623.6623,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_78.caf",
+     "midi": 78,
+     "f0": 741.0657,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_81.caf",
+     "midi": 81,
+     "f0": 880.3995,
+     "frames": 167580
+    },
+    {
+     "file": "guitar/guitar_84.caf",
+     "midi": 84,
+     "f0": 1045.4179,
+     "frames": 167580
+    }
+   ]
+  },
+  "bass": {
+   "sampleRate": 44100,
+   "samples": [
+    {
+     "file": "bass/bass_23.caf",
+     "midi": 23,
+     "f0": 30.9786,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_26.caf",
+     "midi": 26,
+     "f0": 36.9306,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_28.caf",
+     "midi": 28,
+     "f0": 41.3936,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_30.caf",
+     "midi": 30,
+     "f0": 46.5037,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_32.caf",
+     "midi": 32,
+     "f0": 52.0864,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_34.caf",
+     "midi": 34,
+     "f0": 58.2868,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_36.caf",
+     "midi": 36,
+     "f0": 65.3045,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_38.caf",
+     "midi": 38,
+     "f0": 73.4313,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_40.caf",
+     "midi": 40,
+     "f0": 82.1201,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_42.caf",
+     "midi": 42,
+     "f0": 92.6231,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_44.caf",
+     "midi": 44,
+     "f0": 103.7191,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_46.caf",
+     "midi": 46,
+     "f0": 116.0333,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_48.caf",
+     "midi": 48,
+     "f0": 130.5067,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_50.caf",
+     "midi": 50,
+     "f0": 145.975,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_52.caf",
+     "midi": 52,
+     "f0": 163.3105,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_54.caf",
+     "midi": 54,
+     "f0": 183.1108,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_58.caf",
+     "midi": 58,
+     "f0": 232.186,
+     "frames": 176400
+    },
+    {
+     "file": "bass/bass_62.caf",
+     "midi": 62,
+     "f0": 290.4279,
+     "frames": 176400
+    }
+   ]
+  },
+  "ukulele": {
+   "sampleRate": 44100,
+   "samples": [
+    {
+     "file": "ukulele/ukulele_60.caf",
+     "midi": 60,
+     "f0": 263.5775,
+     "frames": 149940
+    },
+    {
+     "file": "ukulele/ukulele_64.caf",
+     "midi": 64,
+     "f0": 329.9628,
+     "frames": 108495
+    },
+    {
+     "file": "ukulele/ukulele_67.caf",
+     "midi": 67,
+     "f0": 391.5686,
+     "frames": 149940
+    },
+    {
+     "file": "ukulele/ukulele_68.caf",
+     "midi": 68,
+     "f0": 419.7518,
+     "frames": 149940
+    },
+    {
+     "file": "ukulele/ukulele_69.caf",
+     "midi": 69,
+     "f0": 440.3833,
+     "frames": 114286
+    },
+    {
+     "file": "ukulele/ukulele_70.caf",
+     "midi": 70,
+     "f0": 467.7944,
+     "frames": 121841
+    },
+    {
+     "file": "ukulele/ukulele_71.caf",
+     "midi": 71,
+     "f0": 496.2278,
+     "frames": 145886
+    }
+   ]
+  },
+  "piano": {
+   "sampleRate": 44100,
+   "samples": [
+    {
+     "file": "piano/piano_24.caf",
+     "midi": 24,
+     "f0": 32.8101,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_27.caf",
+     "midi": 27,
+     "f0": 39.1915,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_30.caf",
+     "midi": 30,
+     "f0": 46.6598,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_33.caf",
+     "midi": 33,
+     "f0": 55.4544,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_36.caf",
+     "midi": 36,
+     "f0": 65.6569,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_39.caf",
+     "midi": 39,
+     "f0": 78.4508,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_42.caf",
+     "midi": 42,
+     "f0": 92.7915,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_45.caf",
+     "midi": 45,
+     "f0": 110.3672,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_48.caf",
+     "midi": 48,
+     "f0": 131.2257,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_51.caf",
+     "midi": 51,
+     "f0": 156.3988,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_54.caf",
+     "midi": 54,
+     "f0": 185.6701,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_57.caf",
+     "midi": 57,
+     "f0": 221.0487,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_60.caf",
+     "midi": 60,
+     "f0": 262.7506,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_63.caf",
+     "midi": 63,
+     "f0": 312.5064,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_66.caf",
+     "midi": 66,
+     "f0": 371.981,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_69.caf",
+     "midi": 69,
+     "f0": 441.4035,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_72.caf",
+     "midi": 72,
+     "f0": 525.0102,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_75.caf",
+     "midi": 75,
+     "f0": 623.337,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_78.caf",
+     "midi": 78,
+     "f0": 742.025,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_81.caf",
+     "midi": 81,
+     "f0": 884.7288,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_84.caf",
+     "midi": 84,
+     "f0": 1051.8093,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_87.caf",
+     "midi": 87,
+     "f0": 1252.4291,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_90.caf",
+     "midi": 90,
+     "f0": 1488.8314,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_93.caf",
+     "midi": 93,
+     "f0": 1772.5139,
+     "frames": 176400
+    },
+    {
+     "file": "piano/piano_96.caf",
+     "midi": 96,
+     "f0": 2095.5115,
+     "frames": 176400
+    }
+   ]
+  },
+  "violin": {
+   "sampleRate": 44100,
+   "samples": [
+    {
+     "file": "violin/violin_55.caf",
+     "midi": 55,
+     "f0": 195.5919,
+     "frames": 62206,
+     "loopStart": 30641,
+     "loopEnd": 62206
+    },
+    {
+     "file": "violin/violin_56.caf",
+     "midi": 56,
+     "f0": 206.5037,
+     "frames": 91370,
+     "loopStart": 42252,
+     "loopEnd": 91370
+    },
+    {
+     "file": "violin/violin_57.caf",
+     "midi": 57,
+     "f0": 218.6057,
+     "frames": 64118,
+     "loopStart": 46164,
+     "loopEnd": 64118
+    },
+    {
+     "file": "violin/violin_58.caf",
+     "midi": 58,
+     "f0": 228.3101,
+     "frames": 81792,
+     "loopStart": 62862,
+     "loopEnd": 81792
+    },
+    {
+     "file": "violin/violin_59.caf",
+     "midi": 59,
+     "f0": 251.5628,
+     "frames": 101011,
+     "loopStart": 58061,
+     "loopEnd": 101011
+    },
+    {
+     "file": "violin/violin_60.caf",
+     "midi": 60,
+     "f0": 263.9013,
+     "frames": 89212,
+     "loopStart": 58464,
+     "loopEnd": 89212
+    },
+    {
+     "file": "violin/violin_61.caf",
+     "midi": 61,
+     "f0": 284.1737,
+     "frames": 101701,
+     "loopStart": 58064,
+     "loopEnd": 101701
+    },
+    {
+     "file": "violin/violin_62.caf",
+     "midi": 62,
+     "f0": 291.4003,
+     "frames": 72844,
+     "loopStart": 33041,
+     "loopEnd": 72844
+    },
+    {
+     "file": "violin/violin_63.caf",
+     "midi": 63,
+     "f0": 309.6826,
+     "frames": 74014,
+     "loopStart": 44821,
+     "loopEnd": 74014
+    },
+    {
+     "file": "violin/violin_64.caf",
+     "midi": 64,
+     "f0": 328.1361,
+     "frames": 103153,
+     "loopStart": 63376,
+     "loopEnd": 103153
+    },
+    {
+     "file": "violin/violin_65.caf",
+     "midi": 65,
+     "f0": 348.3591,
+     "frames": 79206,
+     "loopStart": 39201,
+     "loopEnd": 79206
+    },
+    {
+     "file": "violin/violin_66.caf",
+     "midi": 66,
+     "f0": 371.4938,
+     "frames": 97354,
+     "loopStart": 65896,
+     "loopEnd": 97354
+    },
+    {
+     "file": "violin/violin_67.caf",
+     "midi": 67,
+     "f0": 387.9904,
+     "frames": 71447,
+     "loopStart": 31552,
+     "loopEnd": 71447
+    },
+    {
+     "file": "violin/violin_68.caf",
+     "midi": 68,
+     "f0": 415.7448,
+     "frames": 110212,
+     "loopStart": 67994,
+     "loopEnd": 110212
+    },
+    {
+     "file": "violin/violin_69.caf",
+     "midi": 69,
+     "f0": 438.1489,
+     "frames": 179176,
+     "loopStart": 117478,
+     "loopEnd": 179176
+    },
+    {
+     "file": "violin/violin_70.caf",
+     "midi": 70,
+     "f0": 460.7245,
+     "frames": 121885,
+     "loopStart": 63690,
+     "loopEnd": 121885
+    },
+    {
+     "file": "violin/violin_71.caf",
+     "midi": 71,
+     "f0": 489.9202,
+     "frames": 64540,
+     "loopStart": 22326,
+     "loopEnd": 64540
+    },
+    {
+     "file": "violin/violin_72.caf",
+     "midi": 72,
+     "f0": 522.7724,
+     "frames": 78135,
+     "loopStart": 37390,
+     "loopEnd": 78135
+    },
+    {
+     "file": "violin/violin_73.caf",
+     "midi": 73,
+     "f0": 561.6765,
+     "frames": 95120,
+     "loopStart": 64734,
+     "loopEnd": 95120
+    },
+    {
+     "file": "violin/violin_74.caf",
+     "midi": 74,
+     "f0": 581.8364,
+     "frames": 71305,
+     "loopStart": 52357,
+     "loopEnd": 71305
+    },
+    {
+     "file": "violin/violin_75.caf",
+     "midi": 75,
+     "f0": 611.3307,
+     "frames": 109139,
+     "loopStart": 69175,
+     "loopEnd": 109139
+    },
+    {
+     "file": "violin/violin_76.caf",
+     "midi": 76,
+     "f0": 659.1673,
+     "frames": 113490,
+     "loopStart": 73283,
+     "loopEnd": 113490
+    },
+    {
+     "file": "violin/violin_77.caf",
+     "midi": 77,
+     "f0": 690.5606,
+     "frames": 88576,
+     "loopStart": 37361,
+     "loopEnd": 88576
+    },
+    {
+     "file": "violin/violin_78.caf",
+     "midi": 78,
+     "f0": 738.3083,
+     "frames": 146357,
+     "loopStart": 106637,
+     "loopEnd": 146357
+    },
+    {
+     "file": "violin/violin_79.caf",
+     "midi": 79,
+     "f0": 777.7511,
+     "frames": 57400,
+     "loopStart": 17596,
+     "loopEnd": 57400
+    },
+    {
+     "file": "violin/violin_80.caf",
+     "midi": 80,
+     "f0": 821.7068,
+     "frames": 79328,
+     "loopStart": 35804,
+     "loopEnd": 79328
+    },
+    {
+     "file": "violin/violin_81.caf",
+     "midi": 81,
+     "f0": 886.8811,
+     "frames": 80790,
+     "loopStart": 40963,
+     "loopEnd": 80790
+    },
+    {
+     "file": "violin/violin_82.caf",
+     "midi": 82,
+     "f0": 934.1584,
+     "frames": 68739,
+     "loopStart": 46031,
+     "loopEnd": 68739
+    },
+    {
+     "file": "violin/violin_83.caf",
+     "midi": 83,
+     "f0": 991.4173,
+     "frames": 47224,
+     "loopStart": 27874,
+     "loopEnd": 47224
+    },
+    {
+     "file": "violin/violin_84.caf",
+     "midi": 84,
+     "f0": 1044.749,
+     "frames": 90081,
+     "loopStart": 49472,
+     "loopEnd": 90081
+    }
+   ]
+  },
+  "viola": {
+   "sampleRate": 44100,
+   "samples": [
+    {
+     "file": "viola/viola_48.caf",
+     "midi": 48,
+     "f0": 130.63,
+     "frames": 78624,
+     "loopStart": 58706,
+     "loopEnd": 78624
+    },
+    {
+     "file": "viola/viola_49.caf",
+     "midi": 49,
+     "f0": 137.8726,
+     "frames": 74646,
+     "loopStart": 39781,
+     "loopEnd": 74646
+    },
+    {
+     "file": "viola/viola_50.caf",
+     "midi": 50,
+     "f0": 146.4314,
+     "frames": 69408,
+     "loopStart": 45314,
+     "loopEnd": 69408
+    },
+    {
+     "file": "viola/viola_51.caf",
+     "midi": 51,
+     "f0": 155.9324,
+     "frames": 102518,
+     "loopStart": 56419,
+     "loopEnd": 102518
+    },
+    {
+     "file": "viola/viola_52.caf",
+     "midi": 52,
+     "f0": 165.8364,
+     "frames": 92258,
+     "loopStart": 42530,
+     "loopEnd": 92258
+    },
+    {
+     "file": "viola/viola_53.caf",
+     "midi": 53,
+     "f0": 177.2429,
+     "frames": 90075,
+     "loopStart": 44044,
+     "loopEnd": 90075
+    },
+    {
+     "file": "viola/viola_54.caf",
+     "midi": 54,
+     "f0": 187.0666,
+     "frames": 84207,
+     "loopStart": 30221,
+     "loopEnd": 84207
+    },
+    {
+     "file": "viola/viola_55.caf",
+     "midi": 55,
+     "f0": 195.9821,
+     "frames": 80502,
+     "loopStart": 41123,
+     "loopEnd": 80502
+    },
+    {
+     "file": "viola/viola_56.caf",
+     "midi": 56,
+     "f0": 207.9599,
+     "frames": 63313,
+     "loopStart": 32352,
+     "loopEnd": 63313
+    },
+    {
+     "file": "viola/viola_57.caf",
+     "midi": 57,
+     "f0": 220.8558,
+     "frames": 86448,
+     "loopStart": 50705,
+     "loopEnd": 86448
+    },
+    {
+     "file": "viola/viola_58.caf",
+     "midi": 58,
+     "f0": 232.4342,
+     "frames": 72851,
+     "loopStart": 20106,
+     "loopEnd": 72851
+    },
+    {
+     "file": "viola/viola_59.caf",
+     "midi": 59,
+     "f0": 246.7228,
+     "frames": 81774,
+     "loopStart": 40842,
+     "loopEnd": 81774
+    },
+    {
+     "file": "viola/viola_60.caf",
+     "midi": 60,
+     "f0": 261.3711,
+     "frames": 78776,
+     "loopStart": 19385,
+     "loopEnd": 78776
+    },
+    {
+     "file": "viola/viola_61.caf",
+     "midi": 61,
+     "f0": 277.8617,
+     "frames": 78293,
+     "loopStart": 24965,
+     "loopEnd": 78293
+    },
+    {
+     "file": "viola/viola_62.caf",
+     "midi": 62,
+     "f0": 293.6984,
+     "frames": 64498,
+     "loopStart": 34317,
+     "loopEnd": 64498
+    },
+    {
+     "file": "viola/viola_63.caf",
+     "midi": 63,
+     "f0": 309.097,
+     "frames": 57682,
+     "loopStart": 17877,
+     "loopEnd": 57682
+    },
+    {
+     "file": "viola/viola_64.caf",
+     "midi": 64,
+     "f0": 325.7479,
+     "frames": 62959,
+     "loopStart": 25864,
+     "loopEnd": 62959
+    },
+    {
+     "file": "viola/viola_65.caf",
+     "midi": 65,
+     "f0": 345.1601,
+     "frames": 50939,
+     "loopStart": 21553,
+     "loopEnd": 50939
+    },
+    {
+     "file": "viola/viola_66.caf",
+     "midi": 66,
+     "f0": 367.7473,
+     "frames": 76452,
+     "loopStart": 24647,
+     "loopEnd": 76452
+    },
+    {
+     "file": "viola/viola_67.caf",
+     "midi": 67,
+     "f0": 391.6902,
+     "frames": 49090,
+     "loopStart": 29725,
+     "loopEnd": 49090
+    },
+    {
+     "file": "viola/viola_68.caf",
+     "midi": 68,
+     "f0": 416.0926,
+     "frames": 55913,
+     "loopStart": 16165,
+     "loopEnd": 55913
+    },
+    {
+     "file": "viola/viola_69.caf",
+     "midi": 69,
+     "f0": 439.5627,
+     "frames": 54630,
+     "loopStart": 11590,
+     "loopEnd": 54630
+    },
+    {
+     "file": "viola/viola_70.caf",
+     "midi": 70,
+     "f0": 464.8926,
+     "frames": 43312,
+     "loopStart": 19597,
+     "loopEnd": 43312
+    },
+    {
+     "file": "viola/viola_71.caf",
+     "midi": 71,
+     "f0": 490.0365,
+     "frames": 36243,
+     "loopStart": 18064,
+     "loopEnd": 36243
+    },
+    {
+     "file": "viola/viola_72.caf",
+     "midi": 72,
+     "f0": 524.0416,
+     "frames": 36410,
+     "loopStart": 14530,
+     "loopEnd": 36410
+    },
+    {
+     "file": "viola/viola_73.caf",
+     "midi": 73,
+     "f0": 554.4355,
+     "frames": 32388,
+     "loopStart": 14969,
+     "loopEnd": 32388
+    },
+    {
+     "file": "viola/viola_74.caf",
+     "midi": 74,
+     "f0": 589.8756,
+     "frames": 41277,
+     "loopStart": 17653,
+     "loopEnd": 41277
+    },
+    {
+     "file": "viola/viola_75.caf",
+     "midi": 75,
+     "f0": 623.8168,
+     "frames": 45828,
+     "loopStart": 14653,
+     "loopEnd": 45828
+    },
+    {
+     "file": "viola/viola_76.caf",
+     "midi": 76,
+     "f0": 661.995,
+     "frames": 41654,
+     "loopStart": 20670,
+     "loopEnd": 41654
+    },
+    {
+     "file": "viola/viola_77.caf",
+     "midi": 77,
+     "f0": 692.4486,
+     "frames": 37419,
+     "loopStart": 16976,
+     "loopEnd": 37419
+    }
+   ]
+  },
+  "cello": {
+   "sampleRate": 44100,
+   "samples": [
+    {
+     "file": "cello/cello_36.caf",
+     "midi": 36,
+     "f0": 65.7917,
+     "frames": 52251,
+     "loopStart": 13374,
+     "loopEnd": 52251
+    },
+    {
+     "file": "cello/cello_37.caf",
+     "midi": 37,
+     "f0": 69.4953,
+     "frames": 46034,
+     "loopStart": 28265,
+     "loopEnd": 46034
+    },
+    {
+     "file": "cello/cello_38.caf",
+     "midi": 38,
+     "f0": 72.6752,
+     "frames": 44218,
+     "loopStart": 25407,
+     "loopEnd": 44218
+    },
+    {
+     "file": "cello/cello_39.caf",
+     "midi": 39,
+     "f0": 77.5135,
+     "frames": 47839,
+     "loopStart": 25650,
+     "loopEnd": 47839
+    },
+    {
+     "file": "cello/cello_40.caf",
+     "midi": 40,
+     "f0": 81.2379,
+     "frames": 46693,
+     "loopStart": 16293,
+     "loopEnd": 46693
+    },
+    {
+     "file": "cello/cello_41.caf",
+     "midi": 41,
+     "f0": 88.0087,
+     "frames": 43969,
+     "loopStart": 21921,
+     "loopEnd": 43969
+    },
+    {
+     "file": "cello/cello_42.caf",
+     "midi": 42,
+     "f0": 92.7715,
+     "frames": 47083,
+     "loopStart": 30921,
+     "loopEnd": 47083
+    },
+    {
+     "file": "cello/cello_43.caf",
+     "midi": 43,
+     "f0": 98.2563,
+     "frames": 54742,
+     "loopStart": 34994,
+     "loopEnd": 54742
+    },
+    {
+     "file": "cello/cello_44.caf",
+     "midi": 44,
+     "f0": 104.2392,
+     "frames": 51507,
+     "loopStart": 33315,
+     "loopEnd": 51507
+    },
+    {
+     "file": "cello/cello_45.caf",
+     "midi": 45,
+     "f0": 109.8976,
+     "frames": 55963,
+     "loopStart": 26268,
+     "loopEnd": 55963
+    },
+    {
+     "file": "cello/cello_46.caf",
+     "midi": 46,
+     "f0": 116.8865,
+     "frames": 48869,
+     "loopStart": 25476,
+     "loopEnd": 48869
+    },
+    {
+     "file": "cello/cello_47.caf",
+     "midi": 47,
+     "f0": 122.5733,
+     "frames": 40063,
+     "loopStart": 14878,
+     "loopEnd": 40063
+    },
+    {
+     "file": "cello/cello_48.caf",
+     "midi": 48,
+     "f0": 128.5672,
+     "frames": 35945,
+     "loopStart": 17423,
+     "loopEnd": 35945
+    },
+    {
+     "file": "cello/cello_49.caf",
+     "midi": 49,
+     "f0": 140.0388,
+     "frames": 42412,
+     "loopStart": 21942,
+     "loopEnd": 42412
+    },
+    {
+     "file": "cello/cello_50.caf",
+     "midi": 50,
+     "f0": 146.756,
+     "frames": 33226,
+     "loopStart": 19403,
+     "loopEnd": 33226
+    },
+    {
+     "file": "cello/cello_51.caf",
+     "midi": 51,
+     "f0": 154.6714,
+     "frames": 42295,
+     "loopStart": 23477,
+     "loopEnd": 42295
+    },
+    {
+     "file": "cello/cello_52.caf",
+     "midi": 52,
+     "f0": 162.8747,
+     "frames": 39558,
+     "loopStart": 17085,
+     "loopEnd": 39558
+    },
+    {
+     "file": "cello/cello_53.caf",
+     "midi": 53,
+     "f0": 171.8787,
+     "frames": 40397,
+     "loopStart": 20384,
+     "loopEnd": 40397
+    },
+    {
+     "file": "cello/cello_54.caf",
+     "midi": 54,
+     "f0": 182.7877,
+     "frames": 36490,
+     "loopStart": 20325,
+     "loopEnd": 36490
+    },
+    {
+     "file": "cello/cello_55.caf",
+     "midi": 55,
+     "f0": 198.233,
+     "frames": 52081,
+     "loopStart": 24050,
+     "loopEnd": 52081
+    },
+    {
+     "file": "cello/cello_56.caf",
+     "midi": 56,
+     "f0": 206.8806,
+     "frames": 38556,
+     "loopStart": 18945,
+     "loopEnd": 38556
+    },
+    {
+     "file": "cello/cello_57.caf",
+     "midi": 57,
+     "f0": 219.8044,
+     "frames": 39227,
+     "loopStart": 18562,
+     "loopEnd": 39227
+    },
+    {
+     "file": "cello/cello_58.caf",
+     "midi": 58,
+     "f0": 233.0012,
+     "frames": 38883,
+     "loopStart": 19956,
+     "loopEnd": 38883
+    },
+    {
+     "file": "cello/cello_59.caf",
+     "midi": 59,
+     "f0": 246.5593,
+     "frames": 31067,
+     "loopStart": 15327,
+     "loopEnd": 31067
+    },
+    {
+     "file": "cello/cello_60.caf",
+     "midi": 60,
+     "f0": 260.9524,
+     "frames": 32218,
+     "loopStart": 15656,
+     "loopEnd": 32218
+    },
+    {
+     "file": "cello/cello_61.caf",
+     "midi": 61,
+     "f0": 277.5656,
+     "frames": 37263,
+     "loopStart": 16768,
+     "loopEnd": 37263
+    },
+    {
+     "file": "cello/cello_62.caf",
+     "midi": 62,
+     "f0": 292.7077,
+     "frames": 30990,
+     "loopStart": 16376,
+     "loopEnd": 30990
+    },
+    {
+     "file": "cello/cello_63.caf",
+     "midi": 63,
+     "f0": 309.916,
+     "frames": 33448,
+     "loopStart": 14808,
+     "loopEnd": 33448
+    },
+    {
+     "file": "cello/cello_64.caf",
+     "midi": 64,
+     "f0": 328.5577,
+     "frames": 32860,
+     "loopStart": 17827,
+     "loopEnd": 32860
+    },
+    {
+     "file": "cello/cello_65.caf",
+     "midi": 65,
+     "f0": 347.7699,
+     "frames": 44768,
+     "loopStart": 20548,
+     "loopEnd": 44768
+    }
+   ]
+  }
+ }
+}

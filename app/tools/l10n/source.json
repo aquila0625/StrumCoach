@@ -1,0 +1,4411 @@
+[
+  {
+    "key": "%@切分",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:63"
+    ],
+    "note": "Caption under the subdivision chip; %@ is the subdivision name (e.g. 'Eighth'). Short."
+  },
+  {
+    "key": "%@后到达目标 · %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:83"
+    ],
+    "note": ""
+  },
+  {
+    "key": "%@，%lld 小节",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:146"
+    ],
+    "note": ""
+  },
+  {
+    "key": "%lld BPM，点按输入速度",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TempoDial.swift:62"
+    ],
+    "note": ""
+  },
+  {
+    "key": "%lld → %lld BPM · 每 %@ %@%lld",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:23"
+    ],
+    "note": ""
+  },
+  {
+    "key": "%lld 分",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:254"
+    ],
+    "note": ""
+  },
+  {
+    "key": "%lld 小节",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:135",
+      "StrumProgressionViews.swift:214",
+      "StrumProgressionViews.swift:23"
+    ],
+    "note": "Value with unit: N bars"
+  },
+  {
+    "key": "12 小节布鲁斯（A）",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgression.swift:86"
+    ],
+    "note": ""
+  },
+  {
+    "key": "BPM 当前速度",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:62"
+    ],
+    "note": ""
+  },
+  {
+    "key": "TAP 测速",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:75"
+    ],
+    "note": "VoiceOver label of the tap-tempo button"
+  },
+  {
+    "key": "±%lld 毫秒",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:477"
+    ],
+    "note": ""
+  },
+  {
+    "key": "±60 毫秒内算准，±120 毫秒内算偏，再远算漏；多出来的一下扣半格。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:485"
+    ],
+    "note": ""
+  },
+  {
+    "key": "“%@”最近 3 次都在 90 分以上。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:100"
+    ],
+    "note": ""
+  },
+  {
+    "key": "上次",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:246"
+    ],
+    "note": ""
+  },
+  {
+    "key": "下一个",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:318",
+      "ChordStrings.swift:105"
+    ],
+    "note": ""
+  },
+  {
+    "key": "不录就和强拍用同一个声音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:448"
+    ],
+    "note": ""
+  },
+  {
+    "key": "不错，继续保持手腕匀速摆动，空拍也别停。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:123"
+    ],
+    "note": ""
+  },
+  {
+    "key": "乐器",
+    "modules": [
+      "Wenpai",
+      "TunerKit"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:25",
+      "TunerStrings.swift:50"
+    ],
+    "note": ""
+  },
+  {
+    "key": "今天",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:533"
+    ],
+    "note": ""
+  },
+  {
+    "key": "今天已练 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:173"
+    ],
+    "note": "'Practiced today: %@' where %@ is a percentage of the goal"
+  },
+  {
+    "key": "今天已练够 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeController.swift:434"
+    ],
+    "note": ""
+  },
+  {
+    "key": "今天已练够 %@，已自动停止",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeController.swift:433"
+    ],
+    "note": ""
+  },
+  {
+    "key": "今天的目标",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:450"
+    ],
+    "note": ""
+  },
+  {
+    "key": "从头循环",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:48"
+    ],
+    "note": ""
+  },
+  {
+    "key": "保存",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:105",
+      "StrumProgressionViews.swift:79",
+      "ChordStrings.swift:123"
+    ],
+    "note": ""
+  },
+  {
+    "key": "保存和弦进行",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:103"
+    ],
+    "note": ""
+  },
+  {
+    "key": "保持目标速度",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:47"
+    ],
+    "note": ""
+  },
+  {
+    "key": "修改",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:45"
+    ],
+    "note": ""
+  },
+  {
+    "key": "修改参数",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:272"
+    ],
+    "note": ""
+  },
+  {
+    "key": "倒数 %lld",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:267"
+    ],
+    "note": ""
+  },
+  {
+    "key": "偏",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:459"
+    ],
+    "note": ""
+  },
+  {
+    "key": "偏好设置",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:54"
+    ],
+    "note": ""
+  },
+  {
+    "key": "偏快 %lld 毫秒",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:499"
+    ],
+    "note": ""
+  },
+  {
+    "key": "偏慢 %lld 毫秒",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:499"
+    ],
+    "note": ""
+  },
+  {
+    "key": "停止",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumHeroCard.swift:275",
+      "StrumScreen.swift:343",
+      "StrumScreen.swift:564",
+      "ChordStrings.swift:96"
+    ],
+    "note": ""
+  },
+  {
+    "key": "停止训练",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:196"
+    ],
+    "note": ""
+  },
+  {
+    "key": "先听示范，再跟着练；戴耳机可以听着节拍练。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:328"
+    ],
+    "note": ""
+  },
+  {
+    "key": "全部",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumPractice.swift:76"
+    ],
+    "note": ""
+  },
+  {
+    "key": "共 %lld 遍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:600"
+    ],
+    "note": ""
+  },
+  {
+    "key": "关闭",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProScreen.swift:64",
+      "StrumScreen.swift:140"
+    ],
+    "note": ""
+  },
+  {
+    "key": "关闭面板",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:18"
+    ],
+    "note": ""
+  },
+  {
+    "key": "准",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:458"
+    ],
+    "note": ""
+  },
+  {
+    "key": "准备，跟着倒数和高亮（外放时不放节拍声）",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:317"
+    ],
+    "note": ""
+  },
+  {
+    "key": "准备，跟着耳机里的节拍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:317"
+    ],
+    "note": ""
+  },
+  {
+    "key": "减慢",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "TempoDial.swift:67",
+      "ChordStrings.swift:110"
+    ],
+    "note": ""
+  },
+  {
+    "key": "出错了",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:25"
+    ],
+    "note": ""
+  },
+  {
+    "key": "分",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:452"
+    ],
+    "note": ""
+  },
+  {
+    "key": "切分",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:205"
+    ],
+    "note": ""
+  },
+  {
+    "key": "切分音量",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:343",
+      "Sheets.swift:352"
+    ],
+    "note": ""
+  },
+  {
+    "key": "刚好",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:498"
+    ],
+    "note": ""
+  },
+  {
+    "key": "删除",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "Sheets.swift:477",
+      "Sheets.swift:547",
+      "StrumProgressionViews.swift:225",
+      "ChordStrings.swift:123"
+    ],
+    "note": ""
+  },
+  {
+    "key": "到时",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:454"
+    ],
+    "note": ""
+  },
+  {
+    "key": "到点时先提醒，再停止节拍器",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:458"
+    ],
+    "note": ""
+  },
+  {
+    "key": "到目标后停止",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:46"
+    ],
+    "note": ""
+  },
+  {
+    "key": "到达目标后",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:377"
+    ],
+    "note": ""
+  },
+  {
+    "key": "加快",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumScreen.swift:300",
+      "TempoDial.swift:69",
+      "ChordStrings.swift:110"
+    ],
+    "note": ""
+  },
+  {
+    "key": "取消",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:106",
+      "StrumProgressionViews.swift:191",
+      "ChordStrings.swift:123"
+    ],
+    "note": ""
+  },
+  {
+    "key": "取消已掌握",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:647",
+      "StrumScreen.swift:668"
+    ],
+    "note": ""
+  },
+  {
+    "key": "取消收藏",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumScreen.swift:641",
+      "StrumScreen.swift:665",
+      "ChordStrings.swift:98"
+    ],
+    "note": ""
+  },
+  {
+    "key": "同一组随机结果可以重复练",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:418"
+    ],
+    "note": ""
+  },
+  {
+    "key": "同名的会被覆盖。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:108"
+    ],
+    "note": ""
+  },
+  {
+    "key": "名字",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:104"
+    ],
+    "note": ""
+  },
+  {
+    "key": "听一听",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:275"
+    ],
+    "note": ""
+  },
+  {
+    "key": "听示范",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:352"
+    ],
+    "note": ""
+  },
+  {
+    "key": "和弦库",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "AppTab.swift:14",
+      "ChordStrings.swift:95"
+    ],
+    "note": ""
+  },
+  {
+    "key": "和弦进行",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:207",
+      "StrumHeroCard.swift:232",
+      "StrumProgressionViews.swift:22"
+    ],
+    "note": ""
+  },
+  {
+    "key": "唱名 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "SettingsScreen.swift:44"
+    ],
+    "note": "Note name style option: Solfège, %@ is an example like 'Do Re Mi'"
+  },
+  {
+    "key": "复制",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:220",
+      "StrumProgressionViews.swift:46"
+    ],
+    "note": ""
+  },
+  {
+    "key": "外观",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:216"
+    ],
+    "note": ""
+  },
+  {
+    "key": "多扫",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:461"
+    ],
+    "note": ""
+  },
+  {
+    "key": "多扫了 %lld 下，注意空拍时手要继续摆动但不碰弦。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:115"
+    ],
+    "note": ""
+  },
+  {
+    "key": "好",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:26",
+      "ProScreen.swift:108"
+    ],
+    "note": "OK button in an alert"
+  },
+  {
+    "key": "字母 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "SettingsScreen.swift:44"
+    ],
+    "note": "Note name style option: Letters, %@ is an example like 'C D E'"
+  },
+  {
+    "key": "完成",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "AnnouncementsScreen.swift:16",
+      "ProfileScreen.swift:397",
+      "ProfileScreen.swift:554"
+    ],
+    "note": "Done button"
+  },
+  {
+    "key": "对着麦克风发出一下短促的声音，比如拍手、说“嗒”、敲桌子。每段最长 2 秒，开头的静音会自动去掉，音量自动调匀。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:443"
+    ],
+    "note": ""
+  },
+  {
+    "key": "左手模式",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "ProfileScreen.swift:258",
+      "ChordStrings.swift:100"
+    ],
+    "note": ""
+  },
+  {
+    "key": "已暂停节拍器，避免麦克风收进节拍声",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "RootView.swift:142"
+    ],
+    "note": ""
+  },
+  {
+    "key": "已校准：以后跟练会扣掉 %lld 毫秒的延迟。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumTrainer.swift:663"
+    ],
+    "note": ""
+  },
+  {
+    "key": "常用进行",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:72"
+    ],
+    "note": ""
+  },
+  {
+    "key": "平均",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:450",
+      "StrumScreen.swift:476"
+    ],
+    "note": ""
+  },
+  {
+    "key": "延迟校准",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:146",
+      "StrumScreen.swift:533"
+    ],
+    "note": ""
+  },
+  {
+    "key": "开始校准",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:564"
+    ],
+    "note": ""
+  },
+  {
+    "key": "开始练习",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:291"
+    ],
+    "note": ""
+  },
+  {
+    "key": "开始训练",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:196"
+    ],
+    "note": ""
+  },
+  {
+    "key": "弱拍（可选）",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:448"
+    ],
+    "note": ""
+  },
+  {
+    "key": "强拍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:447"
+    ],
+    "note": ""
+  },
+  {
+    "key": "强拍重、弱拍轻，和声音同步",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:358"
+    ],
+    "note": ""
+  },
+  {
+    "key": "当前补偿：%lld 毫秒",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:553"
+    ],
+    "note": ""
+  },
+  {
+    "key": "录制我的声音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:407"
+    ],
+    "note": ""
+  },
+  {
+    "key": "录音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:491"
+    ],
+    "note": ""
+  },
+  {
+    "key": "很多下没有收到声音：把手机放近一点，扫得干脆一些，或者先在安静的地方练。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:100"
+    ],
+    "note": ""
+  },
+  {
+    "key": "很稳！可以把速度加 5 BPM 再试试。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:121"
+    ],
+    "note": ""
+  },
+  {
+    "key": "循环",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:410"
+    ],
+    "note": ""
+  },
+  {
+    "key": "快慢不太稳（偏差约 ±%lld 毫秒），先把速度调慢 10 BPM 练熟。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:118"
+    ],
+    "note": ""
+  },
+  {
+    "key": "恢复默认",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:557"
+    ],
+    "note": ""
+  },
+  {
+    "key": "我的",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "AppTab.swift:15",
+      "ProfileScreen.swift:40"
+    ],
+    "note": ""
+  },
+  {
+    "key": "我的声音",
+    "modules": [
+      "Wenpai",
+      "MetronomeCore"
+    ],
+    "where": [
+      "Sheets.swift:82",
+      "Model.swift:193"
+    ],
+    "note": ""
+  },
+  {
+    "key": "我的进行",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:283",
+      "StrumProgressionViews.swift:74"
+    ],
+    "note": ""
+  },
+  {
+    "key": "扫弦节奏型",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumHeroCard.swift:71",
+      "StrumScreen.swift:141",
+      "TrainingOptions.swift:60",
+      "ChordStrings.swift:113"
+    ],
+    "note": ""
+  },
+  {
+    "key": "拍号",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:59",
+      "Sheets.swift:170"
+    ],
+    "note": "Time signature (chip caption, short)"
+  },
+  {
+    "key": "拍号 %lld %lld",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:199"
+    ],
+    "note": "VoiceOver: 'Time signature %lld over %lld'"
+  },
+  {
+    "key": "持续",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:212",
+      "StrumProgressionViews.swift:213"
+    ],
+    "note": ""
+  },
+  {
+    "key": "按和弦",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:346"
+    ],
+    "note": ""
+  },
+  {
+    "key": "按小节",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:402"
+    ],
+    "note": "Mute mode option: by bars"
+  },
+  {
+    "key": "按当天累计的练习时间算",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:450"
+    ],
+    "note": ""
+  },
+  {
+    "key": "按节奏连续点按来设定速度",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:76"
+    ],
+    "note": ""
+  },
+  {
+    "key": "换到 %@ 时普遍晚了 %lld 毫秒，可以提前准备按法。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:192"
+    ],
+    "note": ""
+  },
+  {
+    "key": "换和弦后的第一下常常没扫到，换把时右手别停，先扫空弦也可以。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:197"
+    ],
+    "note": ""
+  },
+  {
+    "key": "换和弦后的第一下平均比其他时候晚 %lld 毫秒，在上一小节最后一拍就开始换把。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:200"
+    ],
+    "note": ""
+  },
+  {
+    "key": "换和弦后第一下：刚好",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:362"
+    ],
+    "note": ""
+  },
+  {
+    "key": "换和弦后第一下：平均偏快 %lld 毫秒",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:362"
+    ],
+    "note": ""
+  },
+  {
+    "key": "换和弦后第一下：平均偏慢 %lld 毫秒",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:362"
+    ],
+    "note": ""
+  },
+  {
+    "key": "推荐",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProScreen.swift:160"
+    ],
+    "note": "Small badge on the lifetime plan: Recommended / Best value (very short)"
+  },
+  {
+    "key": "提速 + 静音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:89",
+      "TrainingOptions.swift:59"
+    ],
+    "note": "Short badge: tempo ramp + muting both on"
+  },
+  {
+    "key": "播放",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:343"
+    ],
+    "note": ""
+  },
+  {
+    "key": "收藏",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumPractice.swift:77",
+      "StrumScreen.swift:641",
+      "StrumScreen.swift:665"
+    ],
+    "note": ""
+  },
+  {
+    "key": "收音中 · 第 %lld / %lld 遍 · 第 %lld / %lld 小节",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:312"
+    ],
+    "note": ""
+  },
+  {
+    "key": "收音中 · 第 %lld 遍 · 第 %lld / %lld 小节",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:314"
+    ],
+    "note": ""
+  },
+  {
+    "key": "放慢",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:300"
+    ],
+    "note": ""
+  },
+  {
+    "key": "整体平均快了 %lld 毫秒，有点抢拍，跟着高亮再稳一点。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:112"
+    ],
+    "note": ""
+  },
+  {
+    "key": "整体平均慢了 %lld 毫秒，试着提前一点点下手。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:109"
+    ],
+    "note": ""
+  },
+  {
+    "key": "方式",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:401"
+    ],
+    "note": ""
+  },
+  {
+    "key": "无法启动音频：%@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeController.swift:204",
+      "StrumTrainer.swift:305"
+    ],
+    "note": "Error: 'Could not start audio: %@'"
+  },
+  {
+    "key": "无法录音：%@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "DynamicSounds.swift:260"
+    ],
+    "note": ""
+  },
+  {
+    "key": "无法打开麦克风：%@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumTrainer.swift:338",
+      "StrumTrainer.swift:441"
+    ],
+    "note": ""
+  },
+  {
+    "key": "昨天",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:534"
+    ],
+    "note": ""
+  },
+  {
+    "key": "显示全部",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:149"
+    ],
+    "note": ""
+  },
+  {
+    "key": "暂不",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:98"
+    ],
+    "note": ""
+  },
+  {
+    "key": "暂停",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:343"
+    ],
+    "note": ""
+  },
+  {
+    "key": "最后一遍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:464"
+    ],
+    "note": ""
+  },
+  {
+    "key": "最好一遍：第 %lld 遍 %lld 分",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:601"
+    ],
+    "note": ""
+  },
+  {
+    "key": "最高",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:247"
+    ],
+    "note": ""
+  },
+  {
+    "key": "有声",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:411"
+    ],
+    "note": "Mute pattern stepper: audible bars"
+  },
+  {
+    "key": "有声 %@ · 静音 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:29"
+    ],
+    "note": ""
+  },
+  {
+    "key": "未掌握",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumPractice.swift:78"
+    ],
+    "note": ""
+  },
+  {
+    "key": "本周练习",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:166"
+    ],
+    "note": "Practice this week"
+  },
+  {
+    "key": "标准音",
+    "modules": [
+      "Wenpai",
+      "TunerKit"
+    ],
+    "where": [
+      "SettingsScreen.swift:23",
+      "TunerStrings.swift:47"
+    ],
+    "note": "Reference pitch (A4 = 440 Hz label prefix)"
+  },
+  {
+    "key": "标准音 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:247",
+      "SettingsScreen.swift:24"
+    ],
+    "note": "'Reference pitch %@' where %@ is the note A4 (or La4)"
+  },
+  {
+    "key": "标记",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:97"
+    ],
+    "note": ""
+  },
+  {
+    "key": "标记为已掌握",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:647",
+      "StrumScreen.swift:668"
+    ],
+    "note": ""
+  },
+  {
+    "key": "标记为已掌握？",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:95"
+    ],
+    "note": ""
+  },
+  {
+    "key": "根音",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:198",
+      "ChordStrings.swift:101",
+      "ChordStrings.swift:95"
+    ],
+    "note": "Root (note of a chord)"
+  },
+  {
+    "key": "概率",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:418"
+    ],
+    "note": ""
+  },
+  {
+    "key": "正在录音…再点一下结束",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:468"
+    ],
+    "note": ""
+  },
+  {
+    "key": "正在生成人声报数…",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:338"
+    ],
+    "note": ""
+  },
+  {
+    "key": "正在评分…",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:326"
+    ],
+    "note": ""
+  },
+  {
+    "key": "每一拍扫一下",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:325"
+    ],
+    "note": ""
+  },
+  {
+    "key": "每小节拍数",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:304"
+    ],
+    "note": ""
+  },
+  {
+    "key": "每小节拍数 / 以几分音符为一拍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:170"
+    ],
+    "note": ""
+  },
+  {
+    "key": "每小节第一拍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:447"
+    ],
+    "note": ""
+  },
+  {
+    "key": "每小节第一拍总是响",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:425"
+    ],
+    "note": ""
+  },
+  {
+    "key": "每档变化",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:375"
+    ],
+    "note": "Ramp stepper: BPM change per step"
+  },
+  {
+    "key": "每档持续",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:376"
+    ],
+    "note": "Ramp stepper: bars per step"
+  },
+  {
+    "key": "没收到足够的声音（%lld/8），请靠近手机、跟着每一拍扫一下再试一次。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumTrainer.swift:656"
+    ],
+    "note": ""
+  },
+  {
+    "key": "没有录到声音，请靠近麦克风再录一次",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "DynamicSounds.swift:276"
+    ],
+    "note": ""
+  },
+  {
+    "key": "没有麦克风权限。请到系统设置里允许本 App 使用麦克风。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:450"
+    ],
+    "note": ""
+  },
+  {
+    "key": "浅色",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "AppModel.swift:17"
+    ],
+    "note": "Appearance: light"
+  },
+  {
+    "key": "测速",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:74"
+    ],
+    "note": "Small caption under 'TAP' button: tap tempo. Very short (≤8 chars)"
+  },
+  {
+    "key": "深色",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "AppModel.swift:18"
+    ],
+    "note": "Appearance: dark"
+  },
+  {
+    "key": "添加",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:195"
+    ],
+    "note": ""
+  },
+  {
+    "key": "添加和弦",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:60"
+    ],
+    "note": ""
+  },
+  {
+    "key": "清除",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:572"
+    ],
+    "note": "Keypad key: clear"
+  },
+  {
+    "key": "渐进减速",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:371"
+    ],
+    "note": "gradual slow-down"
+  },
+  {
+    "key": "渐进提速",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:90",
+      "Sheets.swift:84",
+      "TrainingOptions.swift:57"
+    ],
+    "note": "Training mode: tempo ramp (gradual speed-up)"
+  },
+  {
+    "key": "渐进提速完成，已停止",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeController.swift:396"
+    ],
+    "note": ""
+  },
+  {
+    "key": "渐进提速控制中",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TempoDial.swift:53"
+    ],
+    "note": "Shown instead of tempo term when ramp controls the tempo: 'Controlled by tempo ramp'"
+  },
+  {
+    "key": "漏",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:460"
+    ],
+    "note": ""
+  },
+  {
+    "key": "点一下试听，强 · 次强 · 弱各一个音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:331"
+    ],
+    "note": ""
+  },
+  {
+    "key": "点按修改，长按拖动排序",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:52"
+    ],
+    "note": ""
+  },
+  {
+    "key": "点按切换重音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:123"
+    ],
+    "note": ""
+  },
+  {
+    "key": "点按方块切换重音：强 · 次强 · 弱 · 静音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:139"
+    ],
+    "note": ""
+  },
+  {
+    "key": "点按清零",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:82"
+    ],
+    "note": ""
+  },
+  {
+    "key": "版本",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:290"
+    ],
+    "note": ""
+  },
+  {
+    "key": "现在",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:305"
+    ],
+    "note": ""
+  },
+  {
+    "key": "用 D（下扫）U（上扫）X（闷音）·（空拍）写出自己的节奏型，和弦库里也能用",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:167"
+    ],
+    "note": ""
+  },
+  {
+    "key": "留空表示一直练",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:397"
+    ],
+    "note": ""
+  },
+  {
+    "key": "目标",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:373",
+      "TrainingScreen.swift:451"
+    ],
+    "note": "Target"
+  },
+  {
+    "key": "目标 %@，到时提醒",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:39"
+    ],
+    "note": ""
+  },
+  {
+    "key": "目标 %@，到时提醒并停止",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:38"
+    ],
+    "note": ""
+  },
+  {
+    "key": "目标比起始低就是渐进减速",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:371"
+    ],
+    "note": "Hint: target lower than start = gradual slow-down"
+  },
+  {
+    "key": "相对主拍 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:343"
+    ],
+    "note": "Subdivision volume relative to the main beat, %@ is a percentage"
+  },
+  {
+    "key": "确定",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:557"
+    ],
+    "note": "Confirm/OK button"
+  },
+  {
+    "key": "示范中：一直循环，点“停止”结束",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:307"
+    ],
+    "note": ""
+  },
+  {
+    "key": "稳定度",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:477"
+    ],
+    "note": ""
+  },
+  {
+    "key": "第 %lld 小节 · 还剩 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:81"
+    ],
+    "note": ""
+  },
+  {
+    "key": "第 %lld 拍，%@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:122"
+    ],
+    "note": "VoiceOver: 'Beat %lld, %@' where %@ is accent level"
+  },
+  {
+    "key": "第 %lld 遍：%lld 分",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:321"
+    ],
+    "note": ""
+  },
+  {
+    "key": "第一版只看扫弦的时间准不准，不判断你实际是上扫还是下扫；箭头是节奏型里该用的扫法。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:51"
+    ],
+    "note": ""
+  },
+  {
+    "key": "筛选",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:682",
+      "StrumScreen.swift:692"
+    ],
+    "note": ""
+  },
+  {
+    "key": "类型",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:204",
+      "ChordStrings.swift:95"
+    ],
+    "note": ""
+  },
+  {
+    "key": "系统",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "AppModel.swift:25"
+    ],
+    "note": ""
+  },
+  {
+    "key": "练习历史",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:552"
+    ],
+    "note": ""
+  },
+  {
+    "key": "练习目标完成",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeController.swift:439"
+    ],
+    "note": ""
+  },
+  {
+    "key": "练习计时",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:86",
+      "TrainingScreen.swift:157"
+    ],
+    "note": "Practice timer (training card title / sheet title)"
+  },
+  {
+    "key": "练习记录",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:191"
+    ],
+    "note": ""
+  },
+  {
+    "key": "练习遍数",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:388",
+      "StrumProgressionViews.swift:389"
+    ],
+    "note": ""
+  },
+  {
+    "key": "结束",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:343"
+    ],
+    "note": ""
+  },
+  {
+    "key": "结束录音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:491"
+    ],
+    "note": ""
+  },
+  {
+    "key": "编辑…",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:213"
+    ],
+    "note": ""
+  },
+  {
+    "key": "编辑和弦进行",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:234"
+    ],
+    "note": ""
+  },
+  {
+    "key": "自动停止",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:457"
+    ],
+    "note": ""
+  },
+  {
+    "key": "自定义",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:329",
+      "StrumScreen.swift:244",
+      "StrumTimeline.swift:29"
+    ],
+    "note": ""
+  },
+  {
+    "key": "自定义…",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumHeroCard.swift:163",
+      "StrumScreen.swift:226",
+      "ChordStrings.swift:112"
+    ],
+    "note": ""
+  },
+  {
+    "key": "自由练习",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:56"
+    ],
+    "note": "Practice mode: free practice"
+  },
+  {
+    "key": "节奏",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:374"
+    ],
+    "note": ""
+  },
+  {
+    "key": "节奏型",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:164"
+    ],
+    "note": ""
+  },
+  {
+    "key": "节奏设置",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:80"
+    ],
+    "note": ""
+  },
+  {
+    "key": "节拍器",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "AppTab.swift:11",
+      "MetronomeScreen.swift:34"
+    ],
+    "note": ""
+  },
+  {
+    "key": "节拍器 · %lld BPM",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "NowPlayingBridge.swift:28"
+    ],
+    "note": "Lock screen now-playing title"
+  },
+  {
+    "key": "节拍器训练",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:25"
+    ],
+    "note": ""
+  },
+  {
+    "key": "节拍音色",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:240"
+    ],
+    "note": ""
+  },
+  {
+    "key": "范围 20–400 BPM",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:526"
+    ],
+    "note": "Hint: range 20–400 BPM"
+  },
+  {
+    "key": "触感反馈",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:354"
+    ],
+    "note": ""
+  },
+  {
+    "key": "计时",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:80"
+    ],
+    "note": "Small caption under the elapsed-time button: timer. Very short"
+  },
+  {
+    "key": "计时 %@",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:81"
+    ],
+    "note": ""
+  },
+  {
+    "key": "训练",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "AppTab.swift:12",
+      "TrainingScreen.swift:16"
+    ],
+    "note": ""
+  },
+  {
+    "key": "试听",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "Sheets.swift:476",
+      "ChordStrings.swift:96"
+    ],
+    "note": ""
+  },
+  {
+    "key": "该上扫的那几下平均比下扫快 %lld 毫秒，上扫别急，等到“&”再扫。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:106"
+    ],
+    "note": ""
+  },
+  {
+    "key": "该上扫的那几下平均比下扫慢 %lld 毫秒，回扫时手腕放松、别停顿。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScoring.swift:103"
+    ],
+    "note": ""
+  },
+  {
+    "key": "语言",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:224",
+      "SettingsScreen.swift:60"
+    ],
+    "note": "Settings section: Language"
+  },
+  {
+    "key": "请输入 20–400 之间的数",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:526"
+    ],
+    "note": "Error hint: enter a number between 20 and 400"
+  },
+  {
+    "key": "调音器",
+    "modules": [
+      "Wenpai",
+      "TunerKit"
+    ],
+    "where": [
+      "AppTab.swift:13",
+      "TunerStrings.swift:44"
+    ],
+    "note": ""
+  },
+  {
+    "key": "调音器设置",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "SettingsScreen.swift:16"
+    ],
+    "note": ""
+  },
+  {
+    "key": "起始",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:372"
+    ],
+    "note": "Start (BPM)"
+  },
+  {
+    "key": "跟我练",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:358"
+    ],
+    "note": ""
+  },
+  {
+    "key": "跟拍震动",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:254",
+      "Sheets.swift:357"
+    ],
+    "note": ""
+  },
+  {
+    "key": "跟着节奏扫，麦克风帮你打分",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:72"
+    ],
+    "note": ""
+  },
+  {
+    "key": "跟随系统",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "AppModel.swift:16",
+      "SettingsScreen.swift:68"
+    ],
+    "note": "Appearance option: follow system"
+  },
+  {
+    "key": "跟随节拍器",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "StrumScreen.swift:283",
+      "ChordStrings.swift:108"
+    ],
+    "note": ""
+  },
+  {
+    "key": "输入速度",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:83"
+    ],
+    "note": ""
+  },
+  {
+    "key": "还没有保存的进行。编辑好和弦后点“保存”。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumProgressionViews.swift:261"
+    ],
+    "note": ""
+  },
+  {
+    "key": "还没有收藏的节奏型：点星标收藏。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:146"
+    ],
+    "note": ""
+  },
+  {
+    "key": "还没有收藏的节奏型：长按节奏型或点格子上方的星标收藏。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:170"
+    ],
+    "note": ""
+  },
+  {
+    "key": "还没有练习记录。播放 30 秒以上会自动记一次。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:463"
+    ],
+    "note": ""
+  },
+  {
+    "key": "还没练过，先听一听再开始",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:244"
+    ],
+    "note": ""
+  },
+  {
+    "key": "这个节奏型最好 %lld 分",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:454"
+    ],
+    "note": ""
+  },
+  {
+    "key": "这件乐器的节奏型都已掌握。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumHeroCard.swift:146",
+      "StrumScreen.swift:170"
+    ],
+    "note": ""
+  },
+  {
+    "key": "连续打卡",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:171"
+    ],
+    "note": "Practice streak (consecutive days)"
+  },
+  {
+    "key": "速度",
+    "modules": [
+      "Wenpai",
+      "ChordKit"
+    ],
+    "where": [
+      "TempoDial.swift:33",
+      "TrainingScreen.swift:371",
+      "ChordStrings.swift:108"
+    ],
+    "note": ""
+  },
+  {
+    "key": "重新录制我的声音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:407"
+    ],
+    "note": ""
+  },
+  {
+    "key": "重音预设",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:215"
+    ],
+    "note": ""
+  },
+  {
+    "key": "随机静音",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:402"
+    ],
+    "note": "Mute mode option: random beats"
+  },
+  {
+    "key": "随机静音 %@ 的拍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:33"
+    ],
+    "note": "'Randomly mute %@ of beats', %@ is a percentage"
+  },
+  {
+    "key": "随机静音 %@ 的拍 · 保留首拍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingOptions.swift:32"
+    ],
+    "note": "same + '· keep downbeat'"
+  },
+  {
+    "key": "需要麦克风权限才能听你扫弦：请到系统设置里允许“扫弦教练”使用麦克风。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumTrainer.swift:758"
+    ],
+    "note": ""
+  },
+  {
+    "key": "静音",
+    "modules": [
+      "Wenpai",
+      "MetronomeCore"
+    ],
+    "where": [
+      "TrainingScreen.swift:414",
+      "Model.swift:35"
+    ],
+    "note": "Accent level / box label: muted (silent)"
+  },
+  {
+    "key": "静音小节",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:91",
+      "TrainingOptions.swift:58",
+      "TrainingScreen.swift:99"
+    ],
+    "note": "Training mode: muted bars"
+  },
+  {
+    "key": "静音时保持心里的节拍，恢复时检查有没有跑快或跑慢",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:121"
+    ],
+    "note": ""
+  },
+  {
+    "key": "静音的拍",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "TrainingScreen.swift:419"
+    ],
+    "note": ""
+  },
+  {
+    "key": "静音训练",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:85"
+    ],
+    "note": ""
+  },
+  {
+    "key": "音名显示",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "ProfileScreen.swift:232",
+      "SettingsScreen.swift:29"
+    ],
+    "note": "Settings section: note name display"
+  },
+  {
+    "key": "音色",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "MetronomeScreen.swift:66"
+    ],
+    "note": "Sound (chip caption, short)"
+  },
+  {
+    "key": "音色与反馈",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "Sheets.swift:81"
+    ],
+    "note": ""
+  },
+  {
+    "key": "麦克风收到声音会晚一点。倒数之后，跟着屏幕上的节拍（戴耳机时听节拍声）每一拍扫一下或拍一下琴身，一共 8 拍。",
+    "modules": [
+      "Wenpai"
+    ],
+    "where": [
+      "StrumScreen.swift:537"
+    ],
+    "note": ""
+  },
+  {
+    "key": "三角铁",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:190"
+    ],
+    "note": ""
+  },
+  {
+    "key": "三连音",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:117"
+    ],
+    "note": "Subdivision: triplets"
+  },
+  {
+    "key": "中板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:27",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Moderato"
+  },
+  {
+    "key": "人声",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:219"
+    ],
+    "note": ""
+  },
+  {
+    "key": "人声报数",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:192"
+    ],
+    "note": ""
+  },
+  {
+    "key": "全部均等",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:246"
+    ],
+    "note": "Accent preset: all beats equal"
+  },
+  {
+    "key": "八分",
+    "modules": [
+      "MetronomeCore",
+      "ChordKit"
+    ],
+    "where": [
+      "Model.swift:116",
+      "ChordStrings.swift:124"
+    ],
+    "note": "Subdivision: eighth notes"
+  },
+  {
+    "key": "切分音",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:122"
+    ],
+    "note": "Subdivision: syncopation (sixteenth-eighth-sixteenth)"
+  },
+  {
+    "key": "前八后十六",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:120"
+    ],
+    "note": "Subdivision: eighth + two sixteenths"
+  },
+  {
+    "key": "前十六后八",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:121"
+    ],
+    "note": "Subdivision: two sixteenths + eighth"
+  },
+  {
+    "key": "十六分",
+    "modules": [
+      "MetronomeCore",
+      "ChordKit"
+    ],
+    "where": [
+      "Model.swift:118",
+      "ChordStrings.swift:124"
+    ],
+    "note": "Subdivision: sixteenth notes"
+  },
+  {
+    "key": "咔嗒",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:182"
+    ],
+    "note": ""
+  },
+  {
+    "key": "响棒",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:181"
+    ],
+    "note": ""
+  },
+  {
+    "key": "哔声",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:177"
+    ],
+    "note": ""
+  },
+  {
+    "key": "四分",
+    "modules": [
+      "MetronomeCore",
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "Model.swift:115",
+      "GeneratedStringSymbols_Localizable.swift:108",
+      "runtime lookup"
+    ],
+    "note": "Subdivision: quarter notes (one click per beat)"
+  },
+  {
+    "key": "小广板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:36",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Larghetto"
+  },
+  {
+    "key": "广板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:45",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Largo"
+  },
+  {
+    "key": "庄板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:54",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Grave"
+  },
+  {
+    "key": "底鼓军鼓",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:187"
+    ],
+    "note": ""
+  },
+  {
+    "key": "弱",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:34"
+    ],
+    "note": "Accent level: weak"
+  },
+  {
+    "key": "强",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:32"
+    ],
+    "note": "Accent level: strong"
+  },
+  {
+    "key": "快板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:63",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Allegro"
+  },
+  {
+    "key": "急板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:72",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Presto"
+  },
+  {
+    "key": "按拍号分组",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:247"
+    ],
+    "note": "Accent preset: grouped by time signature"
+  },
+  {
+    "key": "数码",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:183"
+    ],
+    "note": ""
+  },
+  {
+    "key": "旋律",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:218"
+    ],
+    "note": ""
+  },
+  {
+    "key": "最急板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:81",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Prestissimo"
+  },
+  {
+    "key": "木块",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:180"
+    ],
+    "note": ""
+  },
+  {
+    "key": "木鱼",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:176"
+    ],
+    "note": "Click sound: woodblock"
+  },
+  {
+    "key": "机械摆锤",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:179"
+    ],
+    "note": ""
+  },
+  {
+    "key": "柔和",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:184"
+    ],
+    "note": ""
+  },
+  {
+    "key": "柔板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:90",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Adagio"
+  },
+  {
+    "key": "次强",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:33"
+    ],
+    "note": "Accent level: medium"
+  },
+  {
+    "key": "沙锤",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:188"
+    ],
+    "note": ""
+  },
+  {
+    "key": "活板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:99",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Vivace"
+  },
+  {
+    "key": "牛铃",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:178"
+    ],
+    "note": "Click sound: cowbell"
+  },
+  {
+    "key": "电子",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:216"
+    ],
+    "note": "Click sound: electronic beep"
+  },
+  {
+    "key": "经典",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:215"
+    ],
+    "note": ""
+  },
+  {
+    "key": "行板",
+    "modules": [
+      "MetronomeCore",
+      "MetronomeCore"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:108",
+      "runtime lookup"
+    ],
+    "note": "TEMPO-LOCAL Andante"
+  },
+  {
+    "key": "踩镲",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:186"
+    ],
+    "note": ""
+  },
+  {
+    "key": "铃",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:191"
+    ],
+    "note": ""
+  },
+  {
+    "key": "附点",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:119"
+    ],
+    "note": "Subdivision: dotted eighth + sixteenth"
+  },
+  {
+    "key": "首拍强",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:245"
+    ],
+    "note": "Accent preset: first beat strong"
+  },
+  {
+    "key": "马林巴",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:189"
+    ],
+    "note": ""
+  },
+  {
+    "key": "鼓组",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:217"
+    ],
+    "note": ""
+  },
+  {
+    "key": "鼓边",
+    "modules": [
+      "MetronomeCore"
+    ],
+    "where": [
+      "Model.swift:185"
+    ],
+    "note": ""
+  },
+  {
+    "key": "%lld 弦 %@",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:53"
+    ],
+    "note": "VoiceOver: 'String %lld, %@' (string number, note name)"
+  },
+  {
+    "key": "4 弦 EADG",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:27",
+      "runtime lookup"
+    ],
+    "note": "Bass tuning: 4-string EADG"
+  },
+  {
+    "key": "5 弦 BEADG",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:36",
+      "runtime lookup"
+    ],
+    "note": "Bass tuning: 5-string BEADG"
+  },
+  {
+    "key": "中提琴",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:63",
+      "runtime lookup"
+    ],
+    "note": "Instrument: viola"
+  },
+  {
+    "key": "低音 G 版",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:72",
+      "runtime lookup"
+    ],
+    "note": "Ukulele tuning: low G"
+  },
+  {
+    "key": "偏低",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:45"
+    ],
+    "note": "Tuner status: flat"
+  },
+  {
+    "key": "偏高",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:45"
+    ],
+    "note": "Tuner status: sharp"
+  },
+  {
+    "key": "八度",
+    "modules": [
+      "TunerKit",
+      "ChordKit"
+    ],
+    "where": [
+      "TunerStrings.swift:48",
+      "ChordStrings.swift:126"
+    ],
+    "note": "Octave (tuner reference octave label; bass legend: octave)"
+  },
+  {
+    "key": "半音阶",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:81",
+      "runtime lookup"
+    ],
+    "note": "Tuning name: chromatic"
+  },
+  {
+    "key": "参考音 %@",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:54"
+    ],
+    "note": "VoiceOver: 'Reference tone %@'"
+  },
+  {
+    "key": "参考音（点按发声）",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:48"
+    ],
+    "note": ""
+  },
+  {
+    "key": "吉他",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:90",
+      "runtime lookup"
+    ],
+    "note": "Instrument: guitar"
+  },
+  {
+    "key": "大提琴",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:99",
+      "runtime lookup"
+    ],
+    "note": "Instrument: cello"
+  },
+  {
+    "key": "定弦",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:50"
+    ],
+    "note": ""
+  },
+  {
+    "key": "小提琴",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:108",
+      "runtime lookup"
+    ],
+    "note": "Instrument: violin"
+  },
+  {
+    "key": "尤克里里",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:117",
+      "runtime lookup"
+    ],
+    "note": "Instrument: ukulele"
+  },
+  {
+    "key": "已准",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:44"
+    ],
+    "note": "Tuner status: in tune"
+  },
+  {
+    "key": "已锁定",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:50"
+    ],
+    "note": ""
+  },
+  {
+    "key": "弦（点按锁定，再点解锁）",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:49"
+    ],
+    "note": ""
+  },
+  {
+    "key": "打开设置",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:47"
+    ],
+    "note": ""
+  },
+  {
+    "key": "无信号",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:51"
+    ],
+    "note": ""
+  },
+  {
+    "key": "标准",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:126",
+      "runtime lookup"
+    ],
+    "note": "Tuning name: standard"
+  },
+  {
+    "key": "标准 CGDA",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:135",
+      "runtime lookup"
+    ],
+    "note": "Viola/cello tuning: standard CGDA"
+  },
+  {
+    "key": "标准 GCEA",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:144",
+      "runtime lookup"
+    ],
+    "note": "Ukulele tuning: standard GCEA"
+  },
+  {
+    "key": "标准 GDAE",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:153",
+      "runtime lookup"
+    ],
+    "note": "Violin tuning: standard GDAE"
+  },
+  {
+    "key": "正在启动麦克风…",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:46"
+    ],
+    "note": ""
+  },
+  {
+    "key": "自动",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:162",
+      "TunerStrings.swift:49",
+      "runtime lookup"
+    ],
+    "note": "Instrument picker option: automatic/chromatic detection"
+  },
+  {
+    "key": "设置",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:51"
+    ],
+    "note": "Settings"
+  },
+  {
+    "key": "请弹奏一根弦",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:45"
+    ],
+    "note": ""
+  },
+  {
+    "key": "调准一根弦时播放“叮咚”提示音",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:52"
+    ],
+    "note": ""
+  },
+  {
+    "key": "调准提示音",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:52"
+    ],
+    "note": ""
+  },
+  {
+    "key": "贝斯",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:171",
+      "runtime lookup"
+    ],
+    "note": "Instrument: bass guitar"
+  },
+  {
+    "key": "降半音 E♭",
+    "modules": [
+      "TunerKit",
+      "TunerKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:180",
+      "runtime lookup"
+    ],
+    "note": "Tuning name: half step down (E♭ tuning)"
+  },
+  {
+    "key": "需要麦克风权限才能调音",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:46"
+    ],
+    "note": ""
+  },
+  {
+    "key": "音分",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:44"
+    ],
+    "note": "cents (unit of pitch deviation)"
+  },
+  {
+    "key": "音分表盘",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "TunerStrings.swift:51"
+    ],
+    "note": ""
+  },
+  {
+    "key": "%@ 指法",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:129"
+    ],
+    "note": "VoiceOver: '%@ fingering' (%@ = chord name)"
+  },
+  {
+    "key": "%@ 贝斯和弦音位置",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:130"
+    ],
+    "note": "VoiceOver: 'Chord tones of %@ on bass'"
+  },
+  {
+    "key": "%lld 品把位",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:128"
+    ],
+    "note": "Chord position label: 'Fret %lld' (position starting at fret N)"
+  },
+  {
+    "key": "%lld 弦 %lld 品",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:133"
+    ],
+    "note": "VoiceOver: 'String %lld, fret %lld'"
+  },
+  {
+    "key": "%lld 弦不弹",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:131"
+    ],
+    "note": "VoiceOver: 'String %lld not played'"
+  },
+  {
+    "key": "%lld 弦空弦",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:132"
+    ],
+    "note": "VoiceOver: 'String %lld open'"
+  },
+  {
+    "key": "一个把位里的和弦音",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:101"
+    ],
+    "note": ""
+  },
+  {
+    "key": "三度",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:126"
+    ],
+    "note": "Bass legend: third (interval)"
+  },
+  {
+    "key": "三拍子分解",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:27",
+      "runtime lookup"
+    ],
+    "note": "Arpeggio pattern description for 5-3-2-3-1-3: waltz / 3-4 time picking. Short"
+  },
+  {
+    "key": "上一个把位",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:97"
+    ],
+    "note": ""
+  },
+  {
+    "key": "上行下行琶音",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:36",
+      "runtime lookup"
+    ],
+    "note": "Arpeggio pattern description: sweep from the root string up to string 1 and back down. Short"
+  },
+  {
+    "key": "下一个把位",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:97"
+    ],
+    "note": ""
+  },
+  {
+    "key": "下一个：%@",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:104"
+    ],
+    "note": ""
+  },
+  {
+    "key": "五度",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:126"
+    ],
+    "note": "Bass legend: fifth"
+  },
+  {
+    "key": "交替八分",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:45",
+      "runtime lookup"
+    ],
+    "note": "Arpeggio pattern description for 5-2-3-1-3-2: alternating eighth-note picking. Short"
+  },
+  {
+    "key": "八分全扫",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:54",
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name: all eighth notes"
+  },
+  {
+    "key": "八分音符分解",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:63",
+      "runtime lookup"
+    ],
+    "note": "Arpeggio pattern description for 5-3-2-3-1-3-2-3: classic eighth-note picking. Short"
+  },
+  {
+    "key": "减三和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:72",
+      "runtime lookup"
+    ],
+    "note": "diminished triad"
+  },
+  {
+    "key": "分解",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:102"
+    ],
+    "note": ""
+  },
+  {
+    "key": "分解指法",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:103"
+    ],
+    "note": ""
+  },
+  {
+    "key": "切音节奏",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:81",
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name: chuck / chop"
+  },
+  {
+    "key": "加九和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:90",
+      "runtime lookup"
+    ],
+    "note": "add 9 chord"
+  },
+  {
+    "key": "十六分 Funk",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:99",
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name: sixteenth-note funk"
+  },
+  {
+    "key": "双击发声",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:107"
+    ],
+    "note": ""
+  },
+  {
+    "key": "名称",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:116"
+    ],
+    "note": ""
+  },
+  {
+    "key": "四弦上行",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:117",
+      "runtime lookup"
+    ],
+    "note": "Ukulele arpeggio pattern description for 4-3-2-1: all four strings rising. Short"
+  },
+  {
+    "key": "四拍上行",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:126",
+      "runtime lookup"
+    ],
+    "note": "Arpeggio pattern description for 5-3-2-1 (guitar): four notes rising, one per beat. Short"
+  },
+  {
+    "key": "基础扫弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:135",
+      "runtime lookup"
+    ],
+    "note": "Ukulele strum pattern name: basic strum"
+  },
+  {
+    "key": "增三和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:144",
+      "runtime lookup"
+    ],
+    "note": "augmented triad"
+  },
+  {
+    "key": "大七和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:153",
+      "runtime lookup"
+    ],
+    "note": "major 7th chord"
+  },
+  {
+    "key": "大三",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:162",
+      "runtime lookup"
+    ],
+    "note": "Chord type button: major (very short)"
+  },
+  {
+    "key": "大三和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:171",
+      "runtime lookup"
+    ],
+    "note": "Chord type full name: major triad"
+  },
+  {
+    "key": "小七和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:180",
+      "runtime lookup"
+    ],
+    "note": "minor 7th chord"
+  },
+  {
+    "key": "小三",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:189",
+      "runtime lookup"
+    ],
+    "note": "Chord type button: minor (very short)"
+  },
+  {
+    "key": "小三和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:198",
+      "runtime lookup"
+    ],
+    "note": "minor triad"
+  },
+  {
+    "key": "属七和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:207",
+      "runtime lookup"
+    ],
+    "note": "dominant 7th chord"
+  },
+  {
+    "key": "岛屿扫弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:216",
+      "runtime lookup"
+    ],
+    "note": "Ukulele strum pattern name: island strum"
+  },
+  {
+    "key": "已收藏",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:99"
+    ],
+    "note": ""
+  },
+  {
+    "key": "常见指弹",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:225",
+      "runtime lookup"
+    ],
+    "note": "Ukulele arpeggio pattern description for 3-2-1-2: classic fingerpicking. Short"
+  },
+  {
+    "key": "开放把位",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:100"
+    ],
+    "note": "Chord position: open position"
+  },
+  {
+    "key": "弹奏方式",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:103"
+    ],
+    "note": ""
+  },
+  {
+    "key": "慢摇 / 华尔兹 3/4",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:234",
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name: slow / waltz in 3/4"
+  },
+  {
+    "key": "扫弦",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:102"
+    ],
+    "note": ""
+  },
+  {
+    "key": "挂二和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:243",
+      "runtime lookup"
+    ],
+    "note": "suspended 2nd chord"
+  },
+  {
+    "key": "挂四和弦",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:252",
+      "runtime lookup"
+    ],
+    "note": "suspended 4th chord"
+  },
+  {
+    "key": "收藏当前按法",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:98"
+    ],
+    "note": ""
+  },
+  {
+    "key": "数字是弦号，5 代表根音弦（当前和弦是 %lld 弦）",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:125"
+    ],
+    "note": ""
+  },
+  {
+    "key": "最多 %lld 个音",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:119"
+    ],
+    "note": ""
+  },
+  {
+    "key": "最多 %lld 拍",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:120"
+    ],
+    "note": ""
+  },
+  {
+    "key": "来回分解",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:261",
+      "runtime lookup"
+    ],
+    "note": "Ukulele arpeggio pattern description for 4-3-2-1-2-3: up and back. Short"
+  },
+  {
+    "key": "根音 · 五度 · 八度 · 五度",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:270",
+      "runtime lookup"
+    ],
+    "note": "Bass arpeggio pattern description: root, fifth, octave, fifth. Keep the ' · ' separators"
+  },
+  {
+    "key": "格子单位",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:124"
+    ],
+    "note": ""
+  },
+  {
+    "key": "格数要是 %lld 的整数倍",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:121"
+    ],
+    "note": ""
+  },
+  {
+    "key": "横按 · %lld 品",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:127"
+    ],
+    "note": "Chord position label: 'Barre · fret %lld'"
+  },
+  {
+    "key": "每种乐器最多保存 %lld 个",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:122"
+    ],
+    "note": ""
+  },
+  {
+    "key": "民谣 1",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:279",
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name"
+  },
+  {
+    "key": "民谣 2",
+    "modules": [
+      "ChordKit",
+      "ChordKit"
+    ],
+    "where": [
+      "GeneratedStringSymbols_Localizable.swift:288",
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name"
+  },
+  {
+    "key": "用节拍器的速度（%lld BPM）",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:109"
+    ],
+    "note": ""
+  },
+  {
+    "key": "第 %lld 个把位，共 %lld 个",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:134"
+    ],
+    "note": ""
+  },
+  {
+    "key": "第 %lld 弦，%@",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:106"
+    ],
+    "note": ""
+  },
+  {
+    "key": "组成音",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:96"
+    ],
+    "note": ""
+  },
+  {
+    "key": "编辑",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:123"
+    ],
+    "note": ""
+  },
+  {
+    "key": "自定义指法",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:112"
+    ],
+    "note": ""
+  },
+  {
+    "key": "自定义节奏型",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:113"
+    ],
+    "note": ""
+  },
+  {
+    "key": "还没有收藏",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:99"
+    ],
+    "note": ""
+  },
+  {
+    "key": "速度 %lld BPM",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift:111"
+    ],
+    "note": ""
+  },
+  {
+    "key": "Drop D",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "runtime lookup"
+    ],
+    "note": "Tuning name, keep as is in most languages"
+  },
+  {
+    "key": "DADGAD",
+    "modules": [
+      "TunerKit"
+    ],
+    "where": [
+      "runtime lookup"
+    ],
+    "note": "Tuning name, keep"
+  },
+  {
+    "key": "，",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "runtime lookup"
+    ],
+    "note": "List separator used between items in VoiceOver text (Chinese full-width comma). Use the language's normal separator, e.g. ', '"
+  },
+  {
+    "key": "输入弦号，1 弦最细（最多 %lld 弦）。- 或 0 是空拍（不弹，占一个音的时值）；可以用空格或逗号分隔，也可以连着写；R 代表当前和弦的根音弦。",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Help text under the custom arpeggio input. 1 = thinnest string; %lld = number of strings; '-' or '0' = a rest (silent, takes one note's time); R = the chord's root string. Keep the symbols - 0 R unchanged"
+  },
+  {
+    "key": "只能输入 1–%lld 的弦号、0 或 -（空拍）和字母 R",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Error: only string numbers 1 to %lld, 0 or - (rest) and the letter R are allowed (keep '0', '-' and 'R')"
+  },
+  {
+    "key": "空拍",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Quick key and VoiceOver label of the button that types a rest (an empty beat) in the custom pattern / rhythm editors. Short"
+  },
+  {
+    "key": "退格",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "VoiceOver label of the backspace key (deletes the last typed character) in the custom pattern / rhythm editors. Short"
+  },
+  {
+    "key": "全扫",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Quick key caption (very short): D = full downstroke from the root string to string 1"
+  },
+  {
+    "key": "半扫",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Quick key caption (very short): d = half downstroke on the 3–4 treble strings only"
+  },
+  {
+    "key": "上扫",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Quick key caption (very short): U = upstroke on the 3–4 treble strings"
+  },
+  {
+    "key": "闷音",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Quick key caption (very short): X = muted strum (percussive chop)"
+  },
+  {
+    "key": "每个字符一格：B 根音、D 全扫、d 半扫、U 上扫、X 闷音、- 或 . 空拍（D 和 d 分大小写）。空格只用来分组。",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Help under the custom strum-rhythm input. Keep the letters B D d U X and the symbols - and . unchanged; D and d are different symbols"
+  },
+  {
+    "key": "只能输入 B、D、d、U、X、- 和 .",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "Error: only the characters B D d U X - . are allowed in a strum rhythm (keep these characters)"
+  },
+  {
+    "key": "B 只拨根音弦；D 从根音弦扫到 1 弦；d 和 U 只扫高音的 3–4 根弦。",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "ChordStrings.swift"
+    ],
+    "note": "One-line legend shown the first time the custom strum-rhythm editor opens. B = only the chord's root string; D = strum from the root string up to string 1; d and U = only the 3–4 treble strings. Keep the letters"
+  },
+  {
+    "key": "根音扫弦",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name: strum with root-note bass notes (root, full strum, root, full strum)"
+  },
+  {
+    "key": "乡村",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name: country (bass note then half strums)"
+  },
+  {
+    "key": "华尔兹根音",
+    "modules": [
+      "ChordKit"
+    ],
+    "where": [
+      "runtime lookup"
+    ],
+    "note": "Strum pattern name: waltz in 3/4 with a root bass note then two half strums"
+  }
+]

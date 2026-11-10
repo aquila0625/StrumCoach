@@ -1,0 +1,89 @@
+name: Wenpai
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  developmentLanguage: zh-Hans
+packages:
+  MetronomeCore:
+    path: MetronomeCore
+  # 三个功能模块以本地路径依赖接入（../Packages/…）
+  PracticeKit:
+    path: ../Packages/PracticeKit
+  TunerKit:
+    path: ../Packages/TunerKit
+  ChordKit:
+    path: ../Packages/ChordKit
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    # 版本号和构建号
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "2"
+targets:
+  Wenpai:
+    type: application
+    platform: iOS
+    sources:
+      - path: Wenpai
+    dependencies:
+      - package: MetronomeCore
+      - package: PracticeKit
+        product: PracticeKit
+      - package: TunerKit
+      - package: ChordKit
+    info:
+      path: Wenpai/Info.plist
+      properties:
+        CFBundleDisplayName: 扫弦教练
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        # 12 种界面语言。开发语言（String Catalog 的源语言）是简体中文；
+        # 用户的语言都不在列表里时回退英文，所以运行时的开发区域设为 en。
+        CFBundleLocalizations: [zh-Hans, zh-Hant, en, ja, ko, es, fr, de, pt-BR, it, ru, tr]
+        CFBundleDevelopmentRegion: en
+        # audio：锁屏继续打拍子
+        UIBackgroundModes: [audio]
+        NSMicrophoneUsageDescription: 调音器、扫弦练习评分和录制自己的节拍音色需要使用麦克风，声音只在手机上实时分析。
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+        UIRequiresFullScreen: true
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.strumcoach
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_PREVIEWS: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+  WenpaiTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: WenpaiTests
+    dependencies:
+      - target: Wenpai
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Wenpai:
+    build:
+      targets:
+        Wenpai: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - WenpaiTests
+        - package: MetronomeCore/MetronomeCoreTests
+        - package: PracticeKit/RhythmKitTests
+        - package: PracticeKit/PracticeKitTests
+        - package: TunerKit/TunerKitTests
+        - package: ChordKit/ChordKitTests

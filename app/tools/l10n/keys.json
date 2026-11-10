@@ -1,0 +1,1598 @@
+{
+ "Wenpai": {
+  "%@切分": [
+   "MetronomeScreen.swift:63"
+  ],
+  "%@后到达目标 · %@": [
+   "TrainingScreen.swift:83"
+  ],
+  "%@，%lld 小节": [
+   "StrumProgressionViews.swift:146"
+  ],
+  "%@，需要 Pro": [
+   "Sheets.swift:259"
+  ],
+  "%lld BPM，点按输入速度": [
+   "TempoDial.swift:62"
+  ],
+  "%lld → %lld BPM · 每 %@ %@%lld": [
+   "TrainingOptions.swift:23"
+  ],
+  "%lld 分": [
+   "StrumHeroCard.swift:254"
+  ],
+  "%lld 小节": [
+   "StrumProgressionViews.swift:135",
+   "StrumProgressionViews.swift:214",
+   "StrumProgressionViews.swift:23",
+   "TrainingScreen.swift:319"
+  ],
+  "%lld 条未读": [
+   "ProfileScreen.swift:274"
+  ],
+  "12 小节布鲁斯（A）": [
+   "StrumProgression.swift:86"
+  ],
+  "Apple 用户": [
+   "ProfileScreen.swift:107"
+  ],
+  "Apple 账号": [
+   "ProfileScreen.swift:395"
+  ],
+  "BPM 当前速度": [
+   "TrainingScreen.swift:62"
+  ],
+  "Pro 解锁全部 12 种": [
+   "Sheets.swift:205"
+  ],
+  "TAP 测速": [
+   "MetronomeScreen.swift:75"
+  ],
+  "±%lld 毫秒": [
+   "StrumScreen.swift:477"
+  ],
+  "±60 毫秒内算准，±120 毫秒内算偏，再远算漏；多出来的一下扣半格。": [
+   "StrumScreen.swift:485"
+  ],
+  "“%@”最近 3 次都在 90 分以上。": [
+   "StrumScreen.swift:100"
+  ],
+  "• 调音器新增乐器图标和真实音色\n• 和弦库支持尤克里里试听\n• 修复了一些问题": [
+   "UpdateChecker.swift:110"
+  ],
+  "一次购买，永久使用": [
+   "ProScreen.swift:160"
+  ],
+  "三连音、附点、切分音等 12 种": [
+   "ProScreen.swift:43"
+  ],
+  "上次": [
+   "StrumHeroCard.swift:246"
+  ],
+  "下一个": [
+   "StrumProgressionViews.swift:318"
+  ],
+  "不录就和强拍用同一个声音": [
+   "Sheets.swift:448"
+  ],
+  "不错，继续保持手腕匀速摆动，空拍也别停。": [
+   "StrumScoring.swift:123"
+  ],
+  "乐器": [
+   "StrumProgressionViews.swift:25"
+  ],
+  "买断": [
+   "ProScreen.swift:160"
+  ],
+  "买断 %@": [
+   "ProScreen.swift:216"
+  ],
+  "了解更多": [
+   "AnnouncementsScreen.swift:69"
+  ],
+  "今天": [
+   "ProfileScreen.swift:533"
+  ],
+  "今天已练 %@": [
+   "TrainingScreen.swift:173"
+  ],
+  "今天已练够 %@": [
+   "MetronomeController.swift:434"
+  ],
+  "今天已练够 %@，已自动停止": [
+   "MetronomeController.swift:433"
+  ],
+  "今天的目标": [
+   "TrainingScreen.swift:450"
+  ],
+  "从头循环": [
+   "TrainingOptions.swift:48"
+  ],
+  "从慢到快，自动加速": [
+   "ProScreen.swift:44"
+  ],
+  "使用条款": [
+   "ProScreen.swift:273"
+  ],
+  "保存": [
+   "StrumProgressionViews.swift:105",
+   "StrumProgressionViews.swift:79"
+  ],
+  "保存和弦进行": [
+   "StrumProgressionViews.swift:103"
+  ],
+  "保持目标速度": [
+   "TrainingOptions.swift:47"
+  ],
+  "修改": [
+   "StrumProgressionViews.swift:45"
+  ],
+  "修改参数": [
+   "TrainingScreen.swift:272"
+  ],
+  "倒数 %lld": [
+   "StrumScreen.swift:267"
+  ],
+  "偏": [
+   "StrumScreen.swift:459"
+  ],
+  "偏好设置": [
+   "ProfileScreen.swift:54"
+  ],
+  "偏快 %lld 毫秒": [
+   "StrumScreen.swift:499"
+  ],
+  "偏慢 %lld 毫秒": [
+   "StrumScreen.swift:499"
+  ],
+  "停止": [
+   "StrumHeroCard.swift:275",
+   "StrumScreen.swift:343",
+   "StrumScreen.swift:564"
+  ],
+  "停止训练": [
+   "TrainingScreen.swift:196"
+  ],
+  "先听示范，再跟着练；戴耳机可以听着节拍练。": [
+   "StrumScreen.swift:328"
+  ],
+  "兑换码": [
+   "ProScreen.swift:259"
+  ],
+  "全部": [
+   "StrumPractice.swift:76"
+  ],
+  "全部切分节拍": [
+   "ProScreen.swift:43"
+  ],
+  "全部和弦与把位": [
+   "ProScreen.swift:46"
+  ],
+  "公告": [
+   "AnnouncementsScreen.swift:14",
+   "ProfileScreen.swift:268"
+  ],
+  "共 %lld 遍": [
+   "StrumScreen.swift:600"
+  ],
+  "关闭": [
+   "ProScreen.swift:64",
+   "StrumScreen.swift:140"
+  ],
+  "关闭面板": [
+   "Sheets.swift:18"
+  ],
+  "准": [
+   "StrumScreen.swift:458"
+  ],
+  "准备，跟着倒数和高亮（外放时不放节拍声）": [
+   "StrumScreen.swift:317"
+  ],
+  "准备，跟着耳机里的节拍": [
+   "StrumScreen.swift:317"
+  ],
+  "减慢": [
+   "TempoDial.swift:67"
+  ],
+  "出错了": [
+   "MetronomeScreen.swift:25"
+  ],
+  "分": [
+   "StrumScreen.swift:452"
+  ],
+  "切分": [
+   "Sheets.swift:205"
+  ],
+  "切分音量": [
+   "Sheets.swift:343",
+   "Sheets.swift:352"
+  ],
+  "刚好": [
+   "StrumScreen.swift:498"
+  ],
+  "删除": [
+   "Sheets.swift:477",
+   "Sheets.swift:547",
+   "StrumProgressionViews.swift:225",
+   "StrumProgressionViews.swift:277",
+   "StrumProgressionViews.swift:48",
+   "StrumScreen.swift:216"
+  ],
+  "删除账号": [
+   "ProfileScreen.swift:421",
+   "ProfileScreen.swift:432"
+  ],
+  "删除账号？": [
+   "ProfileScreen.swift:431"
+  ],
+  "到时": [
+   "TrainingScreen.swift:454"
+  ],
+  "到点时先提醒，再停止节拍器": [
+   "TrainingScreen.swift:458"
+  ],
+  "到目标后停止": [
+   "TrainingOptions.swift:46"
+  ],
+  "到达目标后": [
+   "TrainingScreen.swift:377"
+  ],
+  "加快": [
+   "StrumScreen.swift:300",
+   "TempoDial.swift:69"
+  ],
+  "包年": [
+   "ProScreen.swift:158"
+  ],
+  "包年有效期至 %@": [
+   "ProScreen.swift:117"
+  ],
+  "包年订阅到期前 24 小时内会自动续订，可随时在 App Store 账户设置里取消。": [
+   "ProScreen.swift:270"
+  ],
+  "升级": [
+   "ProfileScreen.swift:283"
+  ],
+  "去更新": [
+   "UpdatePromptView.swift:53"
+  ],
+  "发现新版本 %@": [
+   "UpdatePromptView.swift:31"
+  ],
+  "取消": [
+   "StrumProgressionViews.swift:106",
+   "StrumProgressionViews.swift:191"
+  ],
+  "取消已掌握": [
+   "StrumScreen.swift:647",
+   "StrumScreen.swift:668"
+  ],
+  "取消收藏": [
+   "StrumScreen.swift:641",
+   "StrumScreen.swift:665"
+  ],
+  "可随时取消 · 无广告 · 支持家人共享": [
+   "ProScreen.swift:223"
+  ],
+  "吉他、贝斯、尤克里里，可收藏和试听": [
+   "ProScreen.swift:46"
+  ],
+  "同一组随机结果可以重复练": [
+   "TrainingScreen.swift:418"
+  ],
+  "同名的会被覆盖。": [
+   "StrumProgressionViews.swift:108"
+  ],
+  "名字": [
+   "StrumProgressionViews.swift:104"
+  ],
+  "听一听": [
+   "StrumHeroCard.swift:275"
+  ],
+  "听示范": [
+   "StrumScreen.swift:352"
+  ],
+  "和弦库": [
+   "AppTab.swift:14"
+  ],
+  "和弦库新增尤克里里试听": [
+   "AnnouncementCenter.swift:182"
+  ],
+  "和弦进行": [
+   "StrumHeroCard.swift:207",
+   "StrumHeroCard.swift:232",
+   "StrumProgressionViews.swift:22"
+  ],
+  "唱名 %@": [
+   "SettingsScreen.swift:44"
+  ],
+  "复制": [
+   "StrumProgressionViews.swift:220",
+   "StrumProgressionViews.swift:46"
+  ],
+  "外观": [
+   "ProfileScreen.swift:216"
+  ],
+  "多扫": [
+   "StrumScreen.swift:461"
+  ],
+  "多扫了 %lld 下，注意空拍时手要继续摆动但不碰弦。": [
+   "StrumScoring.swift:115"
+  ],
+  "好": [
+   "MetronomeScreen.swift:26",
+   "ProScreen.swift:108"
+  ],
+  "姓名": [
+   "ProfileScreen.swift:401"
+  ],
+  "字母 %@": [
+   "SettingsScreen.swift:44"
+  ],
+  "完成": [
+   "AnnouncementsScreen.swift:16",
+   "ProfileScreen.swift:397",
+   "ProfileScreen.swift:554",
+   "SettingsScreen.swift:18",
+   "SettingsScreen.swift:62",
+   "Sheets.swift:29",
+   "StrumProgressionViews.swift:195",
+   "StrumProgressionViews.swift:285",
+   "StrumProgressionViews.swift:401",
+   "StrumScreen.swift:535"
+  ],
+  "完整练习统计": [
+   "ProScreen.swift:48"
+  ],
+  "对着麦克风发出一下短促的声音，比如拍手、说“嗒”、敲桌子。每段最长 2 秒，开头的静音会自动去掉，音量自动调匀。": [
+   "Sheets.swift:443"
+  ],
+  "将清除本机保存的姓名、邮箱等账号信息。练习记录和设置不受影响。": [
+   "ProfileScreen.swift:437"
+  ],
+  "左手模式": [
+   "ProfileScreen.swift:258"
+  ],
+  "已暂停节拍器，避免麦克风收进节拍声": [
+   "RootView.swift:142"
+  ],
+  "已校准：以后跟练会扣掉 %lld 毫秒的延迟。": [
+   "StrumTrainer.swift:663"
+  ],
+  "已永久解锁，感谢支持": [
+   "ProScreen.swift:115"
+  ],
+  "已解锁": [
+   "ProScreen.swift:214",
+   "ProfileScreen.swift:283"
+  ],
+  "已解锁全部切分": [
+   "Sheets.swift:205"
+  ],
+  "已解锁，感谢支持": [
+   "ProScreen.swift:119"
+  ],
+  "已通过 Apple 登录 · %@": [
+   "ProfileScreen.swift:114"
+  ],
+  "已通过 Apple 登录 · 隐藏邮箱": [
+   "ProfileScreen.swift:113"
+  ],
+  "常用进行": [
+   "StrumProgressionViews.swift:72"
+  ],
+  "平均": [
+   "StrumScreen.swift:450",
+   "StrumScreen.swift:476"
+  ],
+  "延迟校准": [
+   "StrumScreen.swift:146",
+   "StrumScreen.swift:533"
+  ],
+  "开始校准": [
+   "StrumScreen.swift:564"
+  ],
+  "开始练习": [
+   "StrumHeroCard.swift:291"
+  ],
+  "开始训练": [
+   "TrainingScreen.swift:196"
+  ],
+  "弱拍（可选）": [
+   "Sheets.swift:448"
+  ],
+  "强拍": [
+   "Sheets.swift:447"
+  ],
+  "强拍重、弱拍轻，和声音同步": [
+   "Sheets.swift:358"
+  ],
+  "当前方案": [
+   "ProScreen.swift:159"
+  ],
+  "当前补偿：%lld 毫秒": [
+   "StrumScreen.swift:553"
+  ],
+  "录制我的声音": [
+   "Sheets.swift:407"
+  ],
+  "录音": [
+   "Sheets.swift:491"
+  ],
+  "很多下没有收到声音：把手机放近一点，扫得干脆一些，或者先在安静的地方练。": [
+   "StrumScoring.swift:100"
+  ],
+  "很稳！可以把速度加 5 BPM 再试试。": [
+   "StrumScoring.swift:121"
+  ],
+  "循环": [
+   "TrainingScreen.swift:410"
+  ],
+  "快慢不太稳（偏差约 ±%lld 毫秒），先把速度调慢 10 BPM 练熟。": [
+   "StrumScoring.swift:118"
+  ],
+  "恢复购买": [
+   "ProScreen.swift:250",
+   "ProScreen.swift:254"
+  ],
+  "恢复默认": [
+   "StrumScreen.swift:557"
+  ],
+  "我的": [
+   "AppTab.swift:15",
+   "ProfileScreen.swift:40"
+  ],
+  "我的声音": [
+   "Sheets.swift:82"
+  ],
+  "我的进行": [
+   "StrumProgressionViews.swift:283",
+   "StrumProgressionViews.swift:74"
+  ],
+  "戴耳机、嘈杂环境也能跟拍": [
+   "ProScreen.swift:47"
+  ],
+  "扫弦节奏型": [
+   "StrumHeroCard.swift:71",
+   "StrumScreen.swift:141",
+   "TrainingOptions.swift:60"
+  ],
+  "拍号": [
+   "MetronomeScreen.swift:59",
+   "Sheets.swift:170"
+  ],
+  "拍号 %lld %lld": [
+   "Sheets.swift:199"
+  ],
+  "持续": [
+   "StrumProgressionViews.swift:212",
+   "StrumProgressionViews.swift:213"
+  ],
+  "按和弦": [
+   "StrumProgressionViews.swift:346"
+  ],
+  "按小节": [
+   "TrainingScreen.swift:402"
+  ],
+  "按当天累计的练习时间算": [
+   "TrainingScreen.swift:450"
+  ],
+  "按节奏连续点按来设定速度": [
+   "MetronomeScreen.swift:76"
+  ],
+  "换到 %@ 时普遍晚了 %lld 毫秒，可以提前准备按法。": [
+   "StrumScoring.swift:192"
+  ],
+  "换和弦后的第一下常常没扫到，换把时右手别停，先扫空弦也可以。": [
+   "StrumScoring.swift:197"
+  ],
+  "换和弦后的第一下平均比其他时候晚 %lld 毫秒，在上一小节最后一拍就开始换把。": [
+   "StrumScoring.swift:200"
+  ],
+  "换和弦后第一下：刚好": [
+   "StrumProgressionViews.swift:362"
+  ],
+  "换和弦后第一下：平均偏快 %lld 毫秒": [
+   "StrumProgressionViews.swift:362"
+  ],
+  "换和弦后第一下：平均偏慢 %lld 毫秒": [
+   "StrumProgressionViews.swift:362"
+  ],
+  "推荐": [
+   "ProScreen.swift:160"
+  ],
+  "提速 + 静音": [
+   "MetronomeScreen.swift:89",
+   "TrainingOptions.swift:59"
+  ],
+  "播放": [
+   "MetronomeScreen.swift:343"
+  ],
+  "收藏": [
+   "StrumPractice.swift:77",
+   "StrumScreen.swift:641",
+   "StrumScreen.swift:665"
+  ],
+  "收音中 · 第 %lld / %lld 遍 · 第 %lld / %lld 小节": [
+   "StrumScreen.swift:312"
+  ],
+  "收音中 · 第 %lld 遍 · 第 %lld / %lld 小节": [
+   "StrumScreen.swift:314"
+  ],
+  "放慢": [
+   "StrumScreen.swift:300"
+  ],
+  "整体平均快了 %lld 毫秒，有点抢拍，跟着高亮再稳一点。": [
+   "StrumScoring.swift:112"
+  ],
+  "整体平均慢了 %lld 毫秒，试着提前一点点下手。": [
+   "StrumScoring.swift:109"
+  ],
+  "方式": [
+   "TrainingScreen.swift:401"
+  ],
+  "无法启动音频：%@": [
+   "MetronomeController.swift:204",
+   "StrumTrainer.swift:305"
+  ],
+  "无法录音：%@": [
+   "DynamicSounds.swift:260"
+  ],
+  "无法打开麦克风：%@": [
+   "StrumTrainer.swift:338",
+   "StrumTrainer.swift:441"
+  ],
+  "无订阅 · 无广告 · 支持家人共享": [
+   "ProScreen.swift:223"
+  ],
+  "昨天": [
+   "ProfileScreen.swift:534"
+  ],
+  "显示全部": [
+   "StrumHeroCard.swift:149"
+  ],
+  "暂不": [
+   "StrumScreen.swift:98"
+  ],
+  "暂停": [
+   "MetronomeScreen.swift:343"
+  ],
+  "暂时没有公告": [
+   "AnnouncementsScreen.swift:23"
+  ],
+  "暂时连不上 App Store，请检查网络后再试。": [
+   "ProScreen.swift:239"
+  ],
+  "更新后体验更好。": [
+   "UpdatePromptView.swift:35"
+  ],
+  "最后一遍": [
+   "StrumScreen.swift:464"
+  ],
+  "最好一遍：第 %lld 遍 %lld 分": [
+   "StrumScreen.swift:601"
+  ],
+  "最高": [
+   "StrumHeroCard.swift:247"
+  ],
+  "有声": [
+   "TrainingScreen.swift:411"
+  ],
+  "有声 %@ · 静音 %@": [
+   "TrainingOptions.swift:29"
+  ],
+  "未掌握": [
+   "StrumPractice.swift:78"
+  ],
+  "未读": [
+   "AnnouncementsScreen.swift:54"
+  ],
+  "本周练习": [
+   "ProfileScreen.swift:166"
+  ],
+  "查看全部 %lld 条记录": [
+   "ProfileScreen.swift:481",
+   "ProfileScreen.swift:483"
+  ],
+  "查看全部历史记录": [
+   "ProScreen.swift:48"
+  ],
+  "标准音": [
+   "SettingsScreen.swift:23"
+  ],
+  "标准音 %@": [
+   "ProfileScreen.swift:247",
+   "SettingsScreen.swift:24"
+  ],
+  "标记": [
+   "StrumScreen.swift:97"
+  ],
+  "标记为已掌握": [
+   "StrumScreen.swift:647",
+   "StrumScreen.swift:668"
+  ],
+  "标记为已掌握？": [
+   "StrumScreen.swift:95"
+  ],
+  "根音": [
+   "StrumProgressionViews.swift:198"
+  ],
+  "检验节奏是否稳定": [
+   "ProScreen.swift:45"
+  ],
+  "概率": [
+   "TrainingScreen.swift:418"
+  ],
+  "模拟 Pro": [
+   "ProfileScreen.swift:304"
+  ],
+  "欢迎使用": [
+   "AnnouncementCenter.swift:185"
+  ],
+  "正在录音…再点一下结束": [
+   "Sheets.swift:468"
+  ],
+  "正在生成人声报数…": [
+   "Sheets.swift:338"
+  ],
+  "正在评分…": [
+   "StrumScreen.swift:326"
+  ],
+  "每一拍扫一下": [
+   "StrumScreen.swift:325"
+  ],
+  "每小节拍数": [
+   "Sheets.swift:304"
+  ],
+  "每小节拍数 / 以几分音符为一拍": [
+   "Sheets.swift:170"
+  ],
+  "每小节第一拍": [
+   "Sheets.swift:447"
+  ],
+  "每小节第一拍总是响": [
+   "TrainingScreen.swift:425"
+  ],
+  "每年自动续订": [
+   "ProScreen.swift:159"
+  ],
+  "每档变化": [
+   "TrainingScreen.swift:375"
+  ],
+  "每档持续": [
+   "TrainingScreen.swift:376"
+  ],
+  "没收到足够的声音（%lld/8），请靠近手机、跟着每一拍扫一下再试一次。": [
+   "StrumTrainer.swift:656"
+  ],
+  "没有录到声音，请靠近麦克风再录一次": [
+   "DynamicSounds.swift:276"
+  ],
+  "没有找到这个 Apple 账户的购买记录。": [
+   "ProScreen.swift:255"
+  ],
+  "没有麦克风权限。请到系统设置里允许本 App 使用麦克风。": [
+   "Sheets.swift:450"
+  ],
+  "浅色": [
+   "AppModel.swift:17"
+  ],
+  "测试版选项（正式版不会出现）": [
+   "ProfileScreen.swift:303"
+  ],
+  "测速": [
+   "MetronomeScreen.swift:74"
+  ],
+  "深色": [
+   "AppModel.swift:18"
+  ],
+  "添加": [
+   "StrumProgressionViews.swift:195"
+  ],
+  "添加和弦": [
+   "StrumProgressionViews.swift:60"
+  ],
+  "清除": [
+   "Sheets.swift:572"
+  ],
+  "渐进减速": [
+   "TrainingScreen.swift:371"
+  ],
+  "渐进提速": [
+   "MetronomeScreen.swift:90",
+   "Sheets.swift:84",
+   "TrainingOptions.swift:57",
+   "TrainingScreen.swift:57"
+  ],
+  "渐进提速完成，已停止": [
+   "MetronomeController.swift:396"
+  ],
+  "渐进提速控制中": [
+   "TempoDial.swift:53"
+  ],
+  "渐进提速训练": [
+   "ProScreen.swift:44"
+  ],
+  "漏": [
+   "StrumScreen.swift:460"
+  ],
+  "点一下试听，强 · 次强 · 弱各一个音": [
+   "Sheets.swift:331"
+  ],
+  "点按修改，长按拖动排序": [
+   "StrumProgressionViews.swift:52"
+  ],
+  "点按切换重音": [
+   "MetronomeScreen.swift:123"
+  ],
+  "点按方块切换重音：强 · 次强 · 弱 · 静音": [
+   "MetronomeScreen.swift:139"
+  ],
+  "点按清零": [
+   "MetronomeScreen.swift:82"
+  ],
+  "版本": [
+   "ProfileScreen.swift:290"
+  ],
+  "现在": [
+   "StrumProgressionViews.swift:305"
+  ],
+  "用 D（下扫）U（上扫）X（闷音）·（空拍）写出自己的节奏型，和弦库里也能用": [
+   "StrumHeroCard.swift:167"
+  ],
+  "用户 ID": [
+   "ProfileScreen.swift:405"
+  ],
+  "留空表示一直练": [
+   "StrumProgressionViews.swift:397"
+  ],
+  "登录失败：%@": [
+   "AppleAccount.swift:64"
+  ],
+  "登录是可选的，不登录也能使用全部功能": [
+   "ProfileScreen.swift:135"
+  ],
+  "目标": [
+   "TrainingScreen.swift:373",
+   "TrainingScreen.swift:451"
+  ],
+  "目标 %@，到时提醒": [
+   "TrainingOptions.swift:39"
+  ],
+  "目标 %@，到时提醒并停止": [
+   "TrainingOptions.swift:38"
+  ],
+  "目标比起始低就是渐进减速": [
+   "TrainingScreen.swift:371"
+  ],
+  "相对主拍 %@": [
+   "Sheets.swift:343"
+  ],
+  "确定": [
+   "Sheets.swift:557"
+  ],
+  "示范中：一直循环，点“停止”结束": [
+   "StrumScreen.swift:307"
+  ],
+  "稍后": [
+   "UpdatePromptView.swift:60"
+  ],
+  "稳定度": [
+   "StrumScreen.swift:477"
+  ],
+  "第 %lld 小节 · 还剩 %@": [
+   "TrainingScreen.swift:81"
+  ],
+  "第 %lld 拍，%@": [
+   "MetronomeScreen.swift:122"
+  ],
+  "第 %lld 遍：%lld 分": [
+   "StrumScreen.swift:321"
+  ],
+  "第一版只看扫弦的时间准不准，不判断你实际是上扫还是下扫；箭头是节奏型里该用的扫法。": [
+   "StrumScreen.swift:51"
+  ],
+  "筛选": [
+   "StrumScreen.swift:682",
+   "StrumScreen.swift:692"
+  ],
+  "管理订阅": [
+   "ProScreen.swift:261"
+  ],
+  "类型": [
+   "StrumProgressionViews.swift:204"
+  ],
+  "系统": [
+   "AppModel.swift:25"
+  ],
+  "练习历史": [
+   "ProfileScreen.swift:552"
+  ],
+  "练习目标完成": [
+   "MetronomeController.swift:439"
+  ],
+  "练习计时": [
+   "Sheets.swift:86",
+   "TrainingScreen.swift:157"
+  ],
+  "练习记录": [
+   "ProfileScreen.swift:191"
+  ],
+  "练习遍数": [
+   "StrumProgressionViews.swift:388",
+   "StrumProgressionViews.swift:389"
+  ],
+  "结束": [
+   "StrumScreen.swift:343"
+  ],
+  "结束录音": [
+   "Sheets.swift:491"
+  ],
+  "编辑…": [
+   "StrumScreen.swift:213"
+  ],
+  "编辑和弦进行": [
+   "StrumHeroCard.swift:234"
+  ],
+  "自动停止": [
+   "TrainingScreen.swift:457"
+  ],
+  "自定义": [
+   "StrumHeroCard.swift:329",
+   "StrumScreen.swift:244",
+   "StrumTimeline.swift:29"
+  ],
+  "自定义…": [
+   "StrumHeroCard.swift:163",
+   "StrumScreen.swift:226"
+  ],
+  "自由练习": [
+   "TrainingOptions.swift:56"
+  ],
+  "节奏": [
+   "TrainingScreen.swift:374"
+  ],
+  "节奏型": [
+   "StrumScreen.swift:164"
+  ],
+  "节奏设置": [
+   "Sheets.swift:80"
+  ],
+  "节拍器": [
+   "AppTab.swift:11",
+   "MetronomeScreen.swift:34"
+  ],
+  "节拍器 · %lld BPM": [
+   "NowPlayingBridge.swift:28"
+  ],
+  "节拍器、调音器和和弦库都在下面的标签里。有问题或建议，欢迎在 App Store 留言。": [
+   "AnnouncementCenter.swift:186"
+  ],
+  "节拍器训练": [
+   "TrainingScreen.swift:25"
+  ],
+  "节拍音色": [
+   "ProfileScreen.swift:240"
+  ],
+  "范围 20–400 BPM": [
+   "Sheets.swift:526"
+  ],
+  "解锁全部功能": [
+   "ProScreen.swift:119"
+  ],
+  "触感反馈": [
+   "Sheets.swift:354"
+  ],
+  "计时": [
+   "MetronomeScreen.swift:80"
+  ],
+  "计时 %@": [
+   "MetronomeScreen.swift:81"
+  ],
+  "订阅 %@/年": [
+   "ProScreen.swift:218"
+  ],
+  "训练": [
+   "AppTab.swift:12",
+   "TrainingScreen.swift:16"
+  ],
+  "试听": [
+   "Sheets.swift:476"
+  ],
+  "该上扫的那几下平均比下扫快 %lld 毫秒，上扫别急，等到“&”再扫。": [
+   "StrumScoring.swift:106"
+  ],
+  "该上扫的那几下平均比下扫慢 %lld 毫秒，回扫时手腕放松、别停顿。": [
+   "StrumScoring.swift:103"
+  ],
+  "语言": [
+   "ProfileScreen.swift:224",
+   "SettingsScreen.swift:60"
+  ],
+  "请输入 20–400 之间的数": [
+   "Sheets.swift:526"
+  ],
+  "调音器": [
+   "AppTab.swift:13"
+  ],
+  "调音器设置": [
+   "SettingsScreen.swift:16"
+  ],
+  "账号信息只保存在这台手机上。删除账号会清掉这些信息；如需撤销 Apple 授权，请到系统设置 › Apple 账户 › 登录与安全 › 通过 Apple 登录。": [
+   "ProfileScreen.swift:409"
+  ],
+  "购买无法验证，请稍后在“恢复购买”里重试。": [
+   "ProStore.swift:102"
+  ],
+  "购买未完成": [
+   "ProScreen.swift:104",
+   "ProScreen.swift:238"
+  ],
+  "起始": [
+   "TrainingScreen.swift:372"
+  ],
+  "跟我练": [
+   "StrumScreen.swift:358"
+  ],
+  "跟拍震动": [
+   "ProfileScreen.swift:254",
+   "Sheets.swift:357"
+  ],
+  "跟着节奏扫，麦克风帮你打分": [
+   "StrumHeroCard.swift:72"
+  ],
+  "跟随系统": [
+   "AppModel.swift:16",
+   "SettingsScreen.swift:68"
+  ],
+  "跟随节拍器": [
+   "StrumScreen.swift:283"
+  ],
+  "输入速度": [
+   "Sheets.swift:83"
+  ],
+  "还没有保存的进行。编辑好和弦后点“保存”。": [
+   "StrumProgressionViews.swift:261"
+  ],
+  "还没有收藏的节奏型：点星标收藏。": [
+   "StrumHeroCard.swift:146"
+  ],
+  "还没有收藏的节奏型：长按节奏型或点格子上方的星标收藏。": [
+   "StrumScreen.swift:170"
+  ],
+  "还没有练习记录。播放 30 秒以上会自动记一次。": [
+   "ProfileScreen.swift:463"
+  ],
+  "还没练过，先听一听再开始": [
+   "StrumHeroCard.swift:244"
+  ],
+  "这个版本需要更新后才能继续使用。": [
+   "UpdatePromptView.swift:35"
+  ],
+  "这个节奏型最好 %lld 分": [
+   "StrumScreen.swift:454"
+  ],
+  "这件乐器的节奏型都已掌握。": [
+   "StrumHeroCard.swift:146",
+   "StrumScreen.swift:170"
+  ],
+  "连续打卡": [
+   "ProfileScreen.swift:171"
+  ],
+  "退出登录": [
+   "ProfileScreen.swift:416"
+  ],
+  "选好尤克里里的和弦，点播放就能听到真实的拨弦声。调音器的参考音也换成了各乐器自己的音色。": [
+   "AnnouncementCenter.swift:183"
+  ],
+  "速度": [
+   "TempoDial.swift:33",
+   "TrainingScreen.swift:371"
+  ],
+  "邮箱": [
+   "ProfileScreen.swift:403"
+  ],
+  "重新录制我的声音": [
+   "Sheets.swift:407"
+  ],
+  "重音预设": [
+   "Sheets.swift:215"
+  ],
+  "闪光与震动提示": [
+   "ProScreen.swift:47"
+  ],
+  "随机静音": [
+   "TrainingScreen.swift:402"
+  ],
+  "随机静音 %@ 的拍": [
+   "TrainingOptions.swift:33"
+  ],
+  "随机静音 %@ 的拍 · 保留首拍": [
+   "TrainingOptions.swift:32"
+  ],
+  "隐私政策": [
+   "ProScreen.swift:274"
+  ],
+  "隐藏邮箱（Apple 转发）": [
+   "ProfileScreen.swift:403"
+  ],
+  "需要麦克风权限才能听你扫弦：请到系统设置里允许“扫弦教练”使用麦克风。": [
+   "StrumTrainer.swift:758"
+  ],
+  "静音": [
+   "TrainingScreen.swift:414"
+  ],
+  "静音小节": [
+   "MetronomeScreen.swift:91",
+   "TrainingOptions.swift:58",
+   "TrainingScreen.swift:99"
+  ],
+  "静音小节训练": [
+   "ProScreen.swift:45"
+  ],
+  "静音时保持心里的节拍，恢复时检查有没有跑快或跑慢": [
+   "TrainingScreen.swift:121"
+  ],
+  "静音的拍": [
+   "TrainingScreen.swift:419"
+  ],
+  "静音训练": [
+   "Sheets.swift:85"
+  ],
+  "音名显示": [
+   "ProfileScreen.swift:232",
+   "SettingsScreen.swift:29"
+  ],
+  "音色": [
+   "MetronomeScreen.swift:66"
+  ],
+  "音色与反馈": [
+   "Sheets.swift:81"
+  ],
+  "麦克风收到声音会晚一点。倒数之后，跟着屏幕上的节拍（戴耳机时听节拍声）每一拍扫一下或拍一下琴身，一共 8 拍。": [
+   "StrumScreen.swift:537"
+  ]
+ },
+ "MetronomeCore": {
+  "三角铁": [
+   "Model.swift:190"
+  ],
+  "三连音": [
+   "Model.swift:117"
+  ],
+  "中板": [
+   "GeneratedStringSymbols_Localizable.swift:27"
+  ],
+  "人声": [
+   "Model.swift:219"
+  ],
+  "人声报数": [
+   "Model.swift:192"
+  ],
+  "全部均等": [
+   "Model.swift:246"
+  ],
+  "八分": [
+   "Model.swift:116"
+  ],
+  "切分音": [
+   "Model.swift:122"
+  ],
+  "前八后十六": [
+   "Model.swift:120"
+  ],
+  "前十六后八": [
+   "Model.swift:121"
+  ],
+  "十六分": [
+   "Model.swift:118"
+  ],
+  "咔嗒": [
+   "Model.swift:182"
+  ],
+  "响棒": [
+   "Model.swift:181"
+  ],
+  "哔声": [
+   "Model.swift:177"
+  ],
+  "四分": [
+   "Model.swift:115"
+  ],
+  "小广板": [
+   "GeneratedStringSymbols_Localizable.swift:36"
+  ],
+  "广板": [
+   "GeneratedStringSymbols_Localizable.swift:45"
+  ],
+  "庄板": [
+   "GeneratedStringSymbols_Localizable.swift:54"
+  ],
+  "底鼓军鼓": [
+   "Model.swift:187"
+  ],
+  "弱": [
+   "Model.swift:34"
+  ],
+  "强": [
+   "Model.swift:32"
+  ],
+  "快板": [
+   "GeneratedStringSymbols_Localizable.swift:63"
+  ],
+  "急板": [
+   "GeneratedStringSymbols_Localizable.swift:72"
+  ],
+  "我的声音": [
+   "Model.swift:193"
+  ],
+  "按拍号分组": [
+   "Model.swift:247"
+  ],
+  "数码": [
+   "Model.swift:183"
+  ],
+  "旋律": [
+   "Model.swift:218"
+  ],
+  "最急板": [
+   "GeneratedStringSymbols_Localizable.swift:81"
+  ],
+  "木块": [
+   "Model.swift:180"
+  ],
+  "木鱼": [
+   "Model.swift:176"
+  ],
+  "机械摆锤": [
+   "Model.swift:179"
+  ],
+  "柔和": [
+   "Model.swift:184"
+  ],
+  "柔板": [
+   "GeneratedStringSymbols_Localizable.swift:90"
+  ],
+  "次强": [
+   "Model.swift:33"
+  ],
+  "沙锤": [
+   "Model.swift:188"
+  ],
+  "活板": [
+   "GeneratedStringSymbols_Localizable.swift:99"
+  ],
+  "牛铃": [
+   "Model.swift:178"
+  ],
+  "电子": [
+   "Model.swift:216"
+  ],
+  "经典": [
+   "Model.swift:215"
+  ],
+  "行板": [
+   "GeneratedStringSymbols_Localizable.swift:108"
+  ],
+  "踩镲": [
+   "Model.swift:186"
+  ],
+  "铃": [
+   "Model.swift:191"
+  ],
+  "附点": [
+   "Model.swift:119"
+  ],
+  "静音": [
+   "Model.swift:35"
+  ],
+  "首拍强": [
+   "Model.swift:245"
+  ],
+  "马林巴": [
+   "Model.swift:189"
+  ],
+  "鼓组": [
+   "Model.swift:217"
+  ],
+  "鼓边": [
+   "Model.swift:185"
+  ]
+ },
+ "TunerKit": {
+  "%lld 弦 %@": [
+   "TunerStrings.swift:53"
+  ],
+  "4 弦 EADG": [
+   "GeneratedStringSymbols_Localizable.swift:27"
+  ],
+  "5 弦 BEADG": [
+   "GeneratedStringSymbols_Localizable.swift:36"
+  ],
+  "中提琴": [
+   "GeneratedStringSymbols_Localizable.swift:63"
+  ],
+  "乐器": [
+   "TunerStrings.swift:50"
+  ],
+  "低音 G 版": [
+   "GeneratedStringSymbols_Localizable.swift:72"
+  ],
+  "偏低": [
+   "TunerStrings.swift:45"
+  ],
+  "偏高": [
+   "TunerStrings.swift:45"
+  ],
+  "八度": [
+   "TunerStrings.swift:48"
+  ],
+  "半音阶": [
+   "GeneratedStringSymbols_Localizable.swift:81"
+  ],
+  "参考音 %@": [
+   "TunerStrings.swift:54"
+  ],
+  "参考音（点按发声）": [
+   "TunerStrings.swift:48"
+  ],
+  "吉他": [
+   "GeneratedStringSymbols_Localizable.swift:90"
+  ],
+  "大提琴": [
+   "GeneratedStringSymbols_Localizable.swift:99"
+  ],
+  "定弦": [
+   "TunerStrings.swift:50"
+  ],
+  "小提琴": [
+   "GeneratedStringSymbols_Localizable.swift:108"
+  ],
+  "尤克里里": [
+   "GeneratedStringSymbols_Localizable.swift:117"
+  ],
+  "已准": [
+   "TunerStrings.swift:44"
+  ],
+  "已锁定": [
+   "TunerStrings.swift:50"
+  ],
+  "弦（点按锁定，再点解锁）": [
+   "TunerStrings.swift:49"
+  ],
+  "打开设置": [
+   "TunerStrings.swift:47"
+  ],
+  "无信号": [
+   "TunerStrings.swift:51"
+  ],
+  "标准": [
+   "GeneratedStringSymbols_Localizable.swift:126"
+  ],
+  "标准 CGDA": [
+   "GeneratedStringSymbols_Localizable.swift:135"
+  ],
+  "标准 GCEA": [
+   "GeneratedStringSymbols_Localizable.swift:144"
+  ],
+  "标准 GDAE": [
+   "GeneratedStringSymbols_Localizable.swift:153"
+  ],
+  "标准音": [
+   "TunerStrings.swift:47"
+  ],
+  "正在启动麦克风…": [
+   "TunerStrings.swift:46"
+  ],
+  "自动": [
+   "GeneratedStringSymbols_Localizable.swift:162",
+   "TunerStrings.swift:49"
+  ],
+  "设置": [
+   "TunerStrings.swift:51"
+  ],
+  "请弹奏一根弦": [
+   "TunerStrings.swift:45"
+  ],
+  "调准一根弦时播放“叮咚”提示音": [
+   "TunerStrings.swift:52"
+  ],
+  "调准提示音": [
+   "TunerStrings.swift:52"
+  ],
+  "调音器": [
+   "TunerStrings.swift:44"
+  ],
+  "贝斯": [
+   "GeneratedStringSymbols_Localizable.swift:171"
+  ],
+  "降半音 E♭": [
+   "GeneratedStringSymbols_Localizable.swift:180"
+  ],
+  "需要麦克风权限才能调音": [
+   "TunerStrings.swift:46"
+  ],
+  "音分": [
+   "TunerStrings.swift:44"
+  ],
+  "音分表盘": [
+   "TunerStrings.swift:51"
+  ]
+ },
+ "ChordKit": {
+  "%@ 指法": [
+   "ChordStrings.swift:129"
+  ],
+  "%@ 贝斯和弦音位置": [
+   "ChordStrings.swift:130"
+  ],
+  "%lld 品把位": [
+   "ChordStrings.swift:128"
+  ],
+  "%lld 弦 %lld 品": [
+   "ChordStrings.swift:133"
+  ],
+  "%lld 弦不弹": [
+   "ChordStrings.swift:131"
+  ],
+  "%lld 弦空弦": [
+   "ChordStrings.swift:132"
+  ],
+  "一个把位里的和弦音": [
+   "ChordStrings.swift:101"
+  ],
+  "三度": [
+   "ChordStrings.swift:126"
+  ],
+  "三拍子分解": [
+   "GeneratedStringSymbols_Localizable.swift:27"
+  ],
+  "上一个把位": [
+   "ChordStrings.swift:97"
+  ],
+  "上行下行琶音": [
+   "GeneratedStringSymbols_Localizable.swift:36"
+  ],
+  "下一个": [
+   "ChordStrings.swift:105"
+  ],
+  "下一个把位": [
+   "ChordStrings.swift:97"
+  ],
+  "下一个：%@": [
+   "ChordStrings.swift:104"
+  ],
+  "五度": [
+   "ChordStrings.swift:126"
+  ],
+  "交替八分": [
+   "GeneratedStringSymbols_Localizable.swift:45"
+  ],
+  "保存": [
+   "ChordStrings.swift:123"
+  ],
+  "停止": [
+   "ChordStrings.swift:96"
+  ],
+  "八分": [
+   "ChordStrings.swift:124"
+  ],
+  "八分全扫": [
+   "GeneratedStringSymbols_Localizable.swift:54"
+  ],
+  "八分音符分解": [
+   "GeneratedStringSymbols_Localizable.swift:63"
+  ],
+  "八度": [
+   "ChordStrings.swift:126"
+  ],
+  "减三和弦": [
+   "GeneratedStringSymbols_Localizable.swift:72"
+  ],
+  "减慢": [
+   "ChordStrings.swift:110"
+  ],
+  "分解": [
+   "ChordStrings.swift:102"
+  ],
+  "分解指法": [
+   "ChordStrings.swift:103"
+  ],
+  "切音节奏": [
+   "GeneratedStringSymbols_Localizable.swift:81"
+  ],
+  "删除": [
+   "ChordStrings.swift:123"
+  ],
+  "加九和弦": [
+   "GeneratedStringSymbols_Localizable.swift:90"
+  ],
+  "加快": [
+   "ChordStrings.swift:110"
+  ],
+  "十六分": [
+   "ChordStrings.swift:124"
+  ],
+  "十六分 Funk": [
+   "GeneratedStringSymbols_Localizable.swift:99"
+  ],
+  "双击发声": [
+   "ChordStrings.swift:107"
+  ],
+  "取消": [
+   "ChordStrings.swift:123"
+  ],
+  "取消收藏": [
+   "ChordStrings.swift:98"
+  ],
+  "只能输入 1–%lld 的弦号和字母 R": [
+   "ChordStrings.swift:117"
+  ],
+  "只能输入 D、U、X、- 和 .": [
+   "ChordStrings.swift:118"
+  ],
+  "名称": [
+   "ChordStrings.swift:116"
+  ],
+  "和弦库": [
+   "ChordStrings.swift:95"
+  ],
+  "四分": [
+   "GeneratedStringSymbols_Localizable.swift:108"
+  ],
+  "四弦上行": [
+   "GeneratedStringSymbols_Localizable.swift:117"
+  ],
+  "四拍上行": [
+   "GeneratedStringSymbols_Localizable.swift:126"
+  ],
+  "基础扫弦": [
+   "GeneratedStringSymbols_Localizable.swift:135"
+  ],
+  "增三和弦": [
+   "GeneratedStringSymbols_Localizable.swift:144"
+  ],
+  "大七和弦": [
+   "GeneratedStringSymbols_Localizable.swift:153"
+  ],
+  "大三": [
+   "GeneratedStringSymbols_Localizable.swift:162"
+  ],
+  "大三和弦": [
+   "GeneratedStringSymbols_Localizable.swift:171"
+  ],
+  "小七和弦": [
+   "GeneratedStringSymbols_Localizable.swift:180"
+  ],
+  "小三": [
+   "GeneratedStringSymbols_Localizable.swift:189"
+  ],
+  "小三和弦": [
+   "GeneratedStringSymbols_Localizable.swift:198"
+  ],
+  "属七和弦": [
+   "GeneratedStringSymbols_Localizable.swift:207"
+  ],
+  "岛屿扫弦": [
+   "GeneratedStringSymbols_Localizable.swift:216"
+  ],
+  "左手模式": [
+   "ChordStrings.swift:100"
+  ],
+  "已收藏": [
+   "ChordStrings.swift:99"
+  ],
+  "常见指弹": [
+   "GeneratedStringSymbols_Localizable.swift:225"
+  ],
+  "开放把位": [
+   "ChordStrings.swift:100"
+  ],
+  "弹奏方式": [
+   "ChordStrings.swift:103"
+  ],
+  "慢摇 / 华尔兹 3/4": [
+   "GeneratedStringSymbols_Localizable.swift:234"
+  ],
+  "扫弦": [
+   "ChordStrings.swift:102"
+  ],
+  "扫弦节奏型": [
+   "ChordStrings.swift:113"
+  ],
+  "挂二和弦": [
+   "GeneratedStringSymbols_Localizable.swift:243"
+  ],
+  "挂四和弦": [
+   "GeneratedStringSymbols_Localizable.swift:252"
+  ],
+  "收藏当前按法": [
+   "ChordStrings.swift:98"
+  ],
+  "数字是弦号，5 代表根音弦（当前和弦是 %lld 弦）": [
+   "ChordStrings.swift:125"
+  ],
+  "最多 %lld 个音": [
+   "ChordStrings.swift:119"
+  ],
+  "最多 %lld 拍": [
+   "ChordStrings.swift:120"
+  ],
+  "来回分解": [
+   "GeneratedStringSymbols_Localizable.swift:261"
+  ],
+  "根音": [
+   "ChordStrings.swift:101",
+   "ChordStrings.swift:95"
+  ],
+  "根音 · 五度 · 八度 · 五度": [
+   "GeneratedStringSymbols_Localizable.swift:270"
+  ],
+  "格子单位": [
+   "ChordStrings.swift:124"
+  ],
+  "格数要是 %lld 的整数倍": [
+   "ChordStrings.swift:121"
+  ],
+  "横按 · %lld 品": [
+   "ChordStrings.swift:127"
+  ],
+  "每个字符一格：D 下扫、U 上扫、X 闷音、- 或 . 空拍。空格只用来分组。": [
+   "ChordStrings.swift:115"
+  ],
+  "每种乐器最多保存 %lld 个": [
+   "ChordStrings.swift:122"
+  ],
+  "民谣 1": [
+   "GeneratedStringSymbols_Localizable.swift:279"
+  ],
+  "民谣 2": [
+   "GeneratedStringSymbols_Localizable.swift:288"
+  ],
+  "用节拍器的速度（%lld BPM）": [
+   "ChordStrings.swift:109"
+  ],
+  "第 %lld 个把位，共 %lld 个": [
+   "ChordStrings.swift:134"
+  ],
+  "第 %lld 弦，%@": [
+   "ChordStrings.swift:106"
+  ],
+  "类型": [
+   "ChordStrings.swift:95"
+  ],
+  "组成音": [
+   "ChordStrings.swift:96"
+  ],
+  "编辑": [
+   "ChordStrings.swift:123"
+  ],
+  "自定义…": [
+   "ChordStrings.swift:112"
+  ],
+  "自定义指法": [
+   "ChordStrings.swift:112"
+  ],
+  "自定义节奏型": [
+   "ChordStrings.swift:113"
+  ],
+  "试听": [
+   "ChordStrings.swift:96"
+  ],
+  "跟随节拍器": [
+   "ChordStrings.swift:108"
+  ],
+  "输入弦号，1 弦最细（最多 %lld 弦）。可以用空格或短横分隔，也可以连着写；R 代表当前和弦的根音弦。": [
+   "ChordStrings.swift:114"
+  ],
+  "还没有收藏": [
+   "ChordStrings.swift:99"
+  ],
+  "速度": [
+   "ChordStrings.swift:108"
+  ],
+  "速度 %lld BPM": [
+   "ChordStrings.swift:111"
+  ]
+ }
+}
