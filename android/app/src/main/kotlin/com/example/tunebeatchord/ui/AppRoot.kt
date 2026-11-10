@@ -26,12 +26,16 @@ import androidx.compose.ui.unit.sp
 import com.example.tunebeatchord.AppContainer
 import com.example.tunebeatchord.i18n.tr
 import com.example.tunebeatchord.ui.chords.ChordLibraryScreen
-import com.example.tunebeatchord.ui.metronome.MetronomeScreen
-import com.example.tunebeatchord.ui.tuner.TunerScreen
 import com.example.tunebeatchord.ui.components.ScreenBackground
 import com.example.tunebeatchord.ui.components.TabIcon
 import com.example.tunebeatchord.ui.components.TabIconView
+import com.example.tunebeatchord.ui.metronome.MetronomeScreen
+import com.example.tunebeatchord.ui.profile.ProfileScreen
+import com.example.tunebeatchord.ui.profile.SettingsScreen
 import com.example.tunebeatchord.ui.theme.AppTheme
+import com.example.tunebeatchord.ui.training.StrumScreen
+import com.example.tunebeatchord.ui.training.TrainingScreen
+import com.example.tunebeatchord.ui.tuner.TunerScreen
 
 enum class AppTab(val key: String, val icon: TabIcon) {
     TRAINING("训练", TabIcon.TRAIN),
@@ -42,21 +46,27 @@ enum class AppTab(val key: String, val icon: TabIcon) {
 }
 
 @Composable
-fun AppRoot(container: AppContainer) {
+fun AppRoot(container: AppContainer, onLanguageChanged: () -> Unit) {
     var tab by rememberSaveable { mutableStateOf(AppTab.METRONOME.name) }
+    var strumOpen by rememberSaveable { mutableStateOf(false) }
+    var settingsOpen by rememberSaveable { mutableStateOf(false) }
     val current = AppTab.valueOf(tab)
-    val c = AppTheme.colors
     ScreenBackground {
         Column(Modifier.fillMaxSize()) {
             Box(Modifier.weight(1f).fillMaxWidth().statusBarsPadding()) {
                 when (current) {
+                    AppTab.TRAINING ->
+                        if (strumOpen) StrumScreen(container.strumTrainer, container.settings, onBack = { strumOpen = false })
+                        else TrainingScreen(container.strumTrainer, container.metronome, onOpenStrum = { container.metronome.stop(); strumOpen = true })
                     AppTab.METRONOME -> MetronomeScreen(container.metronome)
                     AppTab.TUNER -> TunerScreen(container.tuner, container.settings, active = true, onEnter = { container.metronome.stop() })
-                    AppTab.CHORDS -> ChordLibraryScreen(container.chordLibrary, container.settings)
-                    else -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { Text(tr(current.key), color = c.text, fontSize = 24.sp) }
+                    AppTab.CHORDS -> ChordLibraryScreen(container.chordLibrary, container.settings, onPlay = { container.playChord(it) })
+                    AppTab.PROFILE ->
+                        if (settingsOpen) SettingsScreen(container.settings, onBack = { settingsOpen = false }, onLanguageChanged = onLanguageChanged)
+                        else ProfileScreen(container.practiceLog, container.settings, onOpenSettings = { settingsOpen = true })
                 }
             }
-            TabBar(current) { tab = it.name }
+            TabBar(current) { strumOpen = false; settingsOpen = false; tab = it.name }
         }
     }
 }
@@ -64,9 +74,7 @@ fun AppRoot(container: AppContainer) {
 @Composable
 private fun TabBar(selected: AppTab, onSelect: (AppTab) -> Unit) {
     val c = AppTheme.colors
-    Row(
-        Modifier.fillMaxWidth().background(c.tabBg).windowInsetsPadding(WindowInsets.navigationBars).padding(vertical = 6.dp),
-    ) {
+    Row(Modifier.fillMaxWidth().background(c.tabBg).windowInsetsPadding(WindowInsets.navigationBars).padding(vertical = 6.dp)) {
         AppTab.entries.forEach { t ->
             val on = t == selected
             Column(

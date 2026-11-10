@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
             val strings = remember { Strings(resources) }
             CompositionLocalProvider(LocalStrings provides strings) {
                 TuneBeatTheme(container.settings.themeMode) {
-                    AppRoot(container)
+                    AppRoot(container, onLanguageChanged = { recreate() })
                 }
             }
         }
