@@ -73,6 +73,7 @@ fun Chip(
     height: Dp = 40.dp,
     shape: Shape = RoundedCornerShape(50),
     fontSize: Int = 16,
+    horizontalPadding: Dp = 14.dp,
 ) {
     val c = AppTheme.colors
     Box(
@@ -81,7 +82,7 @@ fun Chip(
             .clip(shape)
             .background(if (selected) c.accentBrush else Brush.verticalGradient(listOf(c.card2, c.card2)))
             .clickable(role = Role.Button, onClick = onClick)
-            .padding(horizontal = 14.dp),
+            .padding(horizontal = horizontalPadding),
         contentAlignment = Alignment.Center,
     ) {
         Text(

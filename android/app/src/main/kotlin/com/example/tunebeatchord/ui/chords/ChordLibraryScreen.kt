@@ -231,7 +231,7 @@ private fun TypeGrid(state: ChordLibraryState, naming: NoteNaming) {
         ChordType.builtins.chunked(5).forEach { row ->
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 row.forEach { t ->
-                    Chip(naming.chordName(state.root, t), state.type.id == t.id, { state.selectType(t) }, Modifier.weight(1f), height = 46.dp, fontSize = 14)
+                    Chip(naming.chordName(state.root, t), state.type.id == t.id, { state.selectType(t) }, Modifier.weight(1f), height = 46.dp, fontSize = 13, horizontalPadding = 2.dp)
                 }
             }
         }
