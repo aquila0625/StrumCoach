@@ -9,6 +9,8 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.BaselineShift
+import androidx.compose.ui.unit.em
 import com.example.tunebeatchord.R
 
 /**
@@ -19,13 +21,23 @@ val AccidentalFont = FontFamily(Font(R.font.note_accidentals))
 
 private val accidentals = setOf('♯', '♭', '♮')
 
+/** 升降号相对字母的大小，和抬高的比例（baseline shift，占字号的比例）。 */
+const val ACCIDENTAL_SCALE = 0.72f
+const val ACCIDENTAL_RISE = 0.32f
+
 fun String.hasAccidental() = any { it in accidentals }
 
 /** 把字符串里的升降号换成内置字体；其余字符保持原字体。`size` 不为 null 时升降号用这个相对大小（em）。 */
 fun noteAnnotated(text: String, accidentalScale: Float = 1f): AnnotatedString = buildAnnotatedString {
     for (ch in text) {
         if (ch in accidentals) {
-            pushStyle(SpanStyle(fontFamily = AccidentalFont, fontSize = androidx.compose.ui.unit.TextUnit.Unspecified))
+            // 升降号：小一点，抬到字母的右上方（像 E♭、F♯ 的标准写法）
+            pushStyle(
+                SpanStyle(
+                    fontFamily = AccidentalFont, fontSize = ACCIDENTAL_SCALE.em, baselineShift = BaselineShift(ACCIDENTAL_RISE),
+                    fontWeight = androidx.compose.ui.text.font.FontWeight.Normal,
+                ),
+            )
             append(ch)
             pop()
         } else append(ch)
@@ -52,7 +64,7 @@ class NotePaints(context: Context) {
             this.color = color; textSize = size
             typeface = Typeface.create(Typeface.DEFAULT, if (bold) Typeface.BOLD else Typeface.NORMAL)
         }
-        val symbols = Paint(Paint.ANTI_ALIAS_FLAG).apply { this.color = color; textSize = size * 0.95f; typeface = accidentalFace }
+        val symbols = Paint(Paint.ANTI_ALIAS_FLAG).apply { this.color = color; textSize = size * ACCIDENTAL_SCALE; typeface = accidentalFace }
         // 先量总宽，再从左到右一段一段画
         val parts = ArrayList<Pair<String, Paint>>()
         val sb = StringBuilder()
@@ -66,7 +78,9 @@ class NotePaints(context: Context) {
         val total = parts.sumOf { it.second.measureText(it.first).toDouble() }.toFloat()
         var x = cx - total / 2
         for ((s, p) in parts) {
-            canvas.drawText(s, x, baseline, p)
+            // 升降号抬到右上方
+            val y = if (p === symbols) baseline - size * ACCIDENTAL_RISE else baseline
+            canvas.drawText(s, x, y, p)
             x += p.measureText(s)
         }
     }

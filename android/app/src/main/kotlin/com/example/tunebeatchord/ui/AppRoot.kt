@@ -48,17 +48,18 @@ enum class AppTab(val key: String, val icon: TabIcon) {
 fun AppRoot(container: AppContainer, onLanguageChanged: () -> Unit) {
     var tab by rememberSaveable { mutableStateOf(AppTab.METRONOME.name) }
     var strumOpen by rememberSaveable { mutableStateOf(false) }
+    var strumAutoStart by rememberSaveable { mutableStateOf(false) }
     val current = AppTab.valueOf(tab)
     ScreenBackground {
         Column(Modifier.fillMaxSize()) {
             Box(Modifier.weight(1f).fillMaxWidth().statusBarsPadding()) {
                 when (current) {
                     AppTab.TRAINING ->
-                        if (strumOpen) StrumScreen(container.strumTrainer, container.settings, onBack = { strumOpen = false })
-                        else TrainingScreen(container.strumTrainer, container.metronome, onOpenStrum = { container.metronome.stop(); strumOpen = true })
+                        if (strumOpen) StrumScreen(container.strumTrainer, container.settings, autoStart = strumAutoStart, onBack = { strumOpen = false; strumAutoStart = false })
+                        else TrainingScreen(container.strumTrainer, container.metronome, container.settings, onOpenStrum = { start -> container.metronome.stop(); strumAutoStart = start; strumOpen = true })
                     AppTab.METRONOME -> MetronomeScreen(container.metronome, onOpenTraining = { tab = AppTab.TRAINING.name })
                     AppTab.TUNER -> TunerScreen(container.tuner, container.settings, active = true, onEnter = { container.metronome.stop() })
-                    AppTab.CHORDS -> ChordLibraryScreen(container.chordLibrary, container.settings, onPlay = { container.playChord(it) })
+                    AppTab.CHORDS -> ChordLibraryScreen(container.chordLibrary, container.settings, container.chordPlayer)
                     AppTab.PROFILE -> ProfileScreen(container.practiceLog, container.settings, container.metronome, onLanguageChanged)
                 }
             }

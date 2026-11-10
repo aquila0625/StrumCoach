@@ -34,10 +34,42 @@ class ChordLibraryState(
     var voicingIndex by mutableIntStateOf(0); private set
     var favorites by mutableStateOf(ChordFavorites()); private set
 
+    /** 试听用的扫弦节奏型：每类乐器各记一个（吉他和尤克里里默认值不同）。 */
+    private var rhythmChoices by mutableStateOf<Map<String, String>>(emptyMap())
+    var tempo by mutableIntStateOf(80); private set
+    /** 速度跟随节拍器（试听时取节拍器当前的 BPM）。 */
+    var followsMetronome by mutableStateOf(false); private set
+
+    val supportsStrum: Boolean get() = instrument.family in ChordLibrary.strummableFamilies
+
+    /** 当前乐器能用的节奏型（预设），默认的排最前。 */
+    val strumRhythms: List<StrumRhythm> get() = StrumRhythm.presets(instrument.family)
+
+    val strumRhythm: StrumRhythm
+        get() = rhythmChoices[instrument.family.id]?.let { id -> strumRhythms.firstOrNull { it.id == id } } ?: strumRhythms[0]
+
+    fun select(rhythm: StrumRhythm) {
+        rhythmChoices = rhythmChoices + (instrument.family.id to rhythm.id)
+        store.putString(KEY_RHYTHMS, JSON.encodeToString(rhythmChoices))
+    }
+
+    fun updateTempo(value: Int) {
+        tempo = value.coerceIn(30, 220)
+        store.putString(KEY_TEMPO, tempo.toString())
+    }
+
+    fun updateFollowsMetronome(value: Boolean) {
+        followsMetronome = value
+        store.putString(KEY_FOLLOW, if (value) "1" else "0")
+    }
+
     /** 收藏变化的回调（App 之外需要同步时用）。 */
     var onFavoritesChange: ((ChordFavorites) -> Unit)? = null
 
     init {
+        store.getString(KEY_RHYTHMS)?.let { text -> runCatching { JSON.decodeFromString<Map<String, String>>(text) }.getOrNull()?.let { rhythmChoices = it } }
+        store.getString(KEY_TEMPO)?.toIntOrNull()?.let { tempo = it.coerceIn(30, 220) }
+        followsMetronome = store.getString(KEY_FOLLOW) == "1"
         loadFavorites()
         loadCurrent()
         initialInstrument?.let { select(it) }
@@ -139,6 +171,9 @@ class ChordLibraryState(
     private companion object {
         const val KEY_FAVORITES = "chord.favorites"
         const val KEY_CURRENT = "chord.current"
+        const val KEY_RHYTHMS = "chord.rhythms"
+        const val KEY_TEMPO = "chord.tempo"
+        const val KEY_FOLLOW = "chord.followMetronome"
         val JSON = Json { ignoreUnknownKeys = true }
     }
 }

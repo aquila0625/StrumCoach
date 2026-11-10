@@ -58,23 +58,7 @@ class AppContainer(app: Application) {
         TunerController(engine, { sampleBank }, TunerModel(InstrumentSelection.Default, settings.a4, PrefsStore(app, "tuner")))
     }
     val chordSound: ChordSound by lazy { ChordSound(engine, sampleBank) }
-
-    /** 和弦库“试听”：按当前选的扫弦节奏型或一次下扫，把这个和弦的当前把位扫一遍；再点一次停止。 */
-    fun playChord(state: ChordLibraryState) {
-        val voicing = state.voicing
-        val voice = com.example.tunebeatchord.audio.Voice.fromFamily(state.instrument.family)
-        if (state.isBass) {
-            // 贝斯：依次弹根音、三度、五度、八度
-            val p = state.bassPositions ?: return
-            val root = p.anchor?.pitch ?: return
-            val third = p.markers(com.example.tunebeatchord.chord.BassPositions.Role.THIRD).firstOrNull()?.pitch
-            val fifth = p.markers(com.example.tunebeatchord.chord.BassPositions.Role.FIFTH).firstOrNull()?.pitch
-            val notes = listOfNotNull(root, third, fifth, root.transposed(12))
-            chordSound.play(com.example.tunebeatchord.chord.ChordPlayback(
-                notes.mapIndexed { i, pitch -> com.example.tunebeatchord.chord.PluckEvent(i * 0.45, i, pitch, 0.5f) }, voice, settings.a4, 1.5))
-            return
-        }
-        voicing ?: return
-        chordSound.play(com.example.tunebeatchord.chord.RhythmStrum.playback(voicing, com.example.tunebeatchord.chord.StrumCell.DOWN, state.chord.root, 1f, voice, settings.a4))
+    val chordPlayer: com.example.tunebeatchord.chord.ChordPlayer by lazy {
+        com.example.tunebeatchord.chord.ChordPlayer(engine, chordSound, chordLibrary, scope, { settings.a4 }, { metronome.bpm })
     }
 }

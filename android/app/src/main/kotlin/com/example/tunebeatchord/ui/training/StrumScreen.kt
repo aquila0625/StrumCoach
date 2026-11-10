@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
@@ -35,6 +36,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.text.style.TextAlign
+import com.example.tunebeatchord.ui.components.noteAnnotated
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -73,7 +79,7 @@ private fun Strings.advice(a: Advice?): String = a?.let { t(it.key, *it.args.toT
 /** 扫弦跟练：选乐器、编和弦进行、选节奏型，听示范，跟着练，收音评分。 */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun StrumScreen(trainer: StrumTrainer, settings: Settings, onBack: () -> Unit, modifier: Modifier = Modifier) {
+fun StrumScreen(trainer: StrumTrainer, settings: Settings, autoStart: Boolean, onBack: () -> Unit, modifier: Modifier = Modifier) {
     val c = AppTheme.colors
     val strings = LocalStrings.current
     val context = LocalContext.current
@@ -103,13 +109,21 @@ fun StrumScreen(trainer: StrumTrainer, settings: Settings, onBack: () -> Unit, m
         if (hasMic()) { denied = false; run(action) } else { pendingAction = action; launcher.launch(Manifest.permission.RECORD_AUDIO) }
     }
 
-    Column(modifier.verticalScroll(rememberScrollState()).padding(bottom = 24.dp)) {
-        Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(44.dp).clip(RoundedCornerShape(22.dp)).clickable { trainer.leave(); onBack() }, contentAlignment = Alignment.Center) {
-                Text("‹", color = c.text, fontSize = 32.sp)
+    var showCalibration by remember { mutableStateOf(false) }
+    LaunchedEffect(autoStart) { if (autoStart && trainer.phase == StrumTrainer.Phase.IDLE) needMic("practice") }
+
+    Column(modifier) {
+        // 顶栏：关闭、标题、延迟校准
+        Row(Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
+            Box(Modifier.size(44.dp).clip(CircleShape).background(c.card).clickable { trainer.leave(); onBack() }.semantics { contentDescription = strings.t("关闭") }, contentAlignment = Alignment.Center) {
+                Text("✕", color = c.text, fontSize = 18.sp, fontWeight = FontWeight.Medium)
             }
-            Text(tr("扫弦节奏型"), color = c.text, fontSize = 24.sp, fontWeight = FontWeight.Bold)
+            Text(tr("扫弦节奏型"), color = c.text, fontSize = 22.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f), maxLines = 1)
+            Box(Modifier.height(36.dp).clip(RoundedCornerShape(50)).background(c.card).clickable { if (!busy) showCalibration = true }.padding(horizontal = 12.dp), contentAlignment = Alignment.Center) {
+                Text(tr("延迟校准"), color = c.text, fontSize = 13.sp, maxLines = 1)
+            }
         }
+    Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(bottom = 12.dp)) {
         val instruments = ChordLibrary.strummableInstruments
         Box(Modifier.padding(horizontal = 20.dp)) {
             Segmented(instruments.map { tr(it.name) }, instruments.indexOfFirst { it.id == trainer.instrument.id }.coerceAtLeast(0), { if (!busy) trainer.select(instruments[it]) })
@@ -179,40 +193,41 @@ fun StrumScreen(trainer: StrumTrainer, settings: Settings, onBack: () -> Unit, m
             Text(tr("留空表示一直练"), color = c.dim, fontSize = 12.sp, modifier = Modifier.padding(top = 4.dp))
         }
 
-        // 操作按钮
-        Column(Modifier.padding(horizontal = 20.dp, vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            when (trainer.phase) {
-                StrumTrainer.Phase.IDLE -> Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    Chip(tr("听示范"), false, { trainer.startDemo() }, Modifier.weight(1f), height = 54.dp, fontSize = 17)
-                    Chip(tr("跟我练"), true, { needMic("practice") }, Modifier.weight(1f), height = 54.dp, fontSize = 17)
-                }
-                StrumTrainer.Phase.DEMO -> Chip(tr("停止"), true, { trainer.stopDemo() }, Modifier.fillMaxWidth(), height = 54.dp, fontSize = 17)
-                StrumTrainer.Phase.PRACTICE -> Chip(tr("结束"), true, { trainer.endPractice() }, Modifier.fillMaxWidth(), height = 54.dp, fontSize = 17)
-                StrumTrainer.Phase.CALIBRATING -> Chip(tr("停止"), true, { trainer.stopAll() }, Modifier.fillMaxWidth(), height = 54.dp, fontSize = 17)
-            }
-            if (denied) Text(strings.t("需要麦克风权限才能听你扫弦：请到系统设置里允许“调音节拍和弦库”使用麦克风。"), color = c.accent, fontSize = 14.sp)
-            when (trainer.phase) {
-                StrumTrainer.Phase.DEMO -> Text(tr("示范中：一直循环，点“停止”结束"), color = c.sub, fontSize = 13.sp)
-                StrumTrainer.Phase.IDLE -> Text(tr("先听示范，再跟着练；戴耳机可以听着节拍练。"), color = c.sub, fontSize = 13.sp)
-                else -> {}
-            }
+        trainer.result?.takeIf { !busy }?.let { ResultCard(it, naming, strings) }
+
+    }
+        // 底部按钮：听示范 / 跟我练（练习中是“结束”，示范中是“停止”）
+        Column(Modifier.padding(horizontal = 20.dp).padding(top = 8.dp, bottom = 14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            if (denied) Text(strings.t("需要麦克风权限才能听你扫弦：请到系统设置里允许“调音节拍和弦库”使用麦克风。"), color = c.accent, fontSize = 13.sp)
             trainer.message?.let { m ->
                 val text = when (m) {
                     StrumTrainer.Message.MicFailed -> strings.t("无法打开麦克风：%@", "")
                     is StrumTrainer.Message.Calibrated -> strings.t("已校准：以后跟练会扣掉 %lld 毫秒的延迟。", m.ms)
                     is StrumTrainer.Message.CalibrationFailed -> strings.t("没收到足够的声音（%lld/8），请靠近手机、跟着每一拍扫一下再试一次。", m.found)
                 }
-                Text(text, color = c.accent, fontSize = 14.sp)
+                Text(text, color = c.accent, fontSize = 13.sp)
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                when (trainer.phase) {
+                    StrumTrainer.Phase.IDLE -> {
+                        ActionButton(tr("听示范"), false, Modifier.weight(1f)) { trainer.startDemo() }
+                        ActionButton(tr("跟我练"), true, Modifier.weight(1f)) { needMic("practice") }
+                    }
+                    StrumTrainer.Phase.DEMO -> ActionButton(tr("停止"), true, Modifier.fillMaxWidth()) { trainer.stopDemo() }
+                    StrumTrainer.Phase.PRACTICE -> ActionButton(tr("结束"), true, Modifier.fillMaxWidth()) { trainer.endPractice() }
+                    StrumTrainer.Phase.CALIBRATING -> ActionButton(tr("停止"), true, Modifier.fillMaxWidth()) { trainer.stopAll() }
+                }
             }
         }
-        trainer.result?.takeIf { !busy }?.let { ResultCard(it, naming, strings) }
+    }
 
-        Section(tr("延迟校准")) {
+    if (showCalibration) {
+        com.example.tunebeatchord.ui.metronome.AppSheet(strings.t("延迟校准"), { showCalibration = false }) {
             Text(tr("麦克风收到声音会晚一点。倒数之后，跟着屏幕上的节拍（戴耳机时听节拍声）每一拍扫一下或拍一下琴身，一共 8 拍。"), color = c.sub, fontSize = 13.sp)
-            Row(Modifier.padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                Chip(tr("开始校准"), false, { if (!busy) needMic("calibrate") }, height = 40.dp, fontSize = 14)
-                if (trainer.latencyOffset != 0.0) Chip(tr("恢复默认"), false, { trainer.resetCalibration() }, height = 40.dp, fontSize = 14)
-                Text(strings.t("当前补偿：%lld 毫秒", (trainer.latencyOffset * 1000).roundToInt()), color = c.sub, fontSize = 13.sp)
+            Text(strings.t("当前补偿：%lld 毫秒", (trainer.latencyOffset * 1000).roundToInt()), color = c.text, fontSize = 15.sp, modifier = Modifier.padding(top = 12.dp))
+            Row(Modifier.fillMaxWidth().padding(top = 14.dp, bottom = 8.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                ActionButton(tr("开始校准"), true, Modifier.weight(1f)) { showCalibration = false; needMic("calibrate") }
+                if (trainer.latencyOffset != 0.0) ActionButton(tr("恢复默认"), false, Modifier.weight(1f)) { trainer.resetCalibration() }
             }
         }
     }
@@ -298,43 +313,131 @@ private fun PatternGrid(trainer: StrumTrainer, now: Double) {
     }
 }
 
+private val Amber = Color(0xFFFFB020)
+private val Red = Color(0xFFFF453A)
+
+/** 底部的大按钮：主按钮是主色渐变，次按钮是主色淡底、主色字（和 iOS 版“听示范 / 跟我练”一致）。 */
+@Composable
+private fun ActionButton(label: String, primary: Boolean, modifier: Modifier, onClick: () -> Unit) {
+    val c = AppTheme.colors
+    Box(
+        modifier.height(56.dp).clip(RoundedCornerShape(16.dp))
+            .background(if (primary) c.accentBrush else Brush.verticalGradient(listOf(c.accent.copy(alpha = 0.18f), c.accent.copy(alpha = 0.18f))))
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) { Text(label, color = if (primary) Color.White else c.accent, fontSize = 17.sp, fontWeight = FontWeight.SemiBold) }
+}
+
+private fun scoreColor(score: Int, c: com.example.tunebeatchord.ui.theme.AppColors) = if (score >= 85) c.green else if (score >= 60) Amber else Red
+
+/** 成绩卡片（iOS 版的结果页）：平均分、每遍的柱、准偏漏多扫四格、最后一遍每个和弦的逐格结果、平均偏差和稳定度、建议、按和弦的分数、换和弦后第一下。 */
 @Composable
 private fun ResultCard(result: StrumResult, naming: NoteNaming, strings: Strings) {
     val c = AppTheme.colors
     val combined = result.combined ?: return
+    val passes = result.run.passes
+    val rhythm = result.timeline.pattern
     Box(Modifier.padding(horizontal = 20.dp, vertical = 8.dp)) {
-        Card(Modifier.fillMaxWidth()) {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        com.example.tunebeatchord.ui.components.CardBox(Modifier.fillMaxWidth(), radius = 24.dp) {
+            Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 Row(verticalAlignment = Alignment.Bottom) {
+                    Text(if (passes.size > 1) tr("平均") else "", color = c.sub, fontSize = 15.sp, modifier = Modifier.padding(end = 10.dp, bottom = 12.dp))
                     Text("${result.score}", color = c.accent, fontSize = 64.sp, fontWeight = FontWeight.Bold)
-                    Text(tr("分"), color = c.sub, fontSize = 18.sp, modifier = Modifier.padding(start = 6.dp, bottom = 10.dp))
+                    Text(tr("分"), color = c.sub, fontSize = 18.sp, modifier = Modifier.padding(start = 6.dp, bottom = 14.dp))
+                    Box(Modifier.weight(1f))
+                    result.run.best?.let { Text(strings.t("这个节奏型最好 %lld 分", maxOf(it.second, 0)), color = c.sub, fontSize = 12.sp, textAlign = TextAlign.End, modifier = Modifier.padding(bottom = 16.dp)) }
                 }
-                result.run.best?.let { (k, s) -> if (result.run.passes.size > 1) Text(strings.t("最好一遍：第 %lld 遍 %lld 分", k, s), color = c.sub, fontSize = 14.sp) }
-                if (result.run.passes.size > 1) Text(result.run.passScores.mapIndexed { i, s -> strings.t("第 %lld 遍：%lld 分", i + 1, s) }.joinToString("  ·  "), color = c.sub, fontSize = 13.sp)
-                Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                    Stat(tr("准"), combined.good, c.green); Stat(tr("偏"), combined.off, c.accent); Stat(tr("漏"), combined.missed, c.dim); Stat(tr("多扫"), combined.extras.size, c.dim)
+                if (passes.size > 1) {
+                    Row(Modifier.fillMaxWidth().height(52.dp), horizontalArrangement = Arrangement.spacedBy(5.dp), verticalAlignment = Alignment.Bottom) {
+                        result.run.passScores.forEachIndexed { i, sc ->
+                            Box(
+                                Modifier.weight(1f).height(maxOf(6, (sc / 100f * 52).toInt()).dp).clip(RoundedCornerShape(4.dp))
+                                    .background(if (i == passes.lastIndex) c.accent else c.accentSoft),
+                            )
+                        }
+                    }
+                    Text(
+                        strings.plural("共 %lld 遍", passes.size) + "    " + (result.run.best?.let { strings.t("最好一遍：第 %lld 遍 %lld 分", it.first, it.second) } ?: ""),
+                        color = c.sub, fontSize = 12.sp,
+                    )
                 }
-                combined.meanOffsetMs?.let { m ->
-                    val text = if (abs(m) < 8) tr("刚好") else if (m > 0) strings.t("偏慢 %lld 毫秒", m.roundToInt()) else strings.t("偏快 %lld 毫秒", abs(m).roundToInt())
-                    Text(tr("平均") + "：" + text, color = c.text, fontSize = 15.sp)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    StatTile(combined.good, tr("准"), c.green, Modifier.weight(1f))
+                    StatTile(combined.off, tr("偏"), Amber, Modifier.weight(1f))
+                    StatTile(combined.missed, tr("漏"), Red, Modifier.weight(1f))
+                    StatTile(combined.extras.size, tr("多扫"), c.sub, Modifier.weight(1f))
                 }
-                combined.spreadMs?.let { Text(tr("稳定度") + "：" + strings.t("±%lld 毫秒", it.roundToInt()), color = c.text, fontSize = 15.sp) }
-                Text(strings.advice(combined.advice), color = c.accent, fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
+                // 最后一遍：每个和弦一行，每格按准偏漏上色
+                val last = passes.lastOrNull()
+                if (last != null) {
+                    Text(if (passes.size > 1) tr("最后一遍") else tr("最后一遍"), color = c.sub, fontSize = 13.sp)
+                    val bars = last.hits.map { it.bar }.distinct().sorted()
+                    val plan = com.example.tunebeatchord.strum.ProgressionPlan.of(result.progression, minBars = StrumTrainer.MIN_PRACTICE_BARS)
+                    for (bar in bars) {
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Text(noteAnnotated(result.names.getOrElse(plan.chordIndex(bar)) { "" }), color = c.sub, fontSize = 13.sp, maxLines = 1, modifier = Modifier.width(34.dp))
+                            for (step in 0 until rhythm.cells.size) {
+                                val hit = last.hits.firstOrNull { it.bar == bar && it.step == step }
+                                val cell = rhythm.cells[step]
+                                val tone = when (hit?.grade) {
+                                    StrumScore.Grade.GOOD -> c.green
+                                    StrumScore.Grade.OFF -> Amber
+                                    StrumScore.Grade.MISSED -> Red
+                                    null -> c.dim
+                                }
+                                Box(
+                                    Modifier.weight(1f).height(30.dp).clip(RoundedCornerShape(7.dp))
+                                        .background(if (hit == null) Color.Transparent else tone.copy(alpha = 0.22f))
+                                        .then(if (hit == null) Modifier.border(1.dp, c.dim.copy(alpha = 0.6f), RoundedCornerShape(7.dp)) else Modifier),
+                                    contentAlignment = Alignment.Center,
+                                ) { if (hit != null) Text(cell.arrow, color = tone, fontSize = 15.sp, fontWeight = FontWeight.Bold) }
+                            }
+                        }
+                    }
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                    combined.meanOffsetMs?.let { m ->
+                        val text = if (abs(m) < 8) tr("刚好") else if (m > 0) strings.t("偏慢 %lld 毫秒", m.roundToInt()) else strings.t("偏快 %lld 毫秒", abs(m).roundToInt())
+                        Row { Text(tr("平均") + " ", color = c.sub, fontSize = 14.sp); Text(text, color = c.text, fontSize = 14.sp, fontWeight = FontWeight.Bold) }
+                    }
+                    combined.spreadMs?.let {
+                        Row { Text(tr("稳定度") + " ", color = c.sub, fontSize = 14.sp); Text(strings.t("±%lld 毫秒", it.roundToInt()), color = c.text, fontSize = 14.sp, fontWeight = FontWeight.Bold) }
+                    }
+                }
+                Text(strings.advice(combined.advice), color = c.text, fontSize = 15.sp)
                 result.report?.let { rep ->
                     if (rep.segments.size > 1) {
                         Text(tr("按和弦"), color = c.sub, fontSize = 13.sp)
-                        rep.segments.forEach { Text("${it.name}  ${strings.t("%lld 分", it.score)}", color = c.text, fontSize = 15.sp) }
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            rep.segments.forEach { seg ->
+                                Column(
+                                    Modifier.weight(1f).clip(RoundedCornerShape(14.dp)).background(c.card2).padding(vertical = 10.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                ) {
+                                    Text(noteAnnotated(seg.name), color = c.text, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, maxLines = 1)
+                                    Text("${seg.score}", color = scoreColor(seg.score, c), fontSize = 22.sp, fontWeight = FontWeight.SemiBold)
+                                }
+                            }
+                        }
                     }
                     rep.changeMeanMs?.let { m ->
                         val text = if (abs(m) < 8) tr("换和弦后第一下：刚好") else if (m > 0) strings.t("换和弦后第一下：平均偏慢 %lld 毫秒", m.roundToInt()) else strings.t("换和弦后第一下：平均偏快 %lld 毫秒", abs(m).roundToInt())
-                        Text(text, color = c.text, fontSize = 14.sp)
+                        Text(text, color = c.sub, fontSize = 13.sp)
                     }
-                    rep.advice?.let { Text(strings.advice(it), color = c.accent, fontSize = 14.sp) }
+                    rep.advice?.let { Text(strings.advice(it), color = c.accent, fontSize = 15.sp, fontWeight = FontWeight.SemiBold) }
                 }
                 Text(tr("±60 毫秒内算准，±120 毫秒内算偏，再远算漏；多出来的一下扣半格。"), color = c.dim, fontSize = 12.sp)
-                Text(tr("第一版只看扫弦的时间准不准，不判断你实际是上扫还是下扫；箭头是节奏型里该用的扫法。"), color = c.dim, fontSize = 12.sp)
             }
         }
+    }
+}
+
+@Composable
+private fun StatTile(value: Int, label: String, color: Color, modifier: Modifier) {
+    val c = AppTheme.colors
+    Column(modifier.clip(RoundedCornerShape(14.dp)).background(c.card2).padding(vertical = 10.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        Text("$value", color = color, fontSize = 26.sp, fontWeight = FontWeight.SemiBold)
+        Text(label, color = c.sub, fontSize = 13.sp)
     }
 }
 
