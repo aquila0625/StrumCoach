@@ -9,7 +9,7 @@ app = os.path.dirname(os.path.dirname(here))           # Metronome/app
 metronome = os.path.dirname(app)                        # Metronome
 LANGS = ["zh-Hant", "en", "ja", "ko", "es", "fr", "de", "pt-BR", "it", "ru", "tr"]
 CATALOGS = {
-    "Wenpai": os.path.join(app, "Wenpai/Resources/Localizable.xcstrings"),
+    "TuneBeatChord": os.path.join(app, "TuneBeatChord/Resources/Localizable.xcstrings"),
     "MetronomeCore": os.path.join(app, "MetronomeCore/Sources/MetronomeCore/Resources/Localizable.xcstrings"),
     "TunerKit": os.path.join(metronome, "Packages/TunerKit/Sources/TunerKit/Resources/Localizable.xcstrings"),
     "ChordKit": os.path.join(metronome, "Packages/ChordKit/Sources/ChordKit/Resources/Localizable.xcstrings"),
@@ -87,12 +87,12 @@ def read_strings(path):
     return out
 
 
-en_name = read_strings(os.path.join(app, "Wenpai/en.lproj/InfoPlist.strings")).get("CFBundleDisplayName", "StrumCoach")
-zh_name = read_strings(os.path.join(app, "Wenpai/zh-Hans.lproj/InfoPlist.strings")).get("CFBundleDisplayName")
+en_name = read_strings(os.path.join(app, "TuneBeatChord/en.lproj/InfoPlist.strings")).get("CFBundleDisplayName", "TuneBeatChord")
+zh_name = read_strings(os.path.join(app, "TuneBeatChord/zh-Hans.lproj/InfoPlist.strings")).get("CFBundleDisplayName")
 for l, text in mic.items():
-    path = os.path.join(app, f"Wenpai/{l}.lproj/InfoPlist.strings")
+    path = os.path.join(app, f"TuneBeatChord/{l}.lproj/InfoPlist.strings")
     current = read_strings(path)
-    fallback = {"zh-Hans": zh_name, "zh-Hant": "掃弦教練" if zh_name == "扫弦教练" else zh_name}.get(l) or en_name
+    fallback = {"zh-Hans": zh_name, "zh-Hant": "調音節拍和弦庫" if zh_name == "调音节拍和弦库" else zh_name}.get(l) or en_name
     name = current.get("CFBundleDisplayName") or fallback
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:

@@ -1,4 +1,4 @@
-name: Wenpai
+name: TuneBeatChord
 options:
   bundleIdPrefix: com.example
   deploymentTarget:
@@ -22,11 +22,11 @@ settings:
     MARKETING_VERSION: "1.0"
     CURRENT_PROJECT_VERSION: "2"
 targets:
-  Wenpai:
+  TuneBeatChord:
     type: application
     platform: iOS
     sources:
-      - path: Wenpai
+      - path: TuneBeatChord
     dependencies:
       - package: MetronomeCore
       - package: PracticeKit
@@ -34,9 +34,9 @@ targets:
       - package: TunerKit
       - package: ChordKit
     info:
-      path: Wenpai/Info.plist
+      path: TuneBeatChord/Info.plist
       properties:
-        CFBundleDisplayName: 扫弦教练
+        CFBundleDisplayName: 调音节拍和弦库
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         # 12 种界面语言。开发语言（String Catalog 的源语言）是简体中文；
@@ -54,34 +54,34 @@ targets:
         ITSAppUsesNonExemptEncryption: false
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.strumcoach
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.tunebeatchord
         TARGETED_DEVICE_FAMILY: "1,2"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         CODE_SIGN_STYLE: Automatic
         ENABLE_PREVIEWS: YES
         SWIFT_EMIT_LOC_STRINGS: YES
         LOCALIZATION_PREFERS_STRING_CATALOGS: YES
-  WenpaiTests:
+  TuneBeatChordTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - path: WenpaiTests
+      - path: TuneBeatChordTests
     dependencies:
-      - target: Wenpai
+      - target: TuneBeatChord
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
 schemes:
-  Wenpai:
+  TuneBeatChord:
     build:
       targets:
-        Wenpai: all
+        TuneBeatChord: all
     run:
       config: Debug
     test:
       config: Debug
       targets:
-        - WenpaiTests
+        - TuneBeatChordTests
         - package: MetronomeCore/MetronomeCoreTests
         - package: PracticeKit/RhythmKitTests
         - package: PracticeKit/PracticeKitTests

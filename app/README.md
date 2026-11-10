@@ -1,6 +1,6 @@
-# StrumCoach / 扫弦教练 iOS App
+# TuneBeatChord / 调音节拍和弦库 iOS App
 
-原生 Swift + SwiftUI，iOS 17+，iPhone 和 iPad（iPad 上按 iPhone 排版整体放大）。工程和 target 名沿用早期代号 Wenpai。
+原生 Swift + SwiftUI，iOS 17+，iPhone 和 iPad（iPad 上按 iPhone 排版整体放大）。
 
 五个标签：训练、节拍器、调音器、和弦库、我的，另有设置页。全部功能免费，不联网、不收集数据。
 
@@ -10,7 +10,7 @@
 
 ```
 app/
-├── project.yml                 XcodeGen 工程描述（Wenpai.xcodeproj 由它生成，不入库）
+├── project.yml                 XcodeGen 工程描述（TuneBeatChord.xcodeproj 由它生成，不入库）
 ├── MetronomeCore/              节拍引擎（纯逻辑 Swift 包，依赖 PracticeKit）
 │   ├── Sources/MetronomeCore/
 │   │   ├── Model.swift         音频线程用的配置快照 MetronomeConfig；对 RhythmKit 类型的扩展；重音预设；音色
@@ -21,8 +21,8 @@ app/
 │   │   └── LockedValue.swift   界面线程 ↔ 音频线程传值（音频线程只 trylock）
 │   └── Tests/MetronomeCoreTests/  42 个测试，含 4 个 10 分钟离线渲染
 ├── tools/l10n/       多语言：抽取词条、译文、校验、合成 .xcstrings、截图脚本
-├── WenpaiTests/      App 集成测试：乐器联动、训练方案、练习记录、扫弦评分、多语言
-├── Wenpai/
+├── TuneBeatChordTests/      App 集成测试：乐器联动、训练方案、练习记录、扫弦评分、多语言
+├── TuneBeatChord/
 │   ├── App/        入口、标签定义 AppTab.swift、根视图（标签切换、乐器联动、音频会话交接）、AppModel（设置/路由/演示数据）
 │   ├── Theme/      主题令牌（深/浅）、浅色渐变背景、图标和音符绘制
 │   ├── Engine/     AVAudioEngine 宿主、Core Haptics、锁屏控制、MetronomeController、训练选项
@@ -51,14 +51,14 @@ app/
 ```bash
 cd app
 xcodegen generate
-open Wenpai.xcodeproj
+open TuneBeatChord.xcodeproj
 ```
 
-命令行编译、跑测试（`Wenpai` 方案的测试包含 App 集成测试 WenpaiTests 和 MetronomeCore、RhythmKit、PracticeKit、TunerKit、ChordKit 的测试）：
+命令行编译、跑测试（`TuneBeatChord` 方案的测试包含 App 集成测试 TuneBeatChordTests 和 MetronomeCore、RhythmKit、PracticeKit、TunerKit、ChordKit 的测试）：
 
 ```bash
-xcodebuild -project Wenpai.xcodeproj -scheme Wenpai -destination 'platform=iOS Simulator,name=<模拟器名>' -derivedDataPath build/DerivedData build
-xcodebuild -project Wenpai.xcodeproj -scheme Wenpai -destination 'platform=iOS Simulator,name=<模拟器名>' -derivedDataPath build/DerivedData test
+xcodebuild -project TuneBeatChord.xcodeproj -scheme TuneBeatChord -destination 'platform=iOS Simulator,name=<模拟器名>' -derivedDataPath build/DerivedData build
+xcodebuild -project TuneBeatChord.xcodeproj -scheme TuneBeatChord -destination 'platform=iOS Simulator,name=<模拟器名>' -derivedDataPath build/DerivedData test
 ```
 
 也可以在每个包目录里直接 `swift test`（macOS 上跑，不需要模拟器）：
@@ -70,11 +70,11 @@ cd MetronomeCore && swift test
 装到模拟器并启动：
 
 ```bash
-xcrun simctl install booted build/DerivedData/Build/Products/Debug-iphonesimulator/Wenpai.app
-xcrun simctl launch booted com.example.strumcoach
+xcrun simctl install booted build/DerivedData/Build/Products/Debug-iphonesimulator/TuneBeatChord.app
+xcrun simctl launch booted com.example.tunebeatchord
 ```
 
-真机：在 Xcode 里给 Wenpai target 选自己的 Team，并把 `project.yml` 里的 `PRODUCT_BUNDLE_IDENTIFIER`（现在是占位的 `com.example.strumcoach`）改成你自己的。触感反馈、麦克风调音只有真机才能完整验证。
+真机：在 Xcode 里给 TuneBeatChord target 选自己的 Team，并把 `project.yml` 里的 `PRODUCT_BUNDLE_IDENTIFIER`（现在是占位的 `com.example.tunebeatchord`）改成你自己的。触感反馈、麦克风调音只有真机才能完整验证。
 
 ### 截图用的启动参数
 
@@ -119,7 +119,7 @@ xcrun simctl launch booted com.example.strumcoach
 
 ## 扫弦节奏型（训练页）
 
-训练页第一张卡片进入（`Wenpai/Features/Strum/`）：选乐器、编和弦进行（可以只有一个和弦）、选节奏型、调速度（默认跟随节拍器 BPM），然后：
+训练页第一张卡片进入（`TuneBeatChord/Features/Strum/`）：选乐器、编和弦进行（可以只有一个和弦）、选节奏型、调速度（默认跟随节拍器 BPM），然后：
 
 乐器不写死：凡是 ChordKit 标记为可扫弦的乐器（`ChordLibrary.strummableInstruments`，现在是吉他和尤克里里）都会出现，以后 ChordKit 加了曼陀林、班卓琴等会自动出现。
 
@@ -153,15 +153,15 @@ xcrun simctl launch booted com.example.strumcoach
 
 12 种界面语言：简体中文（开发语言）、繁體中文、English、日本語、한국어、Español、Français、Deutsch、Português（巴西）、Italiano、Русский、Türkçe。**译文由 AI 生成，欢迎母语者校对。**
 
-- **String Catalog**：App 是 `Wenpai/Resources/Localizable.xcstrings`；MetronomeCore、TunerKit、ChordKit 各自是 `Sources/<包>/Resources/Localizable.xcstrings`，包里用 `Bundle.module` 查。键一律是简体中文原文（命令行 `swift test` 编不编 catalog 都能显示中文）。PracticeKit 没有面向用户的文字（模式名由 App 配）。
+- **String Catalog**：App 是 `TuneBeatChord/Resources/Localizable.xcstrings`；MetronomeCore、TunerKit、ChordKit 各自是 `Sources/<包>/Resources/Localizable.xcstrings`，包里用 `Bundle.module` 查。键一律是简体中文原文（命令行 `swift test` 编不编 catalog 都能显示中文）。PracticeKit 没有面向用户的文字（模式名由 App 配）。
 - **回退**：`CFBundleDevelopmentRegion` 是 `en`，用户的语言都不在列表里时显示英文；开发语言（catalog 的源语言）仍是简体中文。包内的 `L10n.bundle` 跟随 App 主界面实际用的语言，避免 App 回退英文而包回退中文。
-- **权限说明、App 名**：`Wenpai/<语言>.lproj/InfoPlist.strings`。简体“扫弦教练”、繁体“掃弦教練”，其他语言用 “StrumCoach”。
+- **权限说明、App 名**：`TuneBeatChord/<语言>.lproj/InfoPlist.strings`。简体“调音节拍和弦库”、繁体“調音節拍和弦庫”，其他语言用 “TuneBeatChord”。
 - **速度术语**：意大利文不变，前面加本地名称（中文“快板 Allegro”、日文“アレグロ Allegro”、德文“schnell Allegro”）；英文、意大利文只显示意大利文。
 - **音名显示**（设置页）：字母（C D E）或唱名（Do Re Mi）。法、意、西、葡、俄默认唱名，其他默认字母；唱名按语言拼写（法 Ré、葡 Lá、俄 Ля）；德语字母写法 B → H、B♭ → B。实现是 TunerKit 的 `NoteNaming`，通过环境值 `\.noteNaming` 注入，调音器（音名、弦、参考音、A4）、和弦库（根音、和弦名、组成音、指法图下的音名、读屏文字）都遵守，和弦名如 Rem、Sol7、Hm。
-- **复数**：小节数（`%lld 小节`）在 String Catalog 里有复数变体，按各语言的 CLDR 规则写（俄语 one/few/many：1 такт、2 такта、5 тактов；法、西、葡、意 one/many/other；中日韩土只有一种）。带数量的句子不直接写数字，而是把 `Units.bars(n)`（“N 小节”）或 `Units.minutes(n)`（系统时长格式）整体嵌进去，所以德语是 “1 Takt stumm”。`translations/<语言>.json` 里复数词条的值写成 `{"one": …, "few": …, "many": …, "other": …}`。测试见 `WenpaiTests/LocalizationTests.swift` 的 `PluralTests`。
+- **复数**：小节数（`%lld 小节`）在 String Catalog 里有复数变体，按各语言的 CLDR 规则写（俄语 one/few/many：1 такт、2 такта、5 тактов；法、西、葡、意 one/many/other；中日韩土只有一种）。带数量的句子不直接写数字，而是把 `Units.bars(n)`（“N 小节”）或 `Units.minutes(n)`（系统时长格式）整体嵌进去，所以德语是 “1 Takt stumm”。`translations/<语言>.json` 里复数词条的值写成 `{"one": …, "few": …, "many": …, "other": …}`。测试见 `TuneBeatChordTests/LocalizationTests.swift` 的 `PluralTests`。
 - **数字和日期**：时长用 `Duration` 的格式化（“3 小时 25 分钟”“3 hr, 25 min”），连续天数、日期、百分比、频率小数点都用系统格式化；星期用日历的本地符号。
 - **排版**：标签栏、卡片说明、分段按钮、切分名、提示文字都允许换两行或按比例缩小（`lineLimit` + `minimumScaleFactor`），德语、俄语截图检查过没有截断。暂不支持从右到左的语言。
-- **语言设置（App 内切换）**：设置页“语言”一项显示当前语言的国旗和名字，点开是语言列表：“跟随系统”加 12 种语言，每种配国旗（繁体中文用香港旗、英文用美国旗、巴西葡语用巴西旗），选完**立即生效**，不用重启、不跳系统设置。实现见 `Wenpai/App/AppLanguage.swift`：
+- **语言设置（App 内切换）**：设置页“语言”一项显示当前语言的国旗和名字，点开是语言列表：“跟随系统”加 12 种语言，每种配国旗（繁体中文用香港旗、英文用美国旗、巴西葡语用巴西旗），选完**立即生效**，不用重启、不跳系统设置。实现见 `TuneBeatChord/App/AppLanguage.swift`：
   - 选择写进 App 自己的 `AppleLanguages`（下次启动系统也按它加载），“跟随系统”就删掉这个键；
   - App 里的 `String(localized:)` 都带 `bundle: .appLanguage, locale: .appLanguage`，从选中语言的 lproj 取文字、按它的复数规则；
   - 根视图注入 `\.locale`，SwiftUI 的 `Text("…")` 跟着变；根视图内容、设置页、语言列表按语言加 `.id`，换语言时整页重建；
@@ -173,7 +173,7 @@ xcrun simctl launch booted com.example.strumcoach
 
 ```bash
 # 1. 编译一次，从编译产物抽取词条
-xcodebuild -project Wenpai.xcodeproj -scheme Wenpai -destination 'platform=iOS Simulator,name=<模拟器名>' -derivedDataPath build/DerivedData build
+xcodebuild -project TuneBeatChord.xcodeproj -scheme TuneBeatChord -destination 'platform=iOS Simulator,name=<模拟器名>' -derivedDataPath build/DerivedData build
 python3 -I tools/l10n/extract.py build/DerivedData tools/l10n/keys.json
 python3 -I tools/l10n/make_source.py tools/l10n/keys.json tools/l10n/source.json tools/l10n/entries.json
 # 2. 补 tools/l10n/translations/<语言>.json（译者说明见 TRANSLATOR_BRIEF.md），校验占位符
