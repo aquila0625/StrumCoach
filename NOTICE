@@ -9,3 +9,6 @@ Packages/TunerKit/Sounds/LICENSES.md for sources and terms:
 - Karoryfer Samples "Shinyguitar" and "Black And Blue Basses" (CC0 1.0)
 - Freesound user zhankster, Ukulele-* series (CC0)
 - University of Iowa Electronic Music Studios, Musical Instrument Samples
+
+The Android app (android/) ships the same recordings, converted to OGG Vorbis, in
+android/app/src/main/assets/samples/ with the same terms; see LICENSES.md in that folder.
