@@ -27,6 +27,7 @@ import com.example.tunebeatchord.AppContainer
 import com.example.tunebeatchord.i18n.tr
 import com.example.tunebeatchord.ui.chords.ChordLibraryScreen
 import com.example.tunebeatchord.ui.metronome.MetronomeScreen
+import com.example.tunebeatchord.ui.tuner.TunerScreen
 import com.example.tunebeatchord.ui.components.ScreenBackground
 import com.example.tunebeatchord.ui.components.TabIcon
 import com.example.tunebeatchord.ui.components.TabIconView
@@ -50,6 +51,7 @@ fun AppRoot(container: AppContainer) {
             Box(Modifier.weight(1f).fillMaxWidth().statusBarsPadding()) {
                 when (current) {
                     AppTab.METRONOME -> MetronomeScreen(container.metronome)
+                    AppTab.TUNER -> TunerScreen(container.tuner, container.settings, active = true, onEnter = { container.metronome.stop() })
                     AppTab.CHORDS -> ChordLibraryScreen(container.chordLibrary, container.settings)
                     else -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { Text(tr(current.key), color = c.text, fontSize = 24.sp) }
                 }

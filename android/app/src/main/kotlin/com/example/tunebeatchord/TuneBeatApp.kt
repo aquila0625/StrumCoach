@@ -11,6 +11,9 @@ import com.example.tunebeatchord.practice.PracticeLog
 import com.example.tunebeatchord.settings.FileStore
 import com.example.tunebeatchord.settings.PrefsStore
 import com.example.tunebeatchord.settings.Settings
+import com.example.tunebeatchord.tuner.InstrumentSelection
+import com.example.tunebeatchord.tuner.TunerController
+import com.example.tunebeatchord.tuner.TunerModel
 
 /** 全 App 共用的状态：设置、和弦库选择等。都只存在本机。 */
 class TuneBeatApp : Application() {
@@ -33,6 +36,9 @@ class AppContainer(app: Application) {
     /** 乐器采样库：第一次用到时才从 assets 读 manifest，每段采样用到时才解码。 */
     val sampleBank: SampleBank? by lazy {
         runCatching { AssetSampleLoader(app).let { loader -> SampleBank(loader.manifestJson(), loader::load) } }.getOrNull()
+    }
+    val tuner: TunerController by lazy {
+        TunerController(engine, { sampleBank }, TunerModel(InstrumentSelection.Default, settings.a4, PrefsStore(app, "tuner")))
     }
     val chordSound: ChordSound by lazy { ChordSound(engine, sampleBank) }
 }
