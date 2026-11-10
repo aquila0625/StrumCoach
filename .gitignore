@@ -14,3 +14,17 @@ app/TuneBeatChord.xcodeproj/
 *.mobileprovision
 *.cer
 .env
+
+# Android
+android/.gradle/
+android/**/build/
+android/.kotlin/
+android/local.properties
+android/captures/
+android/.idea/
+*.iml
+*.jks
+*.keystore
+*.apk
+*.aab
+*.hprof
