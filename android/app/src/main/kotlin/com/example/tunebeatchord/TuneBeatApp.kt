@@ -35,7 +35,15 @@ class AppContainer(app: Application) {
     val chordLibrary = ChordLibraryState(PrefsStore(app, "chords"))
     val engine = AudioEngine(app)
     val practiceLog = PracticeLog(FileStore(java.io.File(app.filesDir, "practice")))
-    val metronome = MetronomeController(engine, PrefsStore(app, "metronome"), practiceLog)
+    val metronome = MetronomeController(engine, PrefsStore(app, "metronome"), practiceLog).also { m ->
+        val vibrator = app.getSystemService(android.os.Vibrator::class.java)
+        m.onMainBeat = { beat ->
+            // 跟拍震动：首拍重一点
+            if (settings.vibrateOnBeat && vibrator?.hasVibrator() == true) {
+                vibrator.vibrate(android.os.VibrationEffect.createOneShot(if (beat == 0) 28 else 16, if (beat == 0) 200 else 110))
+            }
+        }
+    }
 
     /** 乐器采样库：第一次用到时才从 assets 读 manifest，每段采样用到时才解码。 */
     val sampleBank: SampleBank? by lazy {

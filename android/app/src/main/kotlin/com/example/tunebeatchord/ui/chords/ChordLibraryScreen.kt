@@ -49,6 +49,8 @@ import com.example.tunebeatchord.ui.components.Chip
 import com.example.tunebeatchord.ui.components.ScreenTitle
 import com.example.tunebeatchord.ui.components.Section
 import com.example.tunebeatchord.ui.components.Segmented
+import com.example.tunebeatchord.ui.components.chordAnnotated
+import com.example.tunebeatchord.ui.components.noteAnnotated
 import com.example.tunebeatchord.ui.theme.AppTheme
 
 /** 和弦库：选乐器、根音、类型，看指法图，翻把位，收藏。 */
@@ -113,9 +115,12 @@ private fun ChordHeader(state: ChordLibraryState, naming: NoteNaming, onPlay: ((
     val favLabel = if (state.isFavorite) tr("取消收藏") else tr("收藏当前按法")
     Row(verticalAlignment = Alignment.CenterVertically) {
         Column(Modifier.weight(1f)) {
-            Text(naming.chordName(state.chord), color = c.text, fontSize = 36.sp, fontWeight = FontWeight.Bold)
             Text(
-                tr("组成音") + " " + naming.toneNames(state.chord).joinToString(" · "),
+                chordAnnotated(naming.rootName(state.chord), state.chord.type.symbol, 40.sp, 28.sp),
+                color = c.text, fontWeight = FontWeight.Bold,
+            )
+            Text(
+                noteAnnotated(tr("组成音") + " " + naming.toneNames(state.chord).joinToString(" · ")),
                 color = c.sub, fontSize = 14.sp,
             )
         }

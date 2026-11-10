@@ -12,3 +12,7 @@ Packages/TunerKit/Sounds/LICENSES.md for sources and terms:
 
 The Android app (android/) ships the same recordings, converted to OGG Vorbis, in
 android/app/src/main/assets/samples/ with the same terms; see LICENSES.md in that folder.
+
+The Android app also bundles a three-glyph subset (flat, natural, sharp signs) of
+Noto Sans Symbols in android/app/src/main/res/font/note_accidentals.ttf, licensed under
+the SIL Open Font License 1.1 (Copyright 2013 Google Inc.).

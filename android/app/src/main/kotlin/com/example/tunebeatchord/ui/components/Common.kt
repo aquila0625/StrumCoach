@@ -86,28 +86,31 @@ fun Chip(
         contentAlignment = Alignment.Center,
     ) {
         Text(
-            text, color = if (selected) c.onAccent else c.text, fontSize = fontSize.sp,
+            noteAnnotated(text), color = if (selected) c.onAccent else c.text, fontSize = fontSize.sp,
             fontWeight = if (selected) FontWeight.Bold else FontWeight.Medium, maxLines = 1,
         )
     }
 }
 
-/** 分段控件（吉他 / 贝斯 / 尤克里里 这种）。 */
+/** 分段控件（iOS 版的 Segmented）：浅色底圆角 12、内边距 3，选中的那段是主色圆角 9。 */
 @Composable
 fun Segmented(items: List<String>, selectedIndex: Int, onSelect: (Int) -> Unit, modifier: Modifier = Modifier) {
     val c = AppTheme.colors
     Row(
-        modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp)).background(c.card).padding(4.dp),
-        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(4.dp),
+        modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(c.card2).padding(3.dp),
     ) {
         items.forEachIndexed { i, label ->
+            val on = i == selectedIndex
             Box(
-                Modifier.weight(1f).height(44.dp).clip(RoundedCornerShape(14.dp))
-                    .background(if (i == selectedIndex) c.accentBrush else Brush.verticalGradient(listOf(Color.Transparent, Color.Transparent)))
-                    .clickable(role = Role.Tab) { onSelect(i) },
+                Modifier.weight(1f).height(38.dp).clip(RoundedCornerShape(9.dp))
+                    .background(if (on) c.accentBrush else Brush.verticalGradient(listOf(Color.Transparent, Color.Transparent)))
+                    .clickable(role = Role.Tab) { onSelect(i) }.padding(horizontal = 4.dp),
                 contentAlignment = Alignment.Center,
             ) {
-                Text(label, color = if (i == selectedIndex) c.onAccent else c.sub, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+                Text(
+                    noteAnnotated(label), color = if (on) Color.White else c.sub, fontSize = 16.sp,
+                    fontWeight = if (on) FontWeight.SemiBold else FontWeight.Normal, maxLines = 2, textAlign = androidx.compose.ui.text.style.TextAlign.Center, lineHeight = 17.sp,
+                )
             }
         }
     }

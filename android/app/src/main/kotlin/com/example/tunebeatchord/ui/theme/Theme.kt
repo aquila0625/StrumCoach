@@ -38,6 +38,8 @@ class AppColors(
     val green: Color,
     val tabBg: Color,
     val sheet: Color,
+    val sheetCard: Color,
+    val tick: Color,
     val weakNow: Color,
     val scrim: Color,
     val onAccent: Color,
@@ -55,7 +57,7 @@ val DarkColors = AppColors(
     accent = Color(0xFFFF7A1A), accentLight = Color(0xFFFF8E3A), accentDark = Color(0xFFF26B0F),
     accentTint = Color(0xFFFF7A1A).copy(alpha = 0.10f), accentSoft = Color(0xFFFF7A1A).copy(alpha = 0.35f),
     weak = Color(0xFF3A3D45), track = Color(0xFF23262C), green = Color(0xFF34C759),
-    tabBg = Color(0xFF141519).copy(alpha = 0.96f), sheet = Color(0xFF17191D),
+    tabBg = Color(0xFF141519).copy(alpha = 0.96f), sheet = Color(0xFF17191D), sheetCard = Color(0xFF1A1C21), tick = Color(0xFF33363D),
     weakNow = Color(0xFF7A7F8C), scrim = Color.Black.copy(alpha = 0.55f), onAccent = Color(0xFF1A0E04),
 )
 
@@ -68,7 +70,7 @@ val LightColors = AppColors(
     accent = Color(0xFFF26B0F), accentLight = Color(0xFFFF8A3A), accentDark = Color(0xFFE85F06),
     accentTint = Color(0xFFF26B0F).copy(alpha = 0.09f), accentSoft = Color(0xFFF26B0F).copy(alpha = 0.28f),
     weak = Color(0xFFD8D5D0), track = Color(0xFFECEAE6), green = Color(0xFF28A745),
-    tabBg = Color(0xFFFFFCF8).copy(alpha = 0.92f), sheet = Color(0xFFFFFFFF),
+    tabBg = Color(0xFFFFFCF8).copy(alpha = 0.92f), sheet = Color(0xFFFFFFFF), sheetCard = Color(0xFFF3F1EE), tick = Color(0xFFDCD9D4),
     weakNow = Color(0xFFA8A49D), scrim = Color(0xFF141414).copy(alpha = 0.28f), onAccent = Color(0xFFFFFFFF),
 )
 

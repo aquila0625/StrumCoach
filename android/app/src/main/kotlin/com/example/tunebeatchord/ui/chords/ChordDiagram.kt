@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.example.tunebeatchord.chord.BassPositions
 import com.example.tunebeatchord.chord.Chord
 import com.example.tunebeatchord.chord.ChordVoicing
+import com.example.tunebeatchord.ui.components.NotePaints
 import com.example.tunebeatchord.ui.theme.AppTheme
 
 // 版式（dp）：和 iOS 版的指法图一致
@@ -49,7 +50,9 @@ fun ChordDiagram(
     description: String,
     modifier: Modifier = Modifier,
 ) {
+    val context = androidx.compose.ui.platform.LocalContext.current
     val c = AppTheme.colors
+    val notePaints = androidx.compose.runtime.remember { NotePaints(context) }
     val n = voicing.stringCount
     val w = X0 * 2 + GAP_X * (n - 1)
     val h = Y0 + GAP_Y * ROWS + 34
@@ -113,9 +116,9 @@ fun ChordDiagram(
         for (i in 0 until n) {
             val p = voicing.pitches[i] ?: continue
             val isRoot = p.pitchClass == chord.root
-            drawContext.canvas.nativeCanvas.drawText(
-                noteName(p.pitchClass), x(i), (Y0 + GAP_Y * ROWS + 24) * d,
-                nativePaint(if (isRoot) c.accent else c.sub, 14 * d, bold = isRoot),
+            notePaints.draw(
+                drawContext.canvas.nativeCanvas, noteName(p.pitchClass), x(i), (Y0 + GAP_Y * ROWS + 24) * d, 14 * d,
+                (if (isRoot) c.accent else c.sub).toArgb(), isRoot,
             )
         }
     }

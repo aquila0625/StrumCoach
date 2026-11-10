@@ -89,8 +89,15 @@ class MetronomeController(
     var liveBpm by mutableStateOf(120.0); private set
     var liveBar by mutableStateOf(0); private set
 
+    /** 计时：播放时累计的秒数（点“计时”按钮清零）。 */
+    var elapsedSeconds by mutableStateOf(0); private set
+
     /** 最近一次自动停止的原因，界面显示一句提示后清掉。 */
     var notice by mutableStateOf<Notice?>(null)
+
+    /** 每个主拍响起时回调一次（跟拍震动用）。参数是小节内第几拍。 */
+    var onMainBeat: ((Int) -> Unit)? = null
+    private var lastMainKey = -1L
 
     enum class Notice { RAMP_FINISHED, TIMER_REACHED_STOPPED, TIMER_REACHED }
 
@@ -161,9 +168,12 @@ class MetronomeController(
         val e = engine ?: return
         if (isPlaying) return
         notice = null
+        lastMainKey = -1L
         e.add(source)
         source.start(config)
         isPlaying = true
+        timerCarry = elapsedSeconds.toDouble()
+        timerBaseNanos = clockNanos()
         startedAtMillis = wallClockMillis()
         startedAtNanos = clockNanos()
         val bpm = config.training?.bpm(0) ?: config.bpm.toInt()
@@ -193,9 +203,15 @@ class MetronomeController(
         if (source.finished) {
             stop(Notice.RAMP_FINISHED); return
         }
+        val secs = timerCarry + (nowNanos - timerBaseNanos) / 1e9
+        if (secs.toInt() != elapsedSeconds) elapsedSeconds = secs.toInt()
         var best: PlayedClick? = null
         for (c in source.recentClicks()) if (e.frameToNanos(c.engineFrame) <= nowNanos) best = c
         if (best != null) {
+            if (best.subIndex == 0 && !best.muted) {
+                val key = best.bar.toLong() * 100 + best.beatInBar
+                if (key != lastMainKey) { lastMainKey = key; onMainBeat?.invoke(best.beatInBar) }
+            }
             currentBeat = best.beatInBar
             currentSub = best.subIndex
             liveBpm = best.bpm
@@ -203,6 +219,15 @@ class MetronomeController(
             noteBpm(best.bpm)
         }
     }
+
+    fun resetTimer() {
+        elapsedSeconds = 0
+        timerCarry = 0.0
+        timerBaseNanos = clockNanos()
+    }
+
+    private var timerBaseNanos = 0L
+    private var timerCarry = 0.0
 
     private fun noteBpm(bpm: Double) {
         val b = Math.round(bpm).toInt()

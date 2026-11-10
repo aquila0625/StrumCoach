@@ -1,22 +1,27 @@
 package com.example.tunebeatchord.ui.profile
 
-import androidx.compose.foundation.Canvas
+import android.icu.text.MeasureFormat
+import android.icu.util.Measure
+import android.icu.util.MeasureUnit
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,100 +31,319 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tunebeatchord.i18n.LocalStrings
+import com.example.tunebeatchord.i18n.Strings
 import com.example.tunebeatchord.i18n.tr
+import com.example.tunebeatchord.metronome.MetronomeController
 import com.example.tunebeatchord.practice.PracticeLog
+import com.example.tunebeatchord.practice.PracticeSession
 import com.example.tunebeatchord.practice.PracticeStatistics
 import com.example.tunebeatchord.rhythm.PracticeMode
 import com.example.tunebeatchord.settings.AppLanguage
 import com.example.tunebeatchord.settings.NoteNamingPreference
 import com.example.tunebeatchord.settings.Settings
-import com.example.tunebeatchord.ui.components.Card
-import com.example.tunebeatchord.ui.components.Chip
-import com.example.tunebeatchord.ui.components.ScreenTitle
+import com.example.tunebeatchord.tuner.NoteNaming
+import com.example.tunebeatchord.tuner.TunerDefaults
+import com.example.tunebeatchord.ui.components.CardBox
+import com.example.tunebeatchord.ui.components.ChevronRight
+import com.example.tunebeatchord.ui.components.Segmented
+import com.example.tunebeatchord.ui.metronome.AppSheet
+import com.example.tunebeatchord.ui.metronome.SoundSheet
 import com.example.tunebeatchord.ui.theme.AppTheme
 import com.example.tunebeatchord.ui.theme.ThemeMode
 import java.time.DayOfWeek
 import java.time.Instant
+import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
+import java.util.Locale
+import kotlin.math.max
 import kotlin.math.roundToInt
 
-private fun duration(seconds: Double): String {
-    val m = (seconds / 60).roundToInt()
-    return if (m >= 60) "${m / 60}h ${m % 60}m" else "${m}m"
-}
+private val AppLanguage.flag: String
+    get() = when (this) {
+        AppLanguage.SYSTEM -> "🌐"
+        AppLanguage.ZH_HANS -> "🇨🇳"
+        AppLanguage.ZH_HANT -> "🇹🇼"
+        AppLanguage.EN -> "🇺🇸"
+        AppLanguage.JA -> "🇯🇵"
+        AppLanguage.KO -> "🇰🇷"
+        AppLanguage.ES -> "🇪🇸"
+        AppLanguage.FR -> "🇫🇷"
+        AppLanguage.DE -> "🇩🇪"
+        AppLanguage.PT_BR -> "🇧🇷"
+        AppLanguage.IT -> "🇮🇹"
+        AppLanguage.RU -> "🇷🇺"
+        AppLanguage.TR -> "🇹🇷"
+    }
 
-/** 我的：本周时长、连续打卡、近 7 天柱状图、最近练习。节拍器停止时和扫弦跟练结束时自动记一次（不足 30 秒不记）。 */
+private enum class ProfileSheet { HISTORY, LANGUAGE, SOUND }
+
+/** 我的：本周练习、连续打卡和近 7 天迷你柱状图，练习记录入口；偏好设置（外观、语言、音名显示、节拍音色、标准音、跟拍震动、左手模式）和版本。和 iOS 版同一个版式。 */
 @Composable
-fun ProfileScreen(log: PracticeLog, settings: Settings, onOpenSettings: () -> Unit, modifier: Modifier = Modifier) {
+fun ProfileScreen(log: PracticeLog, settings: Settings, metronome: MetronomeController, onLanguageChanged: () -> Unit, modifier: Modifier = Modifier) {
     val c = AppTheme.colors
     val strings = LocalStrings.current
+    var sheet by remember { mutableStateOf<ProfileSheet?>(null) }
     val stats = PracticeStatistics(ZoneId.systemDefault(), DayOfWeek.MONDAY)
     val sessions = log.sessions
     val now = Instant.now()
-    val days = stats.dailyDurations(sessions, now)
-    val maxDay = (days.maxOfOrNull { it.duration } ?: 0.0).coerceAtLeast(60.0)
-    val today = days.lastOrNull()
-    Column(modifier.verticalScroll(rememberScrollState()).padding(bottom = 24.dp)) {
-        ScreenTitle(tr("我的")) {
-            Box(Modifier.size(44.dp).clip(RoundedCornerShape(22.dp)).clickable { onOpenSettings() }, contentAlignment = Alignment.Center) { Text("⚙", color = c.text, fontSize = 24.sp) }
+
+    Column(modifier) {
+        Row(Modifier.fillMaxWidth().height(52.dp).padding(horizontal = 20.dp), verticalAlignment = Alignment.CenterVertically) {
+            Text(tr("我的"), color = c.text, fontSize = 30.sp, fontWeight = FontWeight.Bold)
         }
-        Row(Modifier.padding(horizontal = 20.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            StatCard(tr("本周练习"), duration(stats.weeklyTotal(sessions, now)), Modifier.weight(1f))
-            StatCard(tr("连续打卡"), "${stats.currentStreak(sessions, now)}", Modifier.weight(1f))
-        }
-        Box(Modifier.padding(horizontal = 20.dp, vertical = 12.dp)) {
-            Card(Modifier.fillMaxWidth()) {
-                Column {
-                    Text(strings.t("今天已练 %@", duration(today?.duration ?: 0.0)), color = c.sub, fontSize = 14.sp)
-                    Canvas(Modifier.fillMaxWidth().height(120.dp).padding(top = 12.dp)) {
-                        val slot = size.width / days.size
-                        days.forEachIndexed { i, d ->
-                            val h = (size.height - 8.dp.toPx()) * (d.duration / maxDay).toFloat()
-                            drawRoundRect(if (i == days.lastIndex) c.accent else c.accentSoft, Offset(i * slot + slot * 0.2f, size.height - h.coerceAtLeast(4.dp.toPx())), Size(slot * 0.6f, h.coerceAtLeast(4.dp.toPx())), CornerRadius(6.dp.toPx()))
-                        }
-                    }
-                    Row(Modifier.fillMaxWidth()) {
-                        days.forEach { d -> Text(d.day.dayOfWeek.getDisplayName(java.time.format.TextStyle.NARROW, strings.locale), color = c.dim, fontSize = 12.sp, modifier = Modifier.weight(1f), textAlign = androidx.compose.ui.text.style.TextAlign.Center) }
-                    }
+        Column(Modifier.verticalScroll(rememberScrollState()).padding(horizontal = 20.dp).padding(bottom = 20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            SummaryCard(stats, sessions, now, strings) { sheet = ProfileSheet.HISTORY }
+            Text(tr("偏好设置"), color = c.sub, fontSize = 13.sp, modifier = Modifier.padding(horizontal = 2.dp).padding(top = 2.dp))
+            Preferences(settings, metronome, onLanguage = { sheet = ProfileSheet.LANGUAGE }, onSound = { sheet = ProfileSheet.SOUND })
+            CardBox(Modifier.fillMaxWidth(), radius = 18.dp) {
+                Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp).heightIn(min = 50.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Text(tr("版本"), color = c.text, fontSize = 16.sp, modifier = Modifier.weight(1f))
+                    Text("1.0", color = c.sub, fontSize = 15.sp)
                 }
             }
         }
-        Text(tr("练习历史"), color = c.sub, fontSize = 14.sp, modifier = Modifier.padding(horizontal = 20.dp, vertical = 6.dp))
-        val recent = stats.recent(sessions, 20)
-        if (recent.isEmpty()) {
-            Text(tr("还没有练习记录。播放 30 秒以上会自动记一次。"), color = c.dim, fontSize = 14.sp, modifier = Modifier.padding(horizontal = 20.dp))
+    }
+
+    when (sheet) {
+        ProfileSheet.HISTORY -> AppSheet(tr("练习历史"), { sheet = null }) { HistoryList(stats.recent(sessions, 200), strings) }
+        ProfileSheet.LANGUAGE -> AppSheet(tr("语言"), { sheet = null }) {
+            LanguageList(settings) { picked ->
+                sheet = null
+                if (settings.language != picked) { settings.updateLanguage(picked); onLanguageChanged() }
+            }
         }
-        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withLocale(strings.locale)
-        recent.forEach { s ->
-            Box(Modifier.padding(horizontal = 20.dp, vertical = 4.dp)) {
-                Card(Modifier.fillMaxWidth(), padding = 14.dp) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Column(Modifier.weight(1f)) {
-                            Text(modeTitle(s.mode, strings), color = c.text, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
-                            Text(s.startedAt.atZone(ZoneId.systemDefault()).format(formatter), color = c.sub, fontSize = 13.sp)
-                        }
-                        Column(horizontalAlignment = Alignment.End) {
-                            Text(duration(s.duration), color = c.text, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
-                            Text(if (s.minBPM == s.maxBPM) "${s.minBPM} BPM" else "${s.minBPM}–${s.maxBPM} BPM", color = c.sub, fontSize = 13.sp)
-                        }
+        ProfileSheet.SOUND -> SoundSheet(metronome) { sheet = null }
+        null -> {}
+    }
+}
+
+/** 数字大而细、单位小而灰：把本地化的时长字符串里的数字挑出来放大。 */
+private fun styledDuration(text: String, number: androidx.compose.ui.graphics.Color, unit: androidx.compose.ui.graphics.Color): androidx.compose.ui.text.AnnotatedString =
+    buildAnnotatedString {
+        var i = 0
+        while (i < text.length) {
+            val digit = text[i].isDigit()
+            var j = i
+            while (j < text.length && text[j].isDigit() == digit) j++
+            val part = text.substring(i, j)
+            if (digit) pushStyle(SpanStyle(fontSize = 26.sp, fontWeight = FontWeight.Light, color = number))
+            else pushStyle(SpanStyle(fontSize = 13.sp, color = unit))
+            append(part)
+            pop()
+            i = j
+        }
+    }
+
+private fun formatDuration(locale: Locale, minutes: Int, width: MeasureFormat.FormatWidth): String {
+    val fmt = MeasureFormat.getInstance(locale, width)
+    val h = minutes / 60
+    val m = minutes % 60
+    return when {
+        minutes == 0 -> fmt.format(Measure(0, MeasureUnit.MINUTE))
+        h == 0 -> fmt.format(Measure(m, MeasureUnit.MINUTE))
+        m == 0 -> fmt.format(Measure(h, MeasureUnit.HOUR))
+        else -> fmt.formatMeasures(Measure(h, MeasureUnit.HOUR), Measure(m, MeasureUnit.MINUTE))
+    }
+}
+
+@Composable
+private fun SummaryCard(stats: PracticeStatistics, sessions: List<PracticeSession>, now: Instant, strings: Strings, onHistory: () -> Unit) {
+    val c = AppTheme.colors
+    val weeklySeconds = stats.weeklyTotal(sessions, now)
+    // 按分钟四舍五入；练过但不足 1 分钟时算 1 分钟，免得显示 0
+    val weeklyMinutes = if (weeklySeconds > 0) max(1, (weeklySeconds / 60).roundToInt()) else 0
+    val streak = stats.currentStreak(sessions, now)
+    val days = stats.dailyDurations(sessions, now)
+    val minutes = days.map { if (it.duration > 0) max(1, (it.duration / 60).roundToInt()) else 0 }
+    val maxMinutes = max(50, minutes.maxOrNull() ?: 0)
+    val barArea = 52.dp
+    val latest = stats.recent(sessions, 1).firstOrNull()
+    CardBox(Modifier.fillMaxWidth(), radius = 20.dp) {
+        Column(Modifier.padding(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 10.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(14.dp), verticalAlignment = Alignment.Bottom) {
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(tr("本周练习"), color = c.sub, fontSize = 12.sp)
+                    Text(styledDuration(formatDuration(strings.locale, weeklyMinutes, MeasureFormat.FormatWidth.NARROW), c.text, c.sub), maxLines = 1)
+                }
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(tr("连续打卡"), color = c.sub, fontSize = 12.sp)
+                    Text(styledDuration(MeasureFormat.getInstance(strings.locale, MeasureFormat.FormatWidth.WIDE).format(Measure(streak, MeasureUnit.DAY)), c.accent, c.sub), maxLines = 1)
+                }
+                Row(Modifier.weight(1f).height(barArea), horizontalArrangement = Arrangement.spacedBy(5.dp), verticalAlignment = Alignment.Bottom) {
+                    minutes.forEachIndexed { i, m ->
+                        val isToday = i == minutes.lastIndex
+                        val h = max(m.toFloat() / maxMinutes * barArea.value, 3f)
+                        Box(
+                            Modifier.weight(1f).height(h.dp).clip(RoundedCornerShape(4.dp))
+                                .background(if (isToday) c.accent else if (m > 0) c.accentSoft else c.line),
+                        )
                     }
+                }
+            }
+            Box(Modifier.padding(top = 12.dp).fillMaxWidth().height(1.dp).background(c.line))
+            Row(Modifier.fillMaxWidth().height(40.dp).clickable { onHistory() }, verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(tr("练习记录"), color = c.text, fontSize = 14.sp, modifier = Modifier.weight(1f))
+                if (latest != null) Text("${dayText(latest.startedAt, strings)} · ${formatDuration(strings.locale, max(1, (latest.duration / 60).roundToInt()), MeasureFormat.FormatWidth.NARROW)}", color = c.sub, fontSize = 14.sp, maxLines = 1)
+                ChevronRight(c.dim)
+            }
+        }
+    }
+}
+
+@Composable
+private fun Preferences(settings: Settings, metronome: MetronomeController, onLanguage: () -> Unit, onSound: () -> Unit) {
+    val c = AppTheme.colors
+    val strings = LocalStrings.current
+    val naming = settings.noteNaming()
+    val languageCode = settings.effectiveLanguage().tag ?: "en"
+    CardBox(Modifier.fillMaxWidth(), radius = 18.dp) {
+        Column {
+            Row2(tr("外观")) {
+                Box(Modifier.width(190.dp)) {
+                    val items = listOf(ThemeMode.SYSTEM, ThemeMode.LIGHT, ThemeMode.DARK)
+                    Segmented(listOf(strings.t("系统"), strings.t("浅色"), strings.t("深色")), items.indexOf(settings.themeMode), onSelect = { settings.updateThemeMode(items[it]) })
+                }
+            }
+            Divider()
+            Row2(tr("语言"), onClick = onLanguage) {
+                Text("${settings.effectiveLanguageOrSystem().flag} ${settings.effectiveLanguage().nativeName}", color = c.sub, fontSize = 15.sp, maxLines = 1)
+                ChevronRight(c.dim)
+            }
+            Divider()
+            Row2(tr("音名显示")) {
+                Box(Modifier.width(190.dp)) {
+                    val styles = listOf(NoteNaming.Style.LETTERS, NoteNaming.Style.SOLFEGE)
+                    val labels = styles.map { s -> listOf(0, 2, 4).joinToString(" ") { NoteNaming(s, languageCode).name(it) } }
+                    Segmented(labels, styles.indexOf(naming.style), onSelect = {
+                        settings.updateNoteNaming(if (styles[it] == NoteNaming.Style.LETTERS) NoteNamingPreference.LETTERS else NoteNamingPreference.SOLFEGE)
+                    })
+                }
+            }
+            Divider()
+            Row2(tr("节拍音色"), onClick = onSound) {
+                Text(strings.t(metronome.config.sound.title), color = c.sub, fontSize = 15.sp, maxLines = 1)
+                ChevronRight(c.dim)
+            }
+            Divider()
+            Row2(strings.t("标准音 %@", naming.fullName(com.example.tunebeatchord.tuner.Pitch(69)))) {
+                MiniStepper(settings.a4.roundToInt(), "${settings.a4.roundToInt()} Hz", TunerDefaults.a4Range.start.roundToInt()..TunerDefaults.a4Range.endInclusive.roundToInt()) { settings.updateA4(it.toDouble()) }
+            }
+            Divider()
+            Row2(tr("跟拍震动")) { GreenSwitch(settings.vibrateOnBeat) { settings.updateVibrate(it) } }
+            Divider()
+            Row2(tr("左手模式")) { GreenSwitch(settings.leftHanded) { settings.updateLeftHanded(it) } }
+        }
+    }
+}
+
+private fun Settings.effectiveLanguageOrSystem(): AppLanguage = if (language == AppLanguage.SYSTEM) AppLanguage.SYSTEM else effectiveLanguage()
+
+@Composable
+private fun Row2(title: String, onClick: (() -> Unit)? = null, trailing: @Composable () -> Unit) {
+    val c = AppTheme.colors
+    Row(
+        Modifier.fillMaxWidth().heightIn(min = 50.dp).then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier).padding(horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        Text(title, color = c.text, fontSize = 16.sp, maxLines = 2, modifier = Modifier.weight(1f))
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) { trailing() }
+    }
+}
+
+@Composable
+private fun Divider() {
+    val c = AppTheme.colors
+    Box(Modifier.padding(start = 16.dp).fillMaxWidth().height(1.dp).background(c.line))
+}
+
+@Composable
+private fun GreenSwitch(checked: Boolean, onChange: (Boolean) -> Unit) {
+    val c = AppTheme.colors
+    Switch(
+        checked, onChange,
+        colors = SwitchDefaults.colors(checkedTrackColor = c.green, checkedThumbColor = androidx.compose.ui.graphics.Color.White, checkedBorderColor = c.green, uncheckedTrackColor = c.card2, uncheckedBorderColor = c.card2, uncheckedThumbColor = androidx.compose.ui.graphics.Color.White),
+    )
+}
+
+@Composable
+private fun MiniStepper(value: Int, display: String, range: IntRange, onChange: (Int) -> Unit) {
+    val c = AppTheme.colors
+    Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+        StepCircle("−", value > range.first) { onChange(value - 1) }
+        Text(display, color = c.text, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, textAlign = TextAlign.Center, modifier = Modifier.widthIn(min = 58.dp))
+        StepCircle("+", value < range.last) { onChange(value + 1) }
+    }
+}
+
+@Composable
+private fun StepCircle(symbol: String, enabled: Boolean, onClick: () -> Unit) {
+    val c = AppTheme.colors
+    Box(Modifier.size(38.dp).clip(CircleShape).background(c.card2).clickable(enabled = enabled, onClick = onClick), contentAlignment = Alignment.Center) {
+        Text(symbol, color = if (enabled) c.text else c.dim, fontSize = 20.sp, fontWeight = FontWeight.Light)
+    }
+}
+
+
+// 语言 -------------------------------------------------------------------
+
+/** 语言列表：跟随系统和 12 种语言，当前的打勾；点一个就换（立刻生效）。 */
+@Composable
+private fun LanguageList(settings: Settings, onPick: (AppLanguage) -> Unit) {
+    val c = AppTheme.colors
+    val strings = LocalStrings.current
+    CardBox(Modifier.fillMaxWidth(), radius = 18.dp) {
+        Column {
+            AppLanguage.entries.forEachIndexed { i, l ->
+                if (i > 0) Divider()
+                Row(
+                    Modifier.fillMaxWidth().heightIn(min = 52.dp).clickable { onPick(l) }.padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp),
+                ) {
+                    Text(l.flag, fontSize = 22.sp)
+                    Text(if (l == AppLanguage.SYSTEM) strings.t("跟随系统") else l.nativeName, color = c.text, fontSize = 16.sp, modifier = Modifier.weight(1f))
+                    if (settings.language == l) Text("✓", color = c.accent, fontSize = 18.sp, fontWeight = FontWeight.Bold)
                 }
             }
         }
     }
 }
 
-private fun modeTitle(mode: PracticeMode, s: com.example.tunebeatchord.i18n.Strings) = when (mode) {
+// 练习历史 -----------------------------------------------------------------
+
+@Composable
+private fun HistoryList(sessions: List<PracticeSession>, strings: Strings) {
+    val c = AppTheme.colors
+    CardBox(Modifier.fillMaxWidth(), radius = 18.dp) {
+        Column {
+            if (sessions.isEmpty()) {
+                Box(Modifier.fillMaxWidth().heightIn(min = 62.dp), contentAlignment = Alignment.Center) {
+                    Text(tr("还没有练习记录。播放 30 秒以上会自动记一次。"), color = c.sub, fontSize = 14.sp, textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 16.dp))
+                }
+            }
+            sessions.forEachIndexed { i, s ->
+                if (i > 0) Box(Modifier.fillMaxWidth().height(1.dp).background(c.line))
+                Row(Modifier.fillMaxWidth().height(62.dp).padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+                        Text("${dayText(s.startedAt, strings)} · ${modeTitle(s.mode, strings)}", color = c.text, fontSize = 15.sp, fontWeight = FontWeight.Medium, maxLines = 1)
+                        val arrow = if (s.mode == PracticeMode.RAMP || s.mode == PracticeMode.RAMP_AND_MUTE) "→" else "–"
+                        Text(if (s.minBPM == s.maxBPM) "${s.minBPM} BPM" else "${s.minBPM} $arrow ${s.maxBPM} BPM", color = c.sub, fontSize = 12.sp)
+                    }
+                    Text(formatDuration(strings.locale, max(1, (s.duration / 60).roundToInt()), MeasureFormat.FormatWidth.NARROW), color = c.text, fontSize = 15.sp)
+                }
+            }
+        }
+    }
+}
+
+private fun modeTitle(mode: PracticeMode, s: Strings) = when (mode) {
     PracticeMode.FREE -> s.t("自由练习")
     PracticeMode.RAMP -> s.t("渐进提速")
     PracticeMode.MUTE -> s.t("静音训练")
@@ -127,79 +351,12 @@ private fun modeTitle(mode: PracticeMode, s: com.example.tunebeatchord.i18n.Stri
     PracticeMode.STRUM -> s.t("扫弦节奏型")
 }
 
-@Composable
-private fun StatCard(label: String, value: String, modifier: Modifier) {
-    val c = AppTheme.colors
-    Box(modifier) {
-        Card(Modifier.fillMaxWidth()) {
-            Column {
-                Text(label, color = c.sub, fontSize = 14.sp)
-                Text(value, color = c.text, fontSize = 34.sp, fontWeight = FontWeight.Bold)
-            }
-        }
-    }
-}
-
-/** 设置：主题、语言、音名、跟拍震动、左手模式、标准音 A4。 */
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-fun SettingsScreen(settings: Settings, onBack: () -> Unit, onLanguageChanged: () -> Unit, modifier: Modifier = Modifier) {
-    val c = AppTheme.colors
-    val context = LocalContext.current
-    Column(modifier.verticalScroll(rememberScrollState()).padding(bottom = 24.dp)) {
-        Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(44.dp).clip(RoundedCornerShape(22.dp)).clickable { onBack() }, contentAlignment = Alignment.Center) { Text("‹", color = c.text, fontSize = 32.sp) }
-            Text(tr("设置"), color = c.text, fontSize = 24.sp, fontWeight = FontWeight.Bold)
-        }
-        SettingsGroup(tr("外观")) {
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Chip(tr("跟随系统"), settings.themeMode == ThemeMode.SYSTEM, { settings.updateThemeMode(ThemeMode.SYSTEM) }, height = 40.dp, fontSize = 15)
-                Chip(tr("浅色"), settings.themeMode == ThemeMode.LIGHT, { settings.updateThemeMode(ThemeMode.LIGHT) }, height = 40.dp, fontSize = 15)
-                Chip(tr("深色"), settings.themeMode == ThemeMode.DARK, { settings.updateThemeMode(ThemeMode.DARK) }, height = 40.dp, fontSize = 15)
-            }
-        }
-        SettingsGroup(tr("语言")) {
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                AppLanguage.entries.forEach { l ->
-                    Chip(if (l == AppLanguage.SYSTEM) tr("跟随系统") else l.nativeName, settings.language == l, {
-                        if (settings.language != l) { settings.updateLanguage(l); onLanguageChanged() }
-                    }, height = 40.dp, fontSize = 15)
-                }
-            }
-        }
-        SettingsGroup(tr("音名显示")) {
-            val naming = settings.noteNaming()
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Chip(tr("自动"), settings.noteNamingPreference == NoteNamingPreference.AUTO, { settings.updateNoteNaming(NoteNamingPreference.AUTO) }, height = 40.dp, fontSize = 15)
-                Chip(LocalStrings.current.t("字母 %@", "C D E"), settings.noteNamingPreference == NoteNamingPreference.LETTERS, { settings.updateNoteNaming(NoteNamingPreference.LETTERS) }, height = 40.dp, fontSize = 15)
-                Chip(LocalStrings.current.t("唱名 %@", "Do Re Mi"), settings.noteNamingPreference == NoteNamingPreference.SOLFEGE, { settings.updateNoteNaming(NoteNamingPreference.SOLFEGE) }, height = 40.dp, fontSize = 15)
-            }
-            Text("${naming.name(0)} ${naming.name(2)} ${naming.name(4)} ${naming.name(11)}", color = c.sub, fontSize = 14.sp, modifier = Modifier.padding(top = 8.dp))
-        }
-        SettingsGroup(tr("偏好设置")) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(tr("左手模式"), color = c.text, fontSize = 16.sp, modifier = Modifier.weight(1f)); Switch(settings.leftHanded, { settings.updateLeftHanded(it) })
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(tr("跟拍震动"), color = c.text, fontSize = 16.sp, modifier = Modifier.weight(1f)); Switch(settings.vibrateOnBeat, { settings.updateVibrate(it) })
-            }
-        }
-        SettingsGroup(tr("标准音")) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Chip("−", false, { settings.updateA4(settings.a4 - 1) }, Modifier.size(46.dp), 46.dp)
-                Text("A4 = ${settings.a4.roundToInt()} Hz", color = c.text, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
-                Chip("+", false, { settings.updateA4(settings.a4 + 1) }, Modifier.size(46.dp), 46.dp)
-            }
-        }
-        Text(tr("版本") + " 1.0 · Apache-2.0", color = c.dim, fontSize = 13.sp, modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp))
-    }
-}
-
-@Composable
-private fun SettingsGroup(title: String, content: @Composable () -> Unit) {
-    val c = AppTheme.colors
-    Column(Modifier.padding(horizontal = 20.dp, vertical = 8.dp)) {
-        Text(title, color = c.sub, fontSize = 14.sp, modifier = Modifier.padding(bottom = 8.dp))
-        Card(Modifier.fillMaxWidth(), padding = 14.dp) { Column(verticalArrangement = Arrangement.spacedBy(8.dp)) { content() } }
-    }
+private fun dayText(instant: Instant, strings: Strings): String {
+    val zone = ZoneId.systemDefault()
+    val day = instant.atZone(zone).toLocalDate()
+    val today = LocalDate.now(zone)
+    if (day == today) return strings.t("今天")
+    if (day == today.minusDays(1)) return strings.t("昨天")
+    val pattern = if (day.year == today.year) "MMMd" else "yMMMd"
+    return DateTimeFormatter.ofPattern(android.text.format.DateFormat.getBestDateTimePattern(strings.locale, pattern), strings.locale).format(day)
 }
