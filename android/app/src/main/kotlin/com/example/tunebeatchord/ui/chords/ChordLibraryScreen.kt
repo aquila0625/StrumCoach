@@ -101,7 +101,7 @@ fun ChordLibraryScreen(state: ChordLibraryState, settings: Settings, player: Cho
                             contentAlignment = Alignment.Center,
                         ) { PlayStopIcon(player.isPlaying, c.onAccent) }
                     }
-                    if (state.supportsStrum) PlayModeRow(state, player, clock / 1e9)
+                    PlayModeRow(state, player, clock / 1e9)
                     Box(Modifier.fillMaxWidth().padding(top = 4.dp), contentAlignment = Alignment.Center) { DiagramGallery(state, settings, naming) }
                     if (state.isBass) BassLegend() else VoicingPager(state)
                 }
@@ -179,66 +179,7 @@ private fun InstrumentControl(state: ChordLibraryState) {
 // 试听方式：节奏型按钮、速度、格子条 ------------------------------------------
 
 @Composable
-private fun PlayModeRow(state: ChordLibraryState, player: ChordPlayer, nowSeconds: Double) {
-    val c = AppTheme.colors
-    val strings = LocalStrings.current
-    var picker by remember { mutableStateOf(false) }
-    var tempoMenu by remember { mutableStateOf(false) }
-    val rhythm = state.strumRhythm
-    Column(Modifier.padding(top = 10.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            // 节奏型列表按钮
-            Box(
-                Modifier.size(36.dp).clip(RoundedCornerShape(18.dp)).background(c.card2).clickable { picker = true }.semantics { contentDescription = strings.t("扫弦节奏型") },
-                contentAlignment = Alignment.Center,
-            ) { ListIcon(c.text) }
-            Text(strings.t(rhythm.title), color = c.sub, fontSize = 14.sp, maxLines = 1, modifier = Modifier.weight(1f))
-            Box {
-                Row(
-                    Modifier.height(36.dp).clip(RoundedCornerShape(18.dp)).background(c.card2).clickable { tempoMenu = true }.padding(horizontal = 12.dp),
-                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp),
-                ) {
-                    Text("♩", color = c.sub, fontSize = 14.sp)
-                    Text("${player.effectiveBpm.toInt()}", color = c.text, fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
-                }
-                DropdownMenu(tempoMenu, { tempoMenu = false }, containerColor = c.sheet) {
-                    Row(Modifier.width(260.dp).padding(horizontal = 16.dp, vertical = 4.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                        StepCircle("−", !state.followsMetronome) { state.updateTempo(state.tempo - 5) }
-                        Text(strings.t("速度 %lld BPM", player.effectiveBpm.toInt()), color = c.text, fontSize = 15.sp, modifier = Modifier.weight(1f), textAlign = TextAlign.Center)
-                        StepCircle("+", !state.followsMetronome) { state.updateTempo(state.tempo + 5) }
-                    }
-                    Row(Modifier.width(260.dp).padding(horizontal = 16.dp, vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Text(strings.t("跟随节拍器"), color = c.text, fontSize = 15.sp, modifier = Modifier.weight(1f))
-                        Switch(state.followsMetronome, { state.updateFollowsMetronome(it) })
-                    }
-                }
-            }
-        }
-        CellStrip(rhythm.cells, rhythm.cellsPerBeat, player.activeCell(nowSeconds))
-    }
-    if (picker) {
-        AppSheet(strings.t("扫弦节奏型"), { picker = false }) {
-            CardBox(Modifier.fillMaxWidth(), radius = 18.dp) {
-                Column {
-                    state.strumRhythms.forEachIndexed { i, r ->
-                        if (i > 0) Box(Modifier.fillMaxWidth().height(1.dp).background(c.line))
-                        Row(
-                            Modifier.fillMaxWidth().height(52.dp).clickable { state.select(r); picker = false }.padding(horizontal = 16.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(strings.t(r.title), color = c.text, fontSize = 16.sp, modifier = Modifier.weight(1f))
-                            Text(r.arrows, color = c.sub, fontSize = 12.sp, maxLines = 1)
-                            if (r.id == rhythm.id) Text("  ✓", color = c.accent, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun StepCircle(symbol: String, enabled: Boolean, onClick: () -> Unit) {
+internal fun StepCircle(symbol: String, enabled: Boolean, onClick: () -> Unit) {
     val c = AppTheme.colors
     Box(Modifier.size(36.dp).clip(CircleShape).background(c.card2).clickable(enabled = enabled, onClick = onClick), contentAlignment = Alignment.Center) {
         Text(symbol, color = if (enabled) c.text else c.dim, fontSize = 20.sp)
@@ -247,7 +188,7 @@ private fun StepCircle(symbol: String, enabled: Boolean, onClick: () -> Unit) {
 
 /** 一小节的格子条：箭头是这一格的扫法，空拍是虚线框；播放时走到的那一格变主色。 */
 @Composable
-private fun CellStrip(cells: List<StrumCell>, cellsPerBeat: Int, active: Int?) {
+internal fun CellStrip(cells: List<StrumCell>, cellsPerBeat: Int, active: Int?) {
     val c = AppTheme.colors
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(if (cells.size > 8) 3.dp else 4.dp)) {
         cells.forEachIndexed { i, cell ->
@@ -267,7 +208,7 @@ private fun CellStrip(cells: List<StrumCell>, cellsPerBeat: Int, active: Int?) {
     }
 }
 
-private fun Modifier.drawBehindDashed(color: androidx.compose.ui.graphics.Color): Modifier = this.then(
+internal fun Modifier.drawBehindDashed(color: androidx.compose.ui.graphics.Color): Modifier = this.then(
     Modifier.border(1.dp, color.copy(alpha = 0.7f), RoundedCornerShape(7.dp)),
 )
 
@@ -409,7 +350,7 @@ private fun PlayStopIcon(playing: Boolean, color: androidx.compose.ui.graphics.C
 }
 
 @Composable
-private fun ListIcon(color: androidx.compose.ui.graphics.Color) {
+internal fun ListIcon(color: androidx.compose.ui.graphics.Color) {
     Canvas(Modifier.size(18.dp)) {
         for (i in 0 until 3) {
             val y = size.height * (0.2f + i * 0.3f)

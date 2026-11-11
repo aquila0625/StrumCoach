@@ -47,9 +47,8 @@ class ChordPlayer(
     fun start() {
         if (isPlaying) return
         isPlaying = true
-        if (state.isBass || !state.supportsStrum) {
-            playBassOrSingle()
-            job = scope.launch { delay(2500); isPlaying = false }
+        if (state.effectivePlayMode == ChordLibraryState.PlayMode.ARPEGGIO) {
+            job = scope.launch { loopArpeggio() }
             return
         }
         job = scope.launch {
@@ -72,20 +71,59 @@ class ChordPlayer(
         }
     }
 
-    private fun playBassOrSingle() {
-        val voice = Voice.fromFamily(state.instrument.family)
-        if (state.isBass) {
-            val p = state.bassPositions ?: return
-            val root = p.anchor?.pitch ?: return
-            val third = p.markers(BassPositions.Role.THIRD).firstOrNull()?.pitch
-            val fifth = p.markers(BassPositions.Role.FIFTH).firstOrNull()?.pitch
-            val notes = listOfNotNull(root, third, fifth, root.transposed(12))
-            sound.play(ChordPlayback(notes.mapIndexed { i, pitch -> PluckEvent(i * 0.45, i, pitch, 0.5f) }, voice, a4(), 1.5))
-        } else {
-            val v = state.voicing ?: return
-            sound.play(RhythmStrum.playback(v, StrumCell.DOWN, state.chord.root, 1f, voice, a4()))
+    /** 分解：把选中的指法一圈一圈地弹下去；每圈开始前才读和弦、把位、指法和速度，所以演奏中换了在下一圈生效。 */
+    private suspend fun loopArpeggio() {
+        var start = now() + 0.08
+        while (isPlaying) {
+            val loop = buildArpeggio(state.arpeggioPattern, interval = ArpeggioBuilder.noteInterval(effectiveBpm))
+            if (loop == null || loop.cycle <= 0) { isPlaying = false; return }
+            sound.play(loop.playback.copy(tail = minOf(1.4, 2 * loop.cycle)), frameAt(start))
+            start += loop.cycle
+            delay(((start - now() - 0.12) * 1000).toLong().coerceAtLeast(0))
         }
     }
+
+    private fun buildArpeggio(pattern: ArpeggioPattern?, interval: Double): ArpeggioLoop? {
+        pattern ?: return null
+        val voice = Voice.fromFamily(state.instrument.family)
+        return if (state.isBass) {
+            if (pattern.isCustom) ArpeggioBuilder.bassCustom(pattern, state.chord, state.tuning, state.bassPositions, voice, a4(), interval)
+            else ArpeggioBuilder.bassArpeggio(state.chord, state.tuning, state.bassPositions, voice, a4(), interval)
+        } else {
+            val v = state.voicing ?: return null
+            ArpeggioBuilder.arpeggio(pattern, v, state.chord, state.tuning, voice, a4(), interval)
+        }
+    }
+
+    /** 编辑自定义指法时试听一圈（只放一遍，不循环）。 */
+    fun previewArpeggio(text: String) {
+        val parsed = state.validateArpeggio(text)
+        if (!parsed.isValid) return
+        stop()
+        val pattern = ArpeggioPattern(
+            ArpeggioPattern.CUSTOM_PREFIX + "preview", state.instrument.family, ArpeggioPattern.Kind.Custom(parsed.steps),
+            parsed.normalized, "", "",
+        )
+        val loop = buildArpeggio(pattern, ArpeggioBuilder.noteInterval(effectiveBpm)) ?: return
+        sound.play(loop.playback.copy(tail = 1.4))
+    }
+
+    /** 编辑自定义节奏型时试听一小节（当前和弦的当前把位，只放一遍）。 */
+    fun previewRhythm(text: String, cellsPerBeat: Int) {
+        val parsed = StrumInput.parse(text, cellsPerBeat)
+        val v = state.voicing
+        if (!parsed.isValid || v == null || !state.supportsStrum) return
+        val rhythm = StrumRhythm.create(StrumRhythm.CUSTOM_PREFIX + "preview", parsed.normalized, cellsPerBeat) ?: return
+        stop()
+        val voice = Voice.fromFamily(state.instrument.family)
+        val bpm = effectiveBpm
+        val start = frameAt(now() + 0.05)
+        for ((i, t, cell) in rhythm.strokes(bpm)) {
+            sound.play(RhythmStrum.playback(v, cell, state.chord.root, rhythm.velocity(i), voice, a4()), start + (t * engineRate()).toLong())
+        }
+    }
+
+    private fun engineRate() = engine.sampleRate.toDouble()
 
     /** 此刻正在响（或刚走到）的那一格；没在播放时 null。给格子条高亮用。 */
     fun activeCell(nowSeconds: Double): Int? {
