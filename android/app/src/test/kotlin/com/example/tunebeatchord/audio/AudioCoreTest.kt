@@ -118,18 +118,30 @@ class AudioCoreTest {
         assertEquals(0f, y.last(), 1e-4f); assertFalse(synth.isSounding)
     }
 
-    @Test fun toneSynthInstrumentUsesTheSampleAndRetriggers() {
+    @Test fun toneSynthInstrumentPlaysAPluckOnceThenStops() {
         val sr = 48_000.0
         val synth = ToneSynth(sr).apply { frequency = 110.0; timbre = ToneTimbre.INSTRUMENT; pluckInterval = 0.5 }
         synth.load(pluck(110.0, 44_100.0, 0.4))
         assertTrue(synth.hasSampler)
         synth.start()
         val x = FloatArray(48_000); synth.render(x, x.size)
-        // 采样只有 0.4 秒，每 0.5 秒重新拨一次：第二次拨弦的起头比第一次结束后的静默响得多
-        val gap = x.copyOfRange(22_000, 23_500).maxOf { abs(it) }
-        val retrigger = x.copyOfRange(24_500, 26_500).maxOf { abs(it) }
-        assertTrue("重拨后应有声音：$retrigger vs $gap", retrigger > gap * 3 && retrigger > 0.05f)
+        // 和 iOS 一样只拨一次、不中途重拨：采样 0.4 秒播完以后一直安静，合成器也不再发声（界面据此复位按钮）
+        assertTrue(x.copyOfRange(1_000, 6_000).maxOf { abs(it) } > 0.05f)
+        assertEquals(0f, x.copyOfRange(24_000, 48_000).maxOf { abs(it) }, 0f)
+        assertFalse(synth.isSounding)
         assertEquals(0.0, centsError(PitchDetector().detect(x.copyOfRange(2_000, 6_096), sr)!!.frequency, 110.0), 3.0)
+    }
+
+    @Test fun toneSynthSustainedSampleKeepsLooping() {
+        val sr = 48_000.0
+        val looped = pluck(220.0, 44_100.0, 0.5).let { s ->
+            SampleBuffer(Voice.VIOLIN, s.midi, s.rootFrequency, s.sampleRate, FloatArray(s.data.size) { i -> kotlin.math.sin(2 * Math.PI * 220.0 * i / 44_100.0).toFloat() * 0.5f }, 4_410, 22_050)
+        }
+        val synth = ToneSynth(sr).apply { frequency = 220.0; timbre = ToneTimbre.INSTRUMENT }
+        synth.load(looped); synth.start()
+        val x = FloatArray(96_000); synth.render(x, x.size)
+        assertTrue(x.copyOfRange(90_000, 96_000).maxOf { abs(it) } > 0.1f)
+        assertTrue(synth.isSounding)
     }
 
     @Test fun noteMixerSchedulesAtFramesAndEndsVoices() {

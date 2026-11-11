@@ -5,6 +5,7 @@
 输出：android/app/src/main/assets/samples/（manifest.json 里的文件名改成 .ogg，其余字段不变）
 
 需要 ffmpeg。用 ffmpeg 自带的 Vorbis 编码器（保持 44.1 kHz（编码器只支持双声道，两个声道一样，读取时取一个声道），帧数不变，循环点才对得上）。
+声道用 pan 原样复制成双声道：不能用 -ac 2，那样 ffmpeg 会把电平降 3 dB，采样就比 iOS 版小声。
 授权说明见 Packages/TunerKit/Sounds/LICENSES.md，已拷到 assets/samples/LICENSES.md。
 用法：python3 -I android/tools/convert_samples.py
 """
@@ -32,7 +33,7 @@ def main():
             dst = os.path.join(DST, out_name)
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             subprocess.run(
-                ["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-ac", "2", "-ar", str(int(data["sampleRate"])),
+                ["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-af", "pan=stereo|c0=c0|c1=c0", "-ar", str(int(data["sampleRate"])),
                  "-c:a", "vorbis", "-strict", "-2", "-q:a", "4", dst],
                 check=True)
             entry["file"] = out_name

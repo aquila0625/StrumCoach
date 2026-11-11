@@ -16,7 +16,12 @@ import com.example.tunebeatchord.audio.TuneChime
 class TunerController(private val engine: AudioEngine, private val bank: () -> SampleBank?, val model: TunerModel) {
     private val main = Handler(Looper.getMainLooper())
     private var mic: MicCapture? = null
-    private val reference by lazy { ReferenceTone(engine, bank()) }
+    private val reference by lazy {
+        ReferenceTone(engine, bank()).also { tone ->
+            // 拨弦类参考音自然播完：按钮复位（只认最近这一次，免得旧的通知把刚开始的新参考音关掉）
+            tone.onEnded = { gen -> main.post { if (gen == tone.generation) model.referenceEnded() } }
+        }
+    }
     private val chimeMixer = NoteMixer()
     private var chime: FloatArray? = null
 

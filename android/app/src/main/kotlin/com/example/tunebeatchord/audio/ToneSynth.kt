@@ -17,7 +17,8 @@ enum class ToneTimbre {
 
 /**
  * 参考音的合成核心：纯计算，没有音频硬件依赖，便于测试。`render` 在音频线程调用。
- * 淡入淡出 10 ms / 80 ms 避免爆音；采样音色里拨弦类按 `pluckInterval` 重新拨，拉弦类在循环区间里一直拉。
+ * 淡入淡出 10 ms / 80 ms 避免爆音；采样音色里拨弦类拨一次就自然衰减完（和 iOS 一样），拉弦类在循环区间里一直拉；
+ * 合成的“拨弦”音色按 `pluckInterval` 重新拨。
  */
 class ToneSynth(private val outputRate: Double) {
     var frequency = 440.0
@@ -70,12 +71,15 @@ class ToneSynth(private val outputRate: Double) {
             while (done < count) {
                 val n = min(scratch.size, count - done)
                 var pb = playback
-                // 拨弦类：到间隔就重新拨一次（采样先播完了就静着等）；拉弦类的循环采样不会结束
-                if (pb == null || (!sampler.voice.isSustained && sincePluck >= pluckInterval)) {
-                    pb = SamplePlayback(sampler, frequency, outputRate); playback = pb; sincePluck = 0.0
+                if (pb == null) { pb = SamplePlayback(sampler, frequency, outputRate); playback = pb }
+                // 拨弦类（吉他、贝斯、尤克里里、钢琴）和 iOS 一样只拨一次、让它自然衰减完；中途重拨会截断余音、带出咔哒声，
+                // 听起来不像真琴。播完就停（界面上的按钮随之复位）。拉弦类的循环采样一直拉，不会结束。
+                if (pb.isFinished) {
+                    target = 0f; gain = 0f
+                    for (i in 0 until count - done) out[done + i] = 0f
+                    return
                 }
                 pb.render(scratch, n)
-                sincePluck += n / outputRate
                 for (i in 0 until n) {
                     if (gain < target) gain = min(target, gain + fadeIn) else if (gain > target) gain = maxOf(target, gain - fadeOut)
                     out[done + i] = scratch[i] * gain * amplitude * SAMPLE_GAIN_PER_AMPLITUDE

@@ -9,6 +9,12 @@ class ReferenceTone(private val engine: AudioEngine, private val bank: SampleBan
     private val synth = ToneSynth(engine.sampleRate.toDouble())
     private val lock = Any()
     @Volatile private var active = false
+    /** 每次 play 加一；“播完了”的通知带上它，界面据此判断是不是当前这一次。 */
+    @Volatile var generation = 0L
+        private set
+
+    /** 拨弦类采样自然播完时在音频线程回调一次（参数是那一次的 generation）。 */
+    var onEnded: ((Long) -> Unit)? = null
 
     override val isActive: Boolean get() = active || synth.isSounding
 
@@ -25,6 +31,7 @@ class ReferenceTone(private val engine: AudioEngine, private val bank: SampleBan
             synth.load(if (timbre == ToneTimbreChoice.INSTRUMENT) bank?.sample(Voice.fromFamily(family), f) else null)
             synth.start()
             active = true
+            generation++
         }
         engine.add(this)
     }
@@ -40,6 +47,9 @@ class ReferenceTone(private val engine: AudioEngine, private val bank: SampleBan
         if (scratch.size < frames) scratch = FloatArray(frames)
         synchronized(lock) { synth.render(scratch, frames) }
         for (i in 0 until frames) out[i] += scratch[i]
-        if (!synth.isSounding) active = false
+        if (!synth.isSounding && active) {
+            active = false
+            onEnded?.invoke(generation)
+        }
     }
 }
