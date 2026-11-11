@@ -56,7 +56,7 @@ fun AppRoot(container: AppContainer, onLanguageChanged: () -> Unit) {
             Box(Modifier.weight(1f).fillMaxWidth().statusBarsPadding()) {
                 when (current) {
                     AppTab.TRAINING ->
-                        if (strumOpen) StrumScreen(container.strumTrainer, container.settings, autoStart = strumAutoStart, onBack = { strumOpen = false; strumAutoStart = false })
+                        if (strumOpen) StrumScreen(container.strumTrainer, container.settings, container.metronome, container.chordLibrary, container.chordPlayer, autoStart = strumAutoStart, onBack = { strumOpen = false; strumAutoStart = false })
                         else TrainingScreen(container.strumTrainer, container.metronome, container.settings, container.chordLibrary, container.chordPlayer, onOpenStrum = { start -> container.metronome.stop(); strumAutoStart = start; strumOpen = true })
                     AppTab.METRONOME -> MetronomeScreen(container.metronome, onOpenTraining = { tab = AppTab.TRAINING.name })
                     AppTab.TUNER -> TunerScreen(container.tuner, container.settings, active = true, onEnter = { container.metronome.stop() })

@@ -199,7 +199,7 @@ private fun RhythmPage(trainer: StrumTrainer, r: StrumRhythm, active: Int?, nami
 
 /** 星标（收藏）和勾（已掌握）两个小圆按钮。 */
 @Composable
-private fun MarkButtons(trainer: StrumTrainer, r: StrumRhythm) {
+internal fun MarkButtons(trainer: StrumTrainer, r: StrumRhythm) {
     val c = AppTheme.colors
     val favorite = trainer.isFavorite(r)
     val mastered = trainer.isMastered(r)
@@ -224,7 +224,7 @@ private fun Modifier.androidx_semantics(label: String): Modifier =
 
 /** 筛选：全部 / 收藏 / 未掌握。 */
 @Composable
-private fun FilterMenu(trainer: StrumTrainer, enabled: Boolean) {
+internal fun FilterMenu(trainer: StrumTrainer, enabled: Boolean) {
     val c = AppTheme.colors
     var open by remember { mutableStateOf(false) }
     val title = { f: RhythmMarks.Filter -> when (f) { RhythmMarks.Filter.ALL -> "全部"; RhythmMarks.Filter.FAVORITES -> "收藏"; RhythmMarks.Filter.LEARNING -> "未掌握" } }

@@ -36,6 +36,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.style.TextAlign
 import com.example.tunebeatchord.ui.components.noteAnnotated
@@ -79,13 +80,15 @@ private fun Strings.advice(a: Advice?): String = a?.let { t(it.key, *it.args.toT
 /** 扫弦跟练：选乐器、编和弦进行、选节奏型，听示范，跟着练，收音评分。 */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun StrumScreen(trainer: StrumTrainer, settings: Settings, autoStart: Boolean, onBack: () -> Unit, modifier: Modifier = Modifier) {
+fun StrumScreen(
+    trainer: StrumTrainer, settings: Settings, metronome: com.example.tunebeatchord.metronome.MetronomeController,
+    chords: com.example.tunebeatchord.chord.ChordLibraryState, player: com.example.tunebeatchord.chord.ChordPlayer,
+    autoStart: Boolean, onBack: () -> Unit, modifier: Modifier = Modifier,
+) {
     val c = AppTheme.colors
     val strings = LocalStrings.current
     val context = LocalContext.current
     val naming = settings.noteNaming()
-    var editing by remember { mutableStateOf<ProgressionChord?>(null) }
-    var showSave by remember { mutableStateOf(false) }
     var denied by remember { mutableStateOf(false) }
     var pendingAction by remember { mutableStateOf<String?>(null) }
 
@@ -133,78 +136,16 @@ fun StrumScreen(trainer: StrumTrainer, settings: Settings, autoStart: Boolean, o
                 Text(tr("延迟校准"), color = c.text, fontSize = 13.sp, maxLines = 1)
             }
         }
-    Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(bottom = 12.dp)) {
-        val instruments = ChordLibrary.strummableInstruments
-        Box(Modifier.padding(horizontal = 20.dp)) {
-            Segmented(instruments.map { tr(it.name) }, instruments.indexOfFirst { it.id == trainer.instrument.id }.coerceAtLeast(0), { if (!busy) trainer.select(instruments[it]) })
-        }
-
-        // 正在示范或跟练：当前和弦、下一个和弦、倒数
-        if (busy) LiveCard(trainer, naming, nowSeconds, strings)
-
-        Section(tr("和弦进行")) {
-            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                trainer.progression.chords.forEach { pc ->
-                    val current = busy && trainer.timeline != null && trainer.plan != null &&
-                        trainer.position(nowSeconds)?.let { trainer.progression.chords.indexOf(pc) == trainer.plan!!.chordIndex(it.first) } == true
-                    Column(
-                        Modifier.clip(RoundedCornerShape(16.dp)).background(if (current) c.accentBrush else androidx.compose.ui.graphics.Brush.verticalGradient(listOf(c.card2, c.card2)))
-                            .clickable(enabled = !busy) { editing = pc }.padding(horizontal = 16.dp, vertical = 10.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Text(naming.chordName(pc.chord), color = if (current) c.onAccent else c.text, fontSize = 20.sp, fontWeight = FontWeight.Bold)
-                        Text(strings.plural("%lld 小节", pc.bars), color = if (current) c.onAccent else c.sub, fontSize = 12.sp)
-                    }
-                }
-                Box(
-                    Modifier.size(56.dp).clip(RoundedCornerShape(16.dp)).border(1.5.dp, c.dim, RoundedCornerShape(16.dp))
-                        .clickable(enabled = !busy) { editing = ProgressionChord(0, ChordType.Major, 1).copy(id = "new") },
-                    contentAlignment = Alignment.Center,
-                ) { Text("+", color = c.sub, fontSize = 26.sp) }
-            }
-            FlowRow(Modifier.padding(top = 10.dp), horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                ChordProgression.presets.forEach { p ->
-                    val label = if (p.name == ChordProgression.BLUES_KEY) strings.t(p.name) else p.name
-                    Chip(label, false, { if (!busy) trainer.updateProgression(p.copy(id = java.util.UUID.randomUUID().toString())) }, height = 36.dp, fontSize = 13)
-                }
-            }
-            Row(Modifier.padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Chip(tr("保存"), false, { if (!busy) showSave = true }, height = 36.dp, fontSize = 13)
-            }
-            if (trainer.saved.isNotEmpty()) {
-                Text(tr("我的进行"), color = c.sub, fontSize = 13.sp, modifier = Modifier.padding(top = 10.dp, bottom = 6.dp))
-                FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    trainer.saved.forEach { p -> Chip(p.name, false, { if (!busy) trainer.updateProgression(p) }, height = 36.dp, fontSize = 13) }
-                }
-            }
-        }
-
-        Section(tr("节奏型")) {
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                StrumRhythm.presets(trainer.instrument.family).forEach { r -> Chip(tr(r.title), trainer.rhythm.id == r.id, { if (!busy) trainer.select(r) }, height = 38.dp, fontSize = 14) }
-            }
-            PatternGrid(trainer, nowSeconds)
-        }
-
-        Section(tr("速度")) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Chip("−", false, { if (!busy) trainer.updateBpm(trainer.bpm - 5) }, Modifier.size(46.dp), 46.dp)
-                Text(strings.t("速度 %lld BPM", trainer.bpm), color = c.text, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
-                Chip("+", false, { if (!busy) trainer.updateBpm(trainer.bpm + 5) }, Modifier.size(46.dp), 46.dp)
-            }
-        }
-        Section(tr("练习遍数")) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Chip("−", false, { if (!busy) trainer.updatePracticeTarget((trainer.practiceTarget ?: 2) - 1) }, Modifier.size(46.dp), 46.dp)
-                Text(trainer.practiceTarget?.let { strings.plural("共 %lld 遍", it) } ?: "∞", color = c.text, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
-                Chip("+", false, { if (!busy) trainer.updatePracticeTarget((trainer.practiceTarget ?: 0) + 1) }, Modifier.size(46.dp), 46.dp)
-                Chip("∞", trainer.practiceTarget == null, { if (!busy) trainer.updatePracticeTarget(if (trainer.practiceTarget == null) 2 else null) }, height = 46.dp)
-            }
-            Text(tr("留空表示一直练"), color = c.dim, fontSize = 12.sp, modifier = Modifier.padding(top = 4.dp))
-        }
-
+    Column(
+        Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = 20.dp).padding(top = 6.dp, bottom = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(14.dp),
+    ) {
+        // 正在示范或跟练：当前和弦、下一个和弦、倒数；平时是和弦进行卡片
+        if (busy) LiveCard(trainer, naming, nowSeconds, strings) else ProgressionCard(trainer, naming, enabled = true)
+        PatternPicker(trainer, chords, player, enabled = !busy)
+        GridCard(trainer, metronome, nowSeconds, busy)
         trainer.result?.takeIf { !busy }?.let { ResultCard(it, naming, strings) }
-
+        Text(tr("第一版只看扫弦的时间准不准，不判断你实际是上扫还是下扫；箭头是节奏型里该用的扫法。"), color = c.dim, fontSize = 12.sp, modifier = Modifier.padding(horizontal = 4.dp))
     }
         // 底部按钮：听示范 / 跟我练（练习中是“结束”，示范中是“停止”）
         Column(Modifier.padding(horizontal = 20.dp).padding(top = 8.dp, bottom = 14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -241,17 +182,6 @@ fun StrumScreen(trainer: StrumTrainer, settings: Settings, autoStart: Boolean, o
             }
         }
     }
-
-    editing?.let { pc ->
-        ChordEditDialog(pc, naming, canDelete = pc.id != "new" && trainer.progression.chords.size > 1, onDismiss = { editing = null },
-            onDelete = { trainer.updateProgression(trainer.progression.delete(pc.id)); editing = null },
-            onDuplicate = if (pc.id != "new") ({ trainer.progression.duplicate(pc.id)?.let { trainer.updateProgression(it.first) }; editing = null }) else null,
-            onConfirm = { edited ->
-                trainer.updateProgression(if (pc.id == "new") trainer.progression.append(edited.copy(id = java.util.UUID.randomUUID().toString())) else trainer.progression.update(edited))
-                editing = null
-            })
-    }
-    if (showSave) SaveDialog(trainer.progression.name, onDismiss = { showSave = false }) { name -> trainer.saveProgression(name); showSave = false }
 }
 
 @Composable
@@ -264,7 +194,7 @@ private fun LiveCard(trainer: StrumTrainer, naming: NoteNaming, now: Double, str
     val plan = trainer.plan
     val position = trainer.position(now)
     val countIn = trainer.countIn(now)
-    Box(Modifier.padding(horizontal = 20.dp, vertical = 12.dp)) {
+    Box {
         Card(Modifier.fillMaxWidth()) {
             Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
                 when {
@@ -460,49 +390,48 @@ private fun Stat(label: String, value: Int, color: Color) {
 }
 
 @OptIn(ExperimentalLayoutApi::class)
+
+
+/** 格子加速度卡片：节奏型名字和星标 / 已掌握按钮、一小节的格子、状态一行、速度加减和“跟随节拍器”。 */
 @Composable
-private fun ChordEditDialog(
-    start: ProgressionChord, naming: NoteNaming, canDelete: Boolean, onDismiss: () -> Unit, onDelete: () -> Unit,
-    onDuplicate: (() -> Unit)?, onConfirm: (ProgressionChord) -> Unit,
-) {
-    var root by remember { mutableStateOf(start.root) }
-    var type by remember { mutableStateOf(start.type) }
-    var bars by remember { mutableStateOf(start.bars) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(if (start.id == "new") tr("添加和弦") else tr("编辑和弦进行")) },
-        text = {
-            Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text(naming.chordName(root, type), fontSize = 28.sp, fontWeight = FontWeight.Bold)
-                FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    ChordRoot.all.forEach { pc -> Chip(naming.rootName(pc), root == pc, { root = pc }, height = 38.dp, fontSize = 14, horizontalPadding = 10.dp) }
-                }
-                FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    ChordType.builtins.forEach { t -> Chip(naming.chordName(root, t), type.id == t.id, { type = t }, height = 38.dp, fontSize = 13, horizontalPadding = 8.dp) }
-                }
-                Text(tr("持续"))
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    ProgressionChord.barChoices.forEach { b -> Chip(LocalStrings.current.plural("%lld 小节", b), bars == b, { bars = b }, height = 38.dp, fontSize = 13) }
-                }
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    if (onDuplicate != null) TextButton(onClick = onDuplicate) { Text(tr("复制")) }
-                    if (canDelete) TextButton(onClick = onDelete) { Text(tr("删除")) }
-                }
+private fun GridCard(trainer: StrumTrainer, metronome: com.example.tunebeatchord.metronome.MetronomeController, now: Double, busy: Boolean) {
+    val c = AppTheme.colors
+    val strings = LocalStrings.current
+    val r = trainer.rhythm
+    val name = if (r.isCustom) r.title.ifEmpty { r.arrows } else strings.t(r.title)
+    val status = when (trainer.phase) {
+        StrumTrainer.Phase.DEMO -> strings.t("示范中：一直循环，点“停止”结束")
+        StrumTrainer.Phase.CALIBRATING -> strings.t("每一拍扫一下")
+        StrumTrainer.Phase.PRACTICE -> ""
+        StrumTrainer.Phase.IDLE -> strings.t("先听示范，再跟着练；戴耳机可以听着节拍练。")
+    }
+    Card(Modifier.fillMaxWidth()) {
+        Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(name, color = c.text, fontSize = 16.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, modifier = Modifier.weight(1f))
+                if (!busy) MarkButtons(trainer, r)
             }
-        },
-        confirmButton = { TextButton(onClick = { onConfirm(start.copy(root = root, typeID = type.id, bars = bars)) }) { Text(tr("确定")) } },
-        dismissButton = { TextButton(onClick = onDismiss) { Text(tr("取消")) } },
-    )
+            PatternGrid(trainer, now)
+            if (status.isNotEmpty()) Text(status, color = c.sub, fontSize = 13.sp, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                StepButton("−", enabled = !busy) { trainer.updateBpm(trainer.bpm - 5) }
+                Column(Modifier.widthIn(min = 70.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("${trainer.bpm}", color = c.text, fontSize = 28.sp, fontWeight = FontWeight.SemiBold)
+                    Text("BPM", color = c.sub, fontSize = 11.sp, fontWeight = FontWeight.Medium)
+                }
+                StepButton("+", enabled = !busy) { trainer.updateBpm(trainer.bpm + 5) }
+                Box(Modifier.weight(1f))
+                val same = trainer.bpm == metronome.bpm.toInt()
+                Text(tr("跟随节拍器"), color = if (same || busy) c.dim else c.accent, fontSize = 13.sp, modifier = Modifier.clickable(enabled = !same && !busy) { trainer.updateBpm(metronome.bpm.toInt()) }.padding(vertical = 8.dp))
+            }
+        }
+    }
 }
 
 @Composable
-private fun SaveDialog(initial: String, onDismiss: () -> Unit, onSave: (String) -> Unit) {
-    var name by remember { mutableStateOf(initial) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(tr("保存和弦进行")) },
-        text = { Column { TextField(name, { name = it.take(30) }, singleLine = true, label = { Text(tr("名字")) }); Text(tr("同名的会被覆盖。"), modifier = Modifier.padding(top = 8.dp), fontSize = 13.sp) } },
-        confirmButton = { TextButton(enabled = name.isNotBlank(), onClick = { onSave(name) }) { Text(tr("保存")) } },
-        dismissButton = { TextButton(onClick = onDismiss) { Text(tr("取消")) } },
-    )
+private fun StepButton(symbol: String, enabled: Boolean, onClick: () -> Unit) {
+    val c = AppTheme.colors
+    Box(Modifier.size(40.dp).clip(androidx.compose.foundation.shape.CircleShape).background(c.card2).clickable(enabled = enabled, onClick = onClick), contentAlignment = Alignment.Center) {
+        Text(symbol, color = if (enabled) c.text else c.dim, fontSize = 20.sp, fontWeight = FontWeight.Light)
+    }
 }

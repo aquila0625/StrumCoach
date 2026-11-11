@@ -64,7 +64,7 @@ private val ErrorRed = Color(0xFFE5484D)
 /** 编辑页的外壳：顶上“取消 / 标题 / 保存”，下面是内容；键盘弹出时整体上移。 */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun EditorSheet(title: String, canSave: Boolean, onCancel: () -> Unit, onSave: () -> Unit, content: @Composable () -> Unit) {
+fun EditorSheet(title: String, canSave: Boolean, onCancel: () -> Unit, onSave: () -> Unit, saveLabel: String = tr("保存"), content: @Composable () -> Unit) {
     val c = AppTheme.colors
     ModalBottomSheet(
         onDismissRequest = onCancel, containerColor = c.sheet, scrimColor = c.scrim,
@@ -80,7 +80,7 @@ private fun EditorSheet(title: String, canSave: Boolean, onCancel: () -> Unit, o
                 Text(tr("取消"), color = c.sub, fontSize = 16.sp, modifier = Modifier.clickable(onClick = onCancel).padding(end = 12.dp, top = 4.dp, bottom = 4.dp))
                 Text(title, color = c.text, fontSize = 17.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f), maxLines = 1, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
                 Text(
-                    tr("保存"), color = if (canSave) c.accent else c.dim, fontSize = 16.sp, fontWeight = FontWeight.Bold,
+                    saveLabel, color = if (canSave) c.accent else c.dim, fontSize = 16.sp, fontWeight = FontWeight.Bold,
                     modifier = Modifier.clickable(enabled = canSave, onClick = onSave).padding(start = 12.dp, top = 4.dp, bottom = 4.dp),
                 )
             }
