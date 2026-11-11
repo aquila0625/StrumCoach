@@ -89,6 +89,7 @@ Android（浅色）：
 - 没有账号、没有内购、没有广告、没有统计，也不收集任何数据。
 - 麦克风只用来调音、给扫弦打分（iOS 版还能录制自己的节拍音色），声音在手机上实时分析，不保存、不上传。
 - 练习记录和设置只存在手机本地。
+- 完整的隐私政策见 [PRIVACY.md](PRIVACY.md)。
 
 ### 编译
 
@@ -157,7 +158,7 @@ echo "sdk.dir=$HOME/Library/Android/sdk" > local.properties
 
 ### Privacy
 
-No network permission on Android and no network code on iOS. No accounts, purchases, ads or analytics. The microphone is used only for tuning and scoring your strumming (and, on iOS, recording your own metronome sound); audio is analyzed live on the device and never stored or sent anywhere.
+No network permission on Android and no network code on iOS. No accounts, purchases, ads or analytics. The microphone is used only for tuning and scoring your strumming (and, on iOS, recording your own metronome sound); audio is analyzed live on the device and never stored or sent anywhere. See the full [privacy policy](PRIVACY.md).
 
 ### Building
 
