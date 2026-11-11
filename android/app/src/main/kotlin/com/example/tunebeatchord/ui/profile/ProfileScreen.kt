@@ -31,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -106,7 +107,7 @@ fun ProfileScreen(log: PracticeLog, settings: Settings, metronome: MetronomeCont
             CardBox(Modifier.fillMaxWidth(), radius = 18.dp) {
                 Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp).heightIn(min = 50.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text(tr("版本"), color = c.text, fontSize = 16.sp, modifier = Modifier.weight(1f))
-                    Text("1.0", color = c.sub, fontSize = 15.sp)
+                    Text(appVersion(), color = c.sub, fontSize = 15.sp)
                 }
             }
         }
@@ -359,4 +360,13 @@ private fun dayText(instant: Instant, strings: Strings): String {
     if (day == today.minusDays(1)) return strings.t("昨天")
     val pattern = if (day.year == today.year) "MMMd" else "yMMMd"
     return DateTimeFormatter.ofPattern(android.text.format.DateFormat.getBestDateTimePattern(strings.locale, pattern), strings.locale).format(day)
+}
+
+/** 安装包里的版本号（build.gradle.kts 的 versionName），界面上不再写死。 */
+@Composable
+private fun appVersion(): String {
+    val context = LocalContext.current
+    return remember(context) {
+        runCatching { context.packageManager.getPackageInfo(context.packageName, 0).versionName }.getOrNull().orEmpty()
+    }
 }

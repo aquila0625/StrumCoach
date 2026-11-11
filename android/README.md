@@ -43,7 +43,7 @@ python3 -I android/tools/convert_samples.py            # 把 iOS 的乐器采样
 | 我的 / 设置 | 本周时长、连续打卡、近 7 天、练习历史；主题、12 种语言、音名（字母/唱名/德语 H）、左手模式、A4 | 统计（含夏令时、跨时区）、设置 |
 | 隐私 | 无 INTERNET 权限，无统计/广告/支付依赖，`allowBackup=false` | `PrivacyTest` |
 
-单元测试共 220 个，全部通过。
+单元测试共 225 个，全部通过。
 
 ## 和 iOS 版的差异、还没做的部分
 
