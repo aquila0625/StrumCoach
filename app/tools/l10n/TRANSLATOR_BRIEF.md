@@ -1,11 +1,11 @@
 # Translator brief
 
-App: iPhone practice app for musicians: tuner, metronome, chord library and strum training. Chinese name 调音节拍和弦库, English name **TuneBeatChord**. Source language: Simplified Chinese.
+App: iPhone practice app for musicians: tuner, metronome, chord library and strum training. Chinese name 扫弦教练, English name **StrumCoach**. Source language: Simplified Chinese.
 
 Input: `tools/l10n/source.json` (relative to `app/`): array of `{key, modules, where, note}`.
 - `key`: Simplified Chinese source text.
 - `note`: English context (may be empty).
-- `where`: Swift `file:line` where it appears. You may read those files to understand context (`app/TuneBeatChord`, `app/MetronomeCore/Sources`, `Packages/TunerKit/Sources`, `Packages/ChordKit/Sources`). **Do not edit any source file.**
+- `where`: Swift `file:line` where it appears. You may read those files to understand context (`app/StrumCoach`, `app/MetronomeCore/Sources`, `Packages/TunerKit/Sources`, `Packages/ChordKit/Sources`). **Do not edit any source file.**
 
 Output: for each assigned language, write `tools/l10n/translations/<lang>.json`: one JSON object mapping **every** key in source.json to its translation. UTF-8, non-ASCII kept as-is, no extra keys. Write only your assigned files.
 
@@ -21,7 +21,7 @@ Output: for each assigned language, write `tools/l10n/translations/<lang>.json`:
    - Traditional Chinese: the traditional Chinese term (快板, 廣板, 柔板 …).
    - Korean: the Korean musical term (e.g. 빠르게 for Allegro, 느리게 for Adagio) — short.
    - Other languages: a short descriptive word in that language (de Allegro → "schnell", fr → "rapide", es → "rápido", pt-BR → "rápido", ru → "быстро", tr → "hızlı"). Keep it to 1–2 words.
-6. **Brand**: the app name comes from InfoPlist (CFBundleDisplayName), not from these keys: 调音节拍和弦库 in Chinese, "TuneBeatChord" elsewhere.
+6. **Brand**: the app name comes from InfoPlist (CFBundleDisplayName), not from these keys: 扫弦教练 in Chinese, "StrumCoach" elsewhere.
 7. Key `，` is a VoiceOver list separator: use the language's normal separator (en ", ", ja "、", zh-Hant "，", de ", " …).
 8. `pt-BR` is Brazilian Portuguese; `zh-Hant` is Traditional Chinese (Taiwan/Hong Kong usage: 設定, 檢視, 調音器, 節拍器, 和弦庫).
 

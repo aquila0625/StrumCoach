@@ -1,4 +1,4 @@
-name: TuneBeatChord
+name: StrumCoach
 options:
   bundleIdPrefix: com.example
   deploymentTarget:
@@ -20,13 +20,13 @@ settings:
     SWIFT_VERSION: "5.0"
     # 版本号和构建号
     MARKETING_VERSION: "2.1"
-    CURRENT_PROJECT_VERSION: "1"
+    CURRENT_PROJECT_VERSION: "5"
 targets:
-  TuneBeatChord:
+  StrumCoach:
     type: application
     platform: iOS
     sources:
-      - path: TuneBeatChord
+      - path: StrumCoach
     dependencies:
       - package: MetronomeCore
       - package: PracticeKit
@@ -34,9 +34,9 @@ targets:
       - package: TunerKit
       - package: ChordKit
     info:
-      path: TuneBeatChord/Info.plist
+      path: StrumCoach/Info.plist
       properties:
-        CFBundleDisplayName: 调音节拍和弦库
+        CFBundleDisplayName: 扫弦教练
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         # 12 种界面语言。开发语言（String Catalog 的源语言）是简体中文；
@@ -54,34 +54,34 @@ targets:
         ITSAppUsesNonExemptEncryption: false
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.tunebeatchord
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.strumcoach
         TARGETED_DEVICE_FAMILY: "1,2"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         CODE_SIGN_STYLE: Automatic
         ENABLE_PREVIEWS: YES
         SWIFT_EMIT_LOC_STRINGS: YES
         LOCALIZATION_PREFERS_STRING_CATALOGS: YES
-  TuneBeatChordTests:
+  StrumCoachTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - path: TuneBeatChordTests
+      - path: StrumCoachTests
     dependencies:
-      - target: TuneBeatChord
+      - target: StrumCoach
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
 schemes:
-  TuneBeatChord:
+  StrumCoach:
     build:
       targets:
-        TuneBeatChord: all
+        StrumCoach: all
     run:
       config: Debug
     test:
       config: Debug
       targets:
-        - TuneBeatChordTests
+        - StrumCoachTests
         - package: MetronomeCore/MetronomeCoreTests
         - package: PracticeKit/RhythmKitTests
         - package: PracticeKit/PracticeKitTests

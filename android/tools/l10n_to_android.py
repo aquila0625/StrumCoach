@@ -3,7 +3,7 @@
 
 输入（都在仓库里，只读）：
   app/tools/l10n/translations/<lang>.json   11 种语言的译文，键是简体中文原文（和 iOS 一样）
-  app/TuneBeatChord/<lang>.lproj/InfoPlist.strings   应用名、麦克风说明
+  app/StrumCoach/<lang>.lproj/InfoPlist.strings   应用名、麦克风说明
 
 输出：
   android/app/src/main/res/values*/strings.xml                    每种语言一份；values/ 是英文（兜底）
@@ -27,9 +27,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ANDROID = os.path.dirname(HERE)
 REPO = os.path.dirname(ANDROID)
 TRANSLATIONS = os.path.join(REPO, "app", "tools", "l10n", "translations")
-INFOPLIST = os.path.join(REPO, "app", "TuneBeatChord")
+INFOPLIST = os.path.join(REPO, "app", "StrumCoach")
 RES = os.path.join(ANDROID, "app", "src", "main", "res")
-TABLE = os.path.join(ANDROID, "app", "src", "main", "kotlin", "com", "example", "tunebeatchord", "i18n", "StringTable.kt")
+TABLE = os.path.join(ANDROID, "app", "src", "main", "kotlin", "com", "example", "strumcoach", "i18n", "StringTable.kt")
 
 # iOS 语言代码 → (安卓资源目录, 安卓语言标签)
 LANGS = {
@@ -113,7 +113,7 @@ def render(lang, keys, tr, plural_keys):
              "<!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->",
              "<resources>"]
     info = read_strings(os.path.join(INFOPLIST, f"{lang}.lproj", "InfoPlist.strings"))
-    name = info.get("CFBundleDisplayName") or "TuneBeatChord"
+    name = info.get("CFBundleDisplayName") or "StrumCoach"
     lines.append(f'    <string name="app_name">{escape(name)}</string>')
     if "NSMicrophoneUsageDescription" in info:
         lines.append(f'    <string name="mic_usage">{escape(info["NSMicrophoneUsageDescription"])}</string>')
@@ -138,9 +138,9 @@ def render_table(keys, plural_keys):
     def kt(s):
         return '"' + s.replace("\\", "\\\\").replace('"', '\\"').replace("$", "\\$") + '"'
     out = ["// 自动生成：android/tools/l10n_to_android.py，不要手改。",
-           "package com.example.tunebeatchord.i18n",
+           "package com.example.strumcoach.i18n",
            "",
-           "import com.example.tunebeatchord.R",
+           "import com.example.strumcoach.R",
            "",
            "/** 简体中文原文 → 资源 ID（和 iOS 一样，界面里直接用中文原文当键）。 */",
            "internal object StringTable {",

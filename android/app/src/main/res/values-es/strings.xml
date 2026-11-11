@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">TuneBeatChord</string>
+    <string name="app_name">StrumCoach</string>
     <string name="mic_usage">El micrófono se usa para el afinador, para puntuar tu práctica de rasgueo y para grabar tu propio sonido de metrónomo. El audio se analiza en tu dispositivo.</string>
     <string name="s_072b71d079">Digitación de %s</string>
     <string name="s_9a04fc4c72">Notas del acorde %s en el bajo</string>
@@ -411,7 +411,7 @@
     <string name="s_27877b5554">Silencio aleatorio</string>
     <string name="s_707d4dcaee">Silenciar al azar el %s de los pulsos</string>
     <string name="s_a21efda2fb">Silenciar al azar el %s de los pulsos · conservar el primero</string>
-    <string name="s_a56b5ea79a">TuneBeatChord necesita acceso al micrófono para oír tu rasgueo. Ve a Ajustes y permite que lo use.</string>
+    <string name="s_98a876d758">StrumCoach necesita acceso al micrófono para oír tu rasgueo. Ve a Ajustes y permite que lo use.</string>
     <string name="s_1961a8f711">Se necesita acceso al micrófono para afinar</string>
     <string name="s_afdbd1ddec">Silencio</string>
     <string name="s_7244d3079d">Compases en silencio</string>

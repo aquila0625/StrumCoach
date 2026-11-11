@@ -325,7 +325,7 @@
  "跟我练": "Mitspielen",
  "跟随节拍器": "Wie Metronom",
  "这个节奏型最好 %lld 分": "Bestwert für dieses Muster: %lld Pkt.",
- "需要麦克风权限才能听你扫弦：请到系统设置里允许“调音节拍和弦库”使用麦克风。": "TuneBeatChord braucht Mikrofonzugriff, um dein Spiel zu hören. Erlaube ihn in den Einstellungen.",
+ "需要麦克风权限才能听你扫弦：请到系统设置里允许“扫弦教练”使用麦克风。": "StrumCoach braucht Mikrofonzugriff, um dein Spiel zu hören. Erlaube ihn in den Einstellungen.",
  "麦克风收到声音会晚一点。倒数之后，跟着屏幕上的节拍（戴耳机时听节拍声）每一拍扫一下或拍一下琴身，一共 8 拍。": "Das Mikrofon nimmt Schall leicht verzögert auf. Folge nach dem Einzähler den Zählzeiten auf dem Bildschirm (oder dem Klick im Kopfhörer) und schlage auf jeder Zählzeit an oder klopfe auf den Korpus, insgesamt 8 Mal.",
  "岛屿扫弦": "Island-Schlag",
  "基础扫弦": "Grundschlag",

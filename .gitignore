@@ -6,7 +6,7 @@ DerivedData/
 xcuserdata/
 *.xcuserstate
 # XcodeGen 生成的工程（由 app/project.yml 生成）
-app/TuneBeatChord.xcodeproj/
+app/StrumCoach.xcodeproj/
 .DS_Store
 # 签名和密钥，不要提交
 *.p8

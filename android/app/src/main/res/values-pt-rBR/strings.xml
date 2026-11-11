@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">TuneBeatChord</string>
+    <string name="app_name">StrumCoach</string>
     <string name="mic_usage">O microfone é usado pelo afinador, para avaliar sua prática de batida e para gravar seu próprio som de metrônomo. O áudio é analisado no aparelho.</string>
     <string name="s_072b71d079">Digitação de %s</string>
     <string name="s_9a04fc4c72">Notas do acorde %s no baixo</string>
@@ -411,7 +411,7 @@
     <string name="s_27877b5554">Mudo aleatório</string>
     <string name="s_707d4dcaee">Silencia %s dos tempos aleatoriamente</string>
     <string name="s_a21efda2fb">Silencia %s dos tempos aleatoriamente · mantém o primeiro tempo</string>
-    <string name="s_a56b5ea79a">O TuneBeatChord precisa de acesso ao microfone para ouvir sua batida. Vá em Ajustes e permita o uso do microfone.</string>
+    <string name="s_98a876d758">O StrumCoach precisa de acesso ao microfone para ouvir sua batida. Vá em Ajustes e permita o uso do microfone.</string>
     <string name="s_1961a8f711">É necessário acesso ao microfone para afinar</string>
     <string name="s_afdbd1ddec">Mudo</string>
     <string name="s_7244d3079d">Compassos mudos</string>

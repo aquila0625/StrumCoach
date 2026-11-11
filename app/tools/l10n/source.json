@@ -2,7 +2,7 @@
   {
     "key": "%@切分",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:63"
@@ -12,7 +12,7 @@
   {
     "key": "%@后到达目标 · %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:83"
@@ -22,7 +22,7 @@
   {
     "key": "%@，%lld 小节",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:146"
@@ -32,7 +32,7 @@
   {
     "key": "%lld BPM，点按输入速度",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TempoDial.swift:62"
@@ -42,7 +42,7 @@
   {
     "key": "%lld → %lld BPM · 每 %@ %@%lld",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:23"
@@ -52,7 +52,7 @@
   {
     "key": "%lld 分",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:254"
@@ -62,7 +62,7 @@
   {
     "key": "%lld 小节",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:135",
@@ -74,7 +74,7 @@
   {
     "key": "12 小节布鲁斯（A）",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgression.swift:86"
@@ -84,7 +84,7 @@
   {
     "key": "BPM 当前速度",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:62"
@@ -94,7 +94,7 @@
   {
     "key": "TAP 测速",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:75"
@@ -104,7 +104,7 @@
   {
     "key": "±%lld 毫秒",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:477"
@@ -114,7 +114,7 @@
   {
     "key": "±60 毫秒内算准，±120 毫秒内算偏，再远算漏；多出来的一下扣半格。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:485"
@@ -124,7 +124,7 @@
   {
     "key": "“%@”最近 3 次都在 90 分以上。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:100"
@@ -134,7 +134,7 @@
   {
     "key": "上次",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:246"
@@ -144,7 +144,7 @@
   {
     "key": "下一个",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -156,7 +156,7 @@
   {
     "key": "不录就和强拍用同一个声音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:448"
@@ -166,7 +166,7 @@
   {
     "key": "不错，继续保持手腕匀速摆动，空拍也别停。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:123"
@@ -176,7 +176,7 @@
   {
     "key": "乐器",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "TunerKit"
     ],
     "where": [
@@ -188,7 +188,7 @@
   {
     "key": "今天",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:533"
@@ -198,7 +198,7 @@
   {
     "key": "今天已练 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:173"
@@ -208,7 +208,7 @@
   {
     "key": "今天已练够 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeController.swift:434"
@@ -218,7 +218,7 @@
   {
     "key": "今天已练够 %@，已自动停止",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeController.swift:433"
@@ -228,7 +228,7 @@
   {
     "key": "今天的目标",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:450"
@@ -238,7 +238,7 @@
   {
     "key": "从头循环",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:48"
@@ -248,7 +248,7 @@
   {
     "key": "保存",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -261,7 +261,7 @@
   {
     "key": "保存和弦进行",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:103"
@@ -271,7 +271,7 @@
   {
     "key": "保持目标速度",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:47"
@@ -281,7 +281,7 @@
   {
     "key": "修改",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:45"
@@ -291,7 +291,7 @@
   {
     "key": "修改参数",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:272"
@@ -301,7 +301,7 @@
   {
     "key": "倒数 %lld",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:267"
@@ -311,7 +311,7 @@
   {
     "key": "偏",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:459"
@@ -321,7 +321,7 @@
   {
     "key": "偏好设置",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:54"
@@ -331,7 +331,7 @@
   {
     "key": "偏快 %lld 毫秒",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:499"
@@ -341,7 +341,7 @@
   {
     "key": "偏慢 %lld 毫秒",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:499"
@@ -351,7 +351,7 @@
   {
     "key": "停止",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -365,7 +365,7 @@
   {
     "key": "停止训练",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:196"
@@ -375,7 +375,7 @@
   {
     "key": "先听示范，再跟着练；戴耳机可以听着节拍练。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:328"
@@ -385,7 +385,7 @@
   {
     "key": "全部",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumPractice.swift:76"
@@ -395,7 +395,7 @@
   {
     "key": "共 %lld 遍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:600"
@@ -405,7 +405,7 @@
   {
     "key": "关闭",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProScreen.swift:64",
@@ -416,7 +416,7 @@
   {
     "key": "关闭面板",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:18"
@@ -426,7 +426,7 @@
   {
     "key": "准",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:458"
@@ -436,7 +436,7 @@
   {
     "key": "准备，跟着倒数和高亮（外放时不放节拍声）",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:317"
@@ -446,7 +446,7 @@
   {
     "key": "准备，跟着耳机里的节拍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:317"
@@ -456,7 +456,7 @@
   {
     "key": "减慢",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -468,7 +468,7 @@
   {
     "key": "出错了",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:25"
@@ -478,7 +478,7 @@
   {
     "key": "分",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:452"
@@ -488,7 +488,7 @@
   {
     "key": "切分",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:205"
@@ -498,7 +498,7 @@
   {
     "key": "切分音量",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:343",
@@ -509,7 +509,7 @@
   {
     "key": "刚好",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:498"
@@ -519,7 +519,7 @@
   {
     "key": "删除",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -533,7 +533,7 @@
   {
     "key": "到时",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:454"
@@ -543,7 +543,7 @@
   {
     "key": "到点时先提醒，再停止节拍器",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:458"
@@ -553,7 +553,7 @@
   {
     "key": "到目标后停止",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:46"
@@ -563,7 +563,7 @@
   {
     "key": "到达目标后",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:377"
@@ -573,7 +573,7 @@
   {
     "key": "加快",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -586,7 +586,7 @@
   {
     "key": "取消",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -599,7 +599,7 @@
   {
     "key": "取消已掌握",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:647",
@@ -610,7 +610,7 @@
   {
     "key": "取消收藏",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -623,7 +623,7 @@
   {
     "key": "同一组随机结果可以重复练",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:418"
@@ -633,7 +633,7 @@
   {
     "key": "同名的会被覆盖。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:108"
@@ -643,7 +643,7 @@
   {
     "key": "名字",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:104"
@@ -653,7 +653,7 @@
   {
     "key": "听一听",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:275"
@@ -663,7 +663,7 @@
   {
     "key": "听示范",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:352"
@@ -673,7 +673,7 @@
   {
     "key": "和弦库",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -685,7 +685,7 @@
   {
     "key": "和弦进行",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:207",
@@ -697,7 +697,7 @@
   {
     "key": "唱名 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "SettingsScreen.swift:44"
@@ -707,7 +707,7 @@
   {
     "key": "复制",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:220",
@@ -718,7 +718,7 @@
   {
     "key": "外观",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:216"
@@ -728,7 +728,7 @@
   {
     "key": "多扫",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:461"
@@ -738,7 +738,7 @@
   {
     "key": "多扫了 %lld 下，注意空拍时手要继续摆动但不碰弦。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:115"
@@ -748,7 +748,7 @@
   {
     "key": "好",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:26",
@@ -759,7 +759,7 @@
   {
     "key": "字母 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "SettingsScreen.swift:44"
@@ -769,7 +769,7 @@
   {
     "key": "完成",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "AnnouncementsScreen.swift:16",
@@ -781,7 +781,7 @@
   {
     "key": "对着麦克风发出一下短促的声音，比如拍手、说“嗒”、敲桌子。每段最长 2 秒，开头的静音会自动去掉，音量自动调匀。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:443"
@@ -791,7 +791,7 @@
   {
     "key": "左手模式",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -803,7 +803,7 @@
   {
     "key": "已暂停节拍器，避免麦克风收进节拍声",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "RootView.swift:142"
@@ -813,7 +813,7 @@
   {
     "key": "已校准：以后跟练会扣掉 %lld 毫秒的延迟。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumTrainer.swift:663"
@@ -823,7 +823,7 @@
   {
     "key": "常用进行",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:72"
@@ -833,7 +833,7 @@
   {
     "key": "平均",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:450",
@@ -844,7 +844,7 @@
   {
     "key": "延迟校准",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:146",
@@ -855,7 +855,7 @@
   {
     "key": "开始校准",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:564"
@@ -865,7 +865,7 @@
   {
     "key": "开始练习",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:291"
@@ -875,7 +875,7 @@
   {
     "key": "开始训练",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:196"
@@ -885,7 +885,7 @@
   {
     "key": "弱拍（可选）",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:448"
@@ -895,7 +895,7 @@
   {
     "key": "强拍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:447"
@@ -905,7 +905,7 @@
   {
     "key": "强拍重、弱拍轻，和声音同步",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:358"
@@ -915,7 +915,7 @@
   {
     "key": "当前补偿：%lld 毫秒",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:553"
@@ -925,7 +925,7 @@
   {
     "key": "录制我的声音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:407"
@@ -935,7 +935,7 @@
   {
     "key": "录音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:491"
@@ -945,7 +945,7 @@
   {
     "key": "很多下没有收到声音：把手机放近一点，扫得干脆一些，或者先在安静的地方练。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:100"
@@ -955,7 +955,7 @@
   {
     "key": "很稳！可以把速度加 5 BPM 再试试。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:121"
@@ -965,7 +965,7 @@
   {
     "key": "循环",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:410"
@@ -975,7 +975,7 @@
   {
     "key": "快慢不太稳（偏差约 ±%lld 毫秒），先把速度调慢 10 BPM 练熟。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:118"
@@ -985,7 +985,7 @@
   {
     "key": "恢复默认",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:557"
@@ -995,7 +995,7 @@
   {
     "key": "我的",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "AppTab.swift:15",
@@ -1006,7 +1006,7 @@
   {
     "key": "我的声音",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "MetronomeCore"
     ],
     "where": [
@@ -1018,7 +1018,7 @@
   {
     "key": "我的进行",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:283",
@@ -1029,7 +1029,7 @@
   {
     "key": "扫弦节奏型",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -1043,7 +1043,7 @@
   {
     "key": "拍号",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:59",
@@ -1054,7 +1054,7 @@
   {
     "key": "拍号 %lld %lld",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:199"
@@ -1064,7 +1064,7 @@
   {
     "key": "持续",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:212",
@@ -1075,7 +1075,7 @@
   {
     "key": "按和弦",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:346"
@@ -1085,7 +1085,7 @@
   {
     "key": "按小节",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:402"
@@ -1095,7 +1095,7 @@
   {
     "key": "按当天累计的练习时间算",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:450"
@@ -1105,7 +1105,7 @@
   {
     "key": "按节奏连续点按来设定速度",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:76"
@@ -1115,7 +1115,7 @@
   {
     "key": "换到 %@ 时普遍晚了 %lld 毫秒，可以提前准备按法。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:192"
@@ -1125,7 +1125,7 @@
   {
     "key": "换和弦后的第一下常常没扫到，换把时右手别停，先扫空弦也可以。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:197"
@@ -1135,7 +1135,7 @@
   {
     "key": "换和弦后的第一下平均比其他时候晚 %lld 毫秒，在上一小节最后一拍就开始换把。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:200"
@@ -1145,7 +1145,7 @@
   {
     "key": "换和弦后第一下：刚好",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:362"
@@ -1155,7 +1155,7 @@
   {
     "key": "换和弦后第一下：平均偏快 %lld 毫秒",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:362"
@@ -1165,7 +1165,7 @@
   {
     "key": "换和弦后第一下：平均偏慢 %lld 毫秒",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:362"
@@ -1175,7 +1175,7 @@
   {
     "key": "推荐",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProScreen.swift:160"
@@ -1185,7 +1185,7 @@
   {
     "key": "提速 + 静音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:89",
@@ -1196,7 +1196,7 @@
   {
     "key": "播放",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:343"
@@ -1206,7 +1206,7 @@
   {
     "key": "收藏",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumPractice.swift:77",
@@ -1218,7 +1218,7 @@
   {
     "key": "收音中 · 第 %lld / %lld 遍 · 第 %lld / %lld 小节",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:312"
@@ -1228,7 +1228,7 @@
   {
     "key": "收音中 · 第 %lld 遍 · 第 %lld / %lld 小节",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:314"
@@ -1238,7 +1238,7 @@
   {
     "key": "放慢",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:300"
@@ -1248,7 +1248,7 @@
   {
     "key": "整体平均快了 %lld 毫秒，有点抢拍，跟着高亮再稳一点。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:112"
@@ -1258,7 +1258,7 @@
   {
     "key": "整体平均慢了 %lld 毫秒，试着提前一点点下手。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:109"
@@ -1268,7 +1268,7 @@
   {
     "key": "方式",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:401"
@@ -1278,7 +1278,7 @@
   {
     "key": "无法启动音频：%@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeController.swift:204",
@@ -1289,7 +1289,7 @@
   {
     "key": "无法录音：%@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "DynamicSounds.swift:260"
@@ -1299,7 +1299,7 @@
   {
     "key": "无法打开麦克风：%@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumTrainer.swift:338",
@@ -1310,7 +1310,7 @@
   {
     "key": "昨天",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:534"
@@ -1320,7 +1320,7 @@
   {
     "key": "显示全部",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:149"
@@ -1330,7 +1330,7 @@
   {
     "key": "暂不",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:98"
@@ -1340,7 +1340,7 @@
   {
     "key": "暂停",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:343"
@@ -1350,7 +1350,7 @@
   {
     "key": "最后一遍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:464"
@@ -1360,7 +1360,7 @@
   {
     "key": "最好一遍：第 %lld 遍 %lld 分",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:601"
@@ -1370,7 +1370,7 @@
   {
     "key": "最高",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:247"
@@ -1380,7 +1380,7 @@
   {
     "key": "有声",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:411"
@@ -1390,7 +1390,7 @@
   {
     "key": "有声 %@ · 静音 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:29"
@@ -1400,7 +1400,7 @@
   {
     "key": "未掌握",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumPractice.swift:78"
@@ -1410,7 +1410,7 @@
   {
     "key": "本周练习",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:166"
@@ -1420,7 +1420,7 @@
   {
     "key": "标准音",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "TunerKit"
     ],
     "where": [
@@ -1432,7 +1432,7 @@
   {
     "key": "标准音 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:247",
@@ -1443,7 +1443,7 @@
   {
     "key": "标记",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:97"
@@ -1453,7 +1453,7 @@
   {
     "key": "标记为已掌握",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:647",
@@ -1464,7 +1464,7 @@
   {
     "key": "标记为已掌握？",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:95"
@@ -1474,7 +1474,7 @@
   {
     "key": "根音",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -1487,7 +1487,7 @@
   {
     "key": "概率",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:418"
@@ -1497,7 +1497,7 @@
   {
     "key": "正在录音…再点一下结束",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:468"
@@ -1507,7 +1507,7 @@
   {
     "key": "正在生成人声报数…",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:338"
@@ -1517,7 +1517,7 @@
   {
     "key": "正在评分…",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:326"
@@ -1527,7 +1527,7 @@
   {
     "key": "每一拍扫一下",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:325"
@@ -1537,7 +1537,7 @@
   {
     "key": "每小节拍数",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:304"
@@ -1547,7 +1547,7 @@
   {
     "key": "每小节拍数 / 以几分音符为一拍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:170"
@@ -1557,7 +1557,7 @@
   {
     "key": "每小节第一拍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:447"
@@ -1567,7 +1567,7 @@
   {
     "key": "每小节第一拍总是响",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:425"
@@ -1577,7 +1577,7 @@
   {
     "key": "每档变化",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:375"
@@ -1587,7 +1587,7 @@
   {
     "key": "每档持续",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:376"
@@ -1597,7 +1597,7 @@
   {
     "key": "没收到足够的声音（%lld/8），请靠近手机、跟着每一拍扫一下再试一次。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumTrainer.swift:656"
@@ -1607,7 +1607,7 @@
   {
     "key": "没有录到声音，请靠近麦克风再录一次",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "DynamicSounds.swift:276"
@@ -1617,7 +1617,7 @@
   {
     "key": "没有麦克风权限。请到系统设置里允许本 App 使用麦克风。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:450"
@@ -1627,7 +1627,7 @@
   {
     "key": "浅色",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "AppModel.swift:17"
@@ -1637,7 +1637,7 @@
   {
     "key": "测速",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:74"
@@ -1647,7 +1647,7 @@
   {
     "key": "深色",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "AppModel.swift:18"
@@ -1657,7 +1657,7 @@
   {
     "key": "添加",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:195"
@@ -1667,7 +1667,7 @@
   {
     "key": "添加和弦",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:60"
@@ -1677,7 +1677,7 @@
   {
     "key": "清除",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:572"
@@ -1687,7 +1687,7 @@
   {
     "key": "渐进减速",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:371"
@@ -1697,7 +1697,7 @@
   {
     "key": "渐进提速",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:90",
@@ -1709,7 +1709,7 @@
   {
     "key": "渐进提速完成，已停止",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeController.swift:396"
@@ -1719,7 +1719,7 @@
   {
     "key": "渐进提速控制中",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TempoDial.swift:53"
@@ -1729,7 +1729,7 @@
   {
     "key": "漏",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:460"
@@ -1739,7 +1739,7 @@
   {
     "key": "点一下试听，强 · 次强 · 弱各一个音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:331"
@@ -1749,7 +1749,7 @@
   {
     "key": "点按修改，长按拖动排序",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:52"
@@ -1759,7 +1759,7 @@
   {
     "key": "点按切换重音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:123"
@@ -1769,7 +1769,7 @@
   {
     "key": "点按方块切换重音：强 · 次强 · 弱 · 静音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:139"
@@ -1779,7 +1779,7 @@
   {
     "key": "点按清零",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:82"
@@ -1789,7 +1789,7 @@
   {
     "key": "版本",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:290"
@@ -1799,7 +1799,7 @@
   {
     "key": "现在",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:305"
@@ -1809,7 +1809,7 @@
   {
     "key": "用 D（下扫）U（上扫）X（闷音）·（空拍）写出自己的节奏型，和弦库里也能用",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:167"
@@ -1819,7 +1819,7 @@
   {
     "key": "留空表示一直练",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:397"
@@ -1829,7 +1829,7 @@
   {
     "key": "目标",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:373",
@@ -1840,7 +1840,7 @@
   {
     "key": "目标 %@，到时提醒",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:39"
@@ -1850,7 +1850,7 @@
   {
     "key": "目标 %@，到时提醒并停止",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:38"
@@ -1860,7 +1860,7 @@
   {
     "key": "目标比起始低就是渐进减速",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:371"
@@ -1870,7 +1870,7 @@
   {
     "key": "相对主拍 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:343"
@@ -1880,7 +1880,7 @@
   {
     "key": "确定",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:557"
@@ -1890,7 +1890,7 @@
   {
     "key": "示范中：一直循环，点“停止”结束",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:307"
@@ -1900,7 +1900,7 @@
   {
     "key": "稳定度",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:477"
@@ -1910,7 +1910,7 @@
   {
     "key": "第 %lld 小节 · 还剩 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:81"
@@ -1920,7 +1920,7 @@
   {
     "key": "第 %lld 拍，%@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:122"
@@ -1930,7 +1930,7 @@
   {
     "key": "第 %lld 遍：%lld 分",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:321"
@@ -1940,7 +1940,7 @@
   {
     "key": "第一版只看扫弦的时间准不准，不判断你实际是上扫还是下扫；箭头是节奏型里该用的扫法。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:51"
@@ -1950,7 +1950,7 @@
   {
     "key": "筛选",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:682",
@@ -1961,7 +1961,7 @@
   {
     "key": "类型",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -1973,7 +1973,7 @@
   {
     "key": "系统",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "AppModel.swift:25"
@@ -1983,7 +1983,7 @@
   {
     "key": "练习历史",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:552"
@@ -1993,7 +1993,7 @@
   {
     "key": "练习目标完成",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeController.swift:439"
@@ -2003,7 +2003,7 @@
   {
     "key": "练习计时",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:86",
@@ -2014,7 +2014,7 @@
   {
     "key": "练习记录",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:191"
@@ -2024,7 +2024,7 @@
   {
     "key": "练习遍数",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:388",
@@ -2035,7 +2035,7 @@
   {
     "key": "结束",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:343"
@@ -2045,7 +2045,7 @@
   {
     "key": "结束录音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:491"
@@ -2055,7 +2055,7 @@
   {
     "key": "编辑…",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:213"
@@ -2065,7 +2065,7 @@
   {
     "key": "编辑和弦进行",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:234"
@@ -2075,7 +2075,7 @@
   {
     "key": "自动停止",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:457"
@@ -2085,7 +2085,7 @@
   {
     "key": "自定义",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:329",
@@ -2097,7 +2097,7 @@
   {
     "key": "自定义…",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -2110,7 +2110,7 @@
   {
     "key": "自由练习",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:56"
@@ -2120,7 +2120,7 @@
   {
     "key": "节奏",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:374"
@@ -2130,7 +2130,7 @@
   {
     "key": "节奏型",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:164"
@@ -2140,7 +2140,7 @@
   {
     "key": "节奏设置",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:80"
@@ -2150,7 +2150,7 @@
   {
     "key": "节拍器",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "AppTab.swift:11",
@@ -2161,7 +2161,7 @@
   {
     "key": "节拍器 · %lld BPM",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "NowPlayingBridge.swift:28"
@@ -2171,7 +2171,7 @@
   {
     "key": "节拍器训练",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:25"
@@ -2181,7 +2181,7 @@
   {
     "key": "节拍音色",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:240"
@@ -2191,7 +2191,7 @@
   {
     "key": "范围 20–400 BPM",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:526"
@@ -2201,7 +2201,7 @@
   {
     "key": "触感反馈",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:354"
@@ -2211,7 +2211,7 @@
   {
     "key": "计时",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:80"
@@ -2221,7 +2221,7 @@
   {
     "key": "计时 %@",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:81"
@@ -2231,7 +2231,7 @@
   {
     "key": "训练",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "AppTab.swift:12",
@@ -2242,7 +2242,7 @@
   {
     "key": "试听",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -2254,7 +2254,7 @@
   {
     "key": "该上扫的那几下平均比下扫快 %lld 毫秒，上扫别急，等到“&”再扫。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:106"
@@ -2264,7 +2264,7 @@
   {
     "key": "该上扫的那几下平均比下扫慢 %lld 毫秒，回扫时手腕放松、别停顿。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScoring.swift:103"
@@ -2274,7 +2274,7 @@
   {
     "key": "语言",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:224",
@@ -2285,7 +2285,7 @@
   {
     "key": "请输入 20–400 之间的数",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:526"
@@ -2295,7 +2295,7 @@
   {
     "key": "调音器",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "TunerKit"
     ],
     "where": [
@@ -2307,7 +2307,7 @@
   {
     "key": "调音器设置",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "SettingsScreen.swift:16"
@@ -2317,7 +2317,7 @@
   {
     "key": "起始",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:372"
@@ -2327,7 +2327,7 @@
   {
     "key": "跟我练",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:358"
@@ -2337,7 +2337,7 @@
   {
     "key": "跟拍震动",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:254",
@@ -2348,7 +2348,7 @@
   {
     "key": "跟着节奏扫，麦克风帮你打分",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:72"
@@ -2358,7 +2358,7 @@
   {
     "key": "跟随系统",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "AppModel.swift:16",
@@ -2369,7 +2369,7 @@
   {
     "key": "跟随节拍器",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -2381,7 +2381,7 @@
   {
     "key": "输入速度",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:83"
@@ -2391,7 +2391,7 @@
   {
     "key": "还没有保存的进行。编辑好和弦后点“保存”。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumProgressionViews.swift:261"
@@ -2401,7 +2401,7 @@
   {
     "key": "还没有收藏的节奏型：点星标收藏。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:146"
@@ -2411,7 +2411,7 @@
   {
     "key": "还没有收藏的节奏型：长按节奏型或点格子上方的星标收藏。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:170"
@@ -2421,7 +2421,7 @@
   {
     "key": "还没有练习记录。播放 30 秒以上会自动记一次。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:463"
@@ -2431,7 +2431,7 @@
   {
     "key": "还没练过，先听一听再开始",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:244"
@@ -2441,7 +2441,7 @@
   {
     "key": "这个节奏型最好 %lld 分",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:454"
@@ -2451,7 +2451,7 @@
   {
     "key": "这件乐器的节奏型都已掌握。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumHeroCard.swift:146",
@@ -2462,7 +2462,7 @@
   {
     "key": "连续打卡",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:171"
@@ -2472,7 +2472,7 @@
   {
     "key": "速度",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "ChordKit"
     ],
     "where": [
@@ -2485,7 +2485,7 @@
   {
     "key": "重新录制我的声音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:407"
@@ -2495,7 +2495,7 @@
   {
     "key": "重音预设",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:215"
@@ -2505,7 +2505,7 @@
   {
     "key": "随机静音",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:402"
@@ -2515,7 +2515,7 @@
   {
     "key": "随机静音 %@ 的拍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:33"
@@ -2525,7 +2525,7 @@
   {
     "key": "随机静音 %@ 的拍 · 保留首拍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingOptions.swift:32"
@@ -2533,9 +2533,9 @@
     "note": "same + '· keep downbeat'"
   },
   {
-    "key": "需要麦克风权限才能听你扫弦：请到系统设置里允许“调音节拍和弦库”使用麦克风。",
+    "key": "需要麦克风权限才能听你扫弦：请到系统设置里允许“扫弦教练”使用麦克风。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumTrainer.swift:758"
@@ -2545,7 +2545,7 @@
   {
     "key": "静音",
     "modules": [
-      "TuneBeatChord",
+      "StrumCoach",
       "MetronomeCore"
     ],
     "where": [
@@ -2557,7 +2557,7 @@
   {
     "key": "静音小节",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:91",
@@ -2569,7 +2569,7 @@
   {
     "key": "静音时保持心里的节拍，恢复时检查有没有跑快或跑慢",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:121"
@@ -2579,7 +2579,7 @@
   {
     "key": "静音的拍",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "TrainingScreen.swift:419"
@@ -2589,7 +2589,7 @@
   {
     "key": "静音训练",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:85"
@@ -2599,7 +2599,7 @@
   {
     "key": "音名显示",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "ProfileScreen.swift:232",
@@ -2610,7 +2610,7 @@
   {
     "key": "音色",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "MetronomeScreen.swift:66"
@@ -2620,7 +2620,7 @@
   {
     "key": "音色与反馈",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "Sheets.swift:81"
@@ -2630,7 +2630,7 @@
   {
     "key": "麦克风收到声音会晚一点。倒数之后，跟着屏幕上的节拍（戴耳机时听节拍声）每一拍扫一下或拍一下琴身，一共 8 拍。",
     "modules": [
-      "TuneBeatChord"
+      "StrumCoach"
     ],
     "where": [
       "StrumScreen.swift:537"

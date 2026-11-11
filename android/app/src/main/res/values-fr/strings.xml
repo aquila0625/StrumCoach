@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">TuneBeatChord</string>
+    <string name="app_name">StrumCoach</string>
     <string name="mic_usage">Le micro sert à l’accordeur, à noter vos exercices de strumming et à enregistrer votre propre son de métronome. Le son est analysé sur l’appareil.</string>
     <string name="s_072b71d079">Doigté de %s</string>
     <string name="s_9a04fc4c72">Notes de l’accord %s à la basse</string>
@@ -411,7 +411,7 @@
     <string name="s_27877b5554">Silence aléatoire</string>
     <string name="s_707d4dcaee">Rendre muets %s des temps au hasard</string>
     <string name="s_a21efda2fb">Rendre muets %s des temps au hasard · garder le premier</string>
-    <string name="s_a56b5ea79a">TuneBeatChord a besoin d’accéder au micro pour écouter votre jeu. Allez dans Réglages et autorisez-le.</string>
+    <string name="s_98a876d758">StrumCoach a besoin d’accéder au micro pour écouter votre jeu. Allez dans Réglages et autorisez-le.</string>
     <string name="s_1961a8f711">L’accès au micro est requis pour accorder</string>
     <string name="s_afdbd1ddec">Muet</string>
     <string name="s_7244d3079d">Mesures muettes</string>

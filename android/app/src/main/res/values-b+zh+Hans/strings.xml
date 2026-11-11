@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">调音节拍和弦库</string>
+    <string name="app_name">扫弦教练</string>
     <string name="mic_usage">调音器、扫弦练习评分和录制自己的节拍音色需要使用麦克风，声音只在手机上实时分析。</string>
     <string name="s_072b71d079">%s 指法</string>
     <string name="s_9a04fc4c72">%s 贝斯和弦音位置</string>
@@ -408,7 +408,7 @@
     <string name="s_27877b5554">随机静音</string>
     <string name="s_707d4dcaee">随机静音 %s 的拍</string>
     <string name="s_a21efda2fb">随机静音 %s 的拍 · 保留首拍</string>
-    <string name="s_a56b5ea79a">需要麦克风权限才能听你扫弦：请到系统设置里允许“调音节拍和弦库”使用麦克风。</string>
+    <string name="s_98a876d758">需要麦克风权限才能听你扫弦：请到系统设置里允许“扫弦教练”使用麦克风。</string>
     <string name="s_1961a8f711">需要麦克风权限才能调音</string>
     <string name="s_afdbd1ddec">静音</string>
     <string name="s_7244d3079d">静音小节</string>

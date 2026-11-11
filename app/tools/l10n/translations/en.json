@@ -325,7 +325,7 @@
  "跟我练": "Play along",
  "跟随节拍器": "Match metronome",
  "这个节奏型最好 %lld 分": "Best for this pattern: %lld pts",
- "需要麦克风权限才能听你扫弦：请到系统设置里允许“调音节拍和弦库”使用麦克风。": "TuneBeatChord needs microphone access to hear your strumming. Go to Settings and allow it to use the microphone.",
+ "需要麦克风权限才能听你扫弦：请到系统设置里允许“扫弦教练”使用麦克风。": "StrumCoach needs microphone access to hear your strumming. Go to Settings and allow it to use the microphone.",
  "麦克风收到声音会晚一点。倒数之后，跟着屏幕上的节拍（戴耳机时听节拍声）每一拍扫一下或拍一下琴身，一共 8 拍。": "The microphone hears sound slightly late. After the count-in, follow the beats on screen (or the click in your headphones) and strum or tap the body of your instrument on every beat, 8 beats in all.",
  "岛屿扫弦": "Island strum",
  "基础扫弦": "Basic strum",

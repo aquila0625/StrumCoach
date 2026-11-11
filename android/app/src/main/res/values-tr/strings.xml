@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">TuneBeatChord</string>
+    <string name="app_name">StrumCoach</string>
     <string name="mic_usage">Mikrofon; akort aleti, strum alıştırmalarının puanlanması ve kendi metronom sesini kaydetmek için kullanılır. Ses yalnızca cihazda analiz edilir.</string>
     <string name="s_072b71d079">%s akor pozisyonu</string>
     <string name="s_9a04fc4c72">%s akorunun bas gitardaki ses konumları</string>
@@ -409,7 +409,7 @@
     <string name="s_27877b5554">Rastgele sessiz</string>
     <string name="s_707d4dcaee">Vuruşların %s kadarı rastgele susturulur</string>
     <string name="s_a21efda2fb">Vuruşların %s kadarı rastgele susturulur · ilk vuruş korunur</string>
-    <string name="s_a56b5ea79a">TuneBeatChord’in strum’ını duyabilmesi için mikrofon erişimi gerekir. Ayarlar’dan mikrofon iznini ver.</string>
+    <string name="s_98a876d758">StrumCoach’in strum’ını duyabilmesi için mikrofon erişimi gerekir. Ayarlar’dan mikrofon iznini ver.</string>
     <string name="s_1961a8f711">Akort için mikrofon izni gerekli</string>
     <string name="s_afdbd1ddec">Sessiz</string>
     <string name="s_7244d3079d">Sessiz ölçüler</string>

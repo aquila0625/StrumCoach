@@ -1,6 +1,6 @@
 # 隐私政策 · Privacy Policy
 
-适用于：调音节拍和弦库 / TuneBeatChord（iOS 和 Android）
+适用于：扫弦教练 / StrumCoach（iOS 和 Android）
 生效日期：2026 年 11 月 11 日
 
 [简体中文](#简体中文) · [English](#english)
@@ -30,11 +30,11 @@ App 不收集任何人的个人信息，包括儿童。
 
 ### 开源
 
-App 的全部源代码公开在 <https://github.com/aquila0625/TuneBeatChord>，任何人都可以查看上面这些说法。
+App 的全部源代码公开在 <https://github.com/aquila0625/StrumCoach>，任何人都可以查看上面这些说法。
 
 ### 变更和联系方式
 
-如果以后政策有变化，会更新这个页面并修改生效日期。有问题请在 <https://github.com/aquila0625/TuneBeatChord/issues> 提出。
+如果以后政策有变化，会更新这个页面并修改生效日期。有问题请在 <https://github.com/aquila0625/StrumCoach/issues> 提出。
 
 ## English
 
@@ -61,8 +61,8 @@ The app does not collect personal information from anyone, including children.
 
 ### Open source
 
-The full source code is public at <https://github.com/aquila0625/TuneBeatChord>, so anyone can check these statements.
+The full source code is public at <https://github.com/aquila0625/StrumCoach>, so anyone can check these statements.
 
 ### Changes and contact
 
-If this policy changes, this page will be updated along with the effective date. For questions, open an issue at <https://github.com/aquila0625/TuneBeatChord/issues>.
+If this policy changes, this page will be updated along with the effective date. For questions, open an issue at <https://github.com/aquila0625/StrumCoach/issues>.

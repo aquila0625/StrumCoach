@@ -1,4 +1,4 @@
-# TuneBeatChord / 调音节拍和弦库 · Android
+# StrumCoach / 扫弦教练 · Android
 
 原生 Kotlin + Jetpack Compose 的安卓版，和 `../app`（iOS）放在同一个仓库里。功能和 iOS 版一致：调音器、节拍器、和弦库、扫弦训练、练习记录，全部免费、不联网、不收集数据、没有账号、没有内购。
 
@@ -14,7 +14,7 @@ echo "sdk.dir=$HOME/Library/Android/sdk" > local.properties     # 或者设环�
 ./gradlew :app:assembleDebug                                    # 产物：app/build/outputs/apk/debug/app-debug.apk
 ./gradlew :app:testDebugUnitTest                                # 单元测试（在 JVM 上跑，不需要模拟器）
 adb install -r app/build/outputs/apk/debug/app-debug.apk
-adb shell am start -n com.example.tunebeatchord/.MainActivity
+adb shell am start -n com.example.strumcoach/.MainActivity
 ```
 
 也可以直接用 Android Studio 打开 `android/` 目录。麦克风权限在第一次进调音器或扫弦跟练时才会弹出；用模拟器的话，麦克风没有真实输入（见下面的未验证清单）。
@@ -86,7 +86,7 @@ Apache-2.0，见仓库根目录的 `LICENSE`。乐器采样不在 Apache 授权�
 | 是否用 Kotlin Multiplatform 共享乐理和评分 | **不用** | 见下文 |
 | 工程结构 | 单模块 `app`，按功能分包（`chord`、`tuner`、`metronome`、`strum`、`practice`、`audio`、`ui`、`i18n`） | 起步够用；纯逻辑包不依赖 Android，可以直接在 JVM 上跑单元测试 |
 | 最低系统版本 | **Android 8.0（API 26）**，目标和编译用当前最新 | 低延迟音频路径（AAudio/MMAP）从 8.0 起可用，覆盖 97% 以上的设备；要放宽到 7.0 只改 `minSdk`（需要自己验证延迟） |
-| 包名 | `com.example.tunebeatchord`（占位） | 自己发布时改 `app/build.gradle.kts` 里的 `namespace` 和 `applicationId` |
+| 包名 | `com.example.strumcoach`（占位） | 自己发布时改 `app/build.gradle.kts` 里的 `namespace` 和 `applicationId` |
 | 本机存储 | `SharedPreferences` + JSON 文件 | 数据量很小（设置、和弦进行、练习记录），不需要 Room |
 | 多语言 | 脚本从 iOS 的译文生成 `strings.xml`（见 `tools/`） | 12 种语言只维护一份译文 |
 
@@ -112,7 +112,7 @@ iOS 版的节拍器是「音频回调里按采样位置排点击」：时间精�
 android/
 ├── settings.gradle.kts / build.gradle.kts / gradle/    Gradle Kotlin DSL（版本集中在 gradle/libs.versions.toml）
 ├── app/                                                  唯一的模块
-│   └── src/main/kotlin/com/example/tunebeatchord/
+│   └── src/main/kotlin/com/example/strumcoach/
 │       ├── chord/       和弦乐理、指法生成、贝斯和弦音位置、收藏（对应 ChordKit 的纯逻辑）
 │       ├── tuner/       音高、音名、乐器与定弦、MPM 音高检测、平滑、调准判定
 │       ├── rhythm/      拍号、切分、重音、渐进提速、静音训练（对应 RhythmKit / PracticeKit）

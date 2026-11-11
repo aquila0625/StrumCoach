@@ -9,8 +9,8 @@ mkdir -p $OUT
 typeset -A LOCALE=(en en_US ja ja_JP de de_DE es es_ES ru ru_RU fr fr_FR)
 shoot() { # name lang args...
   local name=$1 lang=$2; shift 2
-  xcrun simctl terminate $D com.example.tunebeatchord >/dev/null 2>&1 || true
-  xcrun simctl launch $D com.example.tunebeatchord -demo YES -appearance dark \
+  xcrun simctl terminate $D com.example.strumcoach >/dev/null 2>&1 || true
+  xcrun simctl launch $D com.example.strumcoach -demo YES -appearance dark \
     -AppleLanguages "($lang)" -AppleLocale "${LOCALE[$lang]}" "$@" >/dev/null
   sleep 7
   xcrun simctl io $D screenshot $OUT/$name-$lang.png >/dev/null 2>&1

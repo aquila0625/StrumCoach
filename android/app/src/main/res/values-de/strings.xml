@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">TuneBeatChord</string>
+    <string name="app_name">StrumCoach</string>
     <string name="mic_usage">Das Mikrofon wird für das Stimmgerät, die Bewertung deiner Anschlag-Übungen und zum Aufnehmen deines eigenen Metronomklangs verwendet. Der Ton wird auf dem Gerät analysiert.</string>
     <string name="s_072b71d079">Griffbild %s</string>
     <string name="s_9a04fc4c72">Akkordtöne von %s auf dem Bass</string>
@@ -410,7 +410,7 @@
     <string name="s_27877b5554">Zufällig stumm</string>
     <string name="s_707d4dcaee">%s der Zählzeiten zufällig stumm</string>
     <string name="s_a21efda2fb">%s der Zählzeiten zufällig stumm · erste Zählzeit bleibt</string>
-    <string name="s_a56b5ea79a">TuneBeatChord braucht Mikrofonzugriff, um dein Spiel zu hören. Erlaube ihn in den Einstellungen.</string>
+    <string name="s_98a876d758">StrumCoach braucht Mikrofonzugriff, um dein Spiel zu hören. Erlaube ihn in den Einstellungen.</string>
     <string name="s_1961a8f711">Zum Stimmen wird Mikrofonzugriff benötigt</string>
     <string name="s_afdbd1ddec">Stumm</string>
     <string name="s_7244d3079d">Stumme Takte</string>

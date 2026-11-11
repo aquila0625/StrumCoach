@@ -1,4 +1,4 @@
-# 调音节拍和弦库 · TuneBeatChord
+# 扫弦教练 · StrumCoach
 
 **给吉他、贝斯、尤克里里玩家用的练琴 App：调音器、节拍器、和弦库，加上能听你弹、逐下打分的扫弦训练。**
 iOS 和 Android 两个版本，免费、开源、不联网、不收集任何数据。
@@ -31,13 +31,13 @@ Android（浅色）：
 
 **Android**（推荐，直接装）
 
-1. 打开 [Releases 页面](https://github.com/aquila0625/TuneBeatChord/releases/latest)，下载 `TuneBeatChord-2.1.apk`。
+1. 打开 [Releases 页面](https://github.com/aquila0625/StrumCoach/releases/latest)，下载 `StrumCoach-2.1.apk`。
 2. 在手机上点开安装。第一次会提示“允许安装未知来源的应用”，允许浏览器或文件管理器安装即可。
 3. 要求 Android 8.0 及以上。第一次进调音器或扫弦练习时，会请求麦克风权限。
 
 想确认下载的文件没被改过，可以核对两个值（都写在 Release 说明里）：
 
-- 文件的 SHA-256：`71330e90a0b0773c7ed8a26553b98a4ea3d91d6fa7d21541f0c72f6029e2525b`
+- 文件的 SHA-256：`05ad8873133b8424024f908aadd15c800b7487052f8d1e108c9b3f62d3b7136d`
 - 签名证书的 SHA-256：`EE:AE:DA:BF:BF:A3:96:D5:69:DF:C1:7A:BF:33:9E:6F:64:F2:C1:11:86:8F:2F:8B:9B:62:D7:B1:20:48:F6:7A`（用 `apksigner verify --print-certs` 查看）
 
 **iOS**
@@ -98,10 +98,10 @@ Android（浅色）：
 ```bash
 cd app
 xcodegen generate
-open TuneBeatChord.xcodeproj
+open StrumCoach.xcodeproj
 ```
 
-在 Xcode 里选自己的开发团队（Signing & Capabilities），并把 `app/project.yml` 里占位的包名 `com.example.tunebeatchord` 改成你自己的（例如 `com.你的名字.tunebeatchord`），再运行到手机上。
+在 Xcode 里选自己的开发团队（Signing & Capabilities），并把 `app/project.yml` 里占位的包名 `com.example.strumcoach` 改成你自己的（例如 `com.你的名字.strumcoach`），再运行到手机上。
 
 **Android**：需要 JDK 17 以上（Android Studio 自带的就行）和 Android SDK。原生 Kotlin + Jetpack Compose，不需要 NDK。
 
@@ -132,7 +132,7 @@ echo "sdk.dir=$HOME/Library/Android/sdk" > local.properties
 
 ### 参与
 
-发现问题、想加功能，欢迎在 [Issues](https://github.com/aquila0625/TuneBeatChord/issues) 里提；译文校对、不同机型上的测试反馈尤其有帮助。
+发现问题、想加功能，欢迎在 [Issues](https://github.com/aquila0625/StrumCoach/issues) 里提；译文校对、不同机型上的测试反馈尤其有帮助。
 
 ### 许可证
 
@@ -140,11 +140,11 @@ echo "sdk.dir=$HOME/Library/Android/sdk" > local.properties
 
 ## English
 
-**TuneBeatChord** is a free, open-source practice app for guitar, bass and ukulele players, for iOS and Android: a tuner, a metronome, a chord library, and strum training that listens to you play and scores every stroke. It has no accounts, no purchases, no ads, no analytics and no network access. Current version: **2.1**.
+**StrumCoach** is a free, open-source practice app for guitar, bass and ukulele players, for iOS and Android: a tuner, a metronome, a chord library, and strum training that listens to you play and scores every stroke. It has no accounts, no purchases, no ads, no analytics and no network access. Current version: **2.1**.
 
 ### Download
 
-- **Android**: get `TuneBeatChord-2.1.apk` from the [latest release](https://github.com/aquila0625/TuneBeatChord/releases/latest) (Android 8.0 or newer; you need to allow installing from your browser or file manager). SHA-256 of the file: `71330e90a0b0773c7ed8a26553b98a4ea3d91d6fa7d21541f0c72f6029e2525b`. Signing certificate SHA-256: `EE:AE:DA:BF:BF:A3:96:D5:69:DF:C1:7A:BF:33:9E:6F:64:F2:C1:11:86:8F:2F:8B:9B:62:D7:B1:20:48:F6:7A`.
+- **Android**: get `StrumCoach-2.1.apk` from the [latest release](https://github.com/aquila0625/StrumCoach/releases/latest) (Android 8.0 or newer; you need to allow installing from your browser or file manager). SHA-256 of the file: `05ad8873133b8424024f908aadd15c800b7487052f8d1e108c9b3f62d3b7136d`. Signing certificate SHA-256: `EE:AE:DA:BF:BF:A3:96:D5:69:DF:C1:7A:BF:33:9E:6F:64:F2:C1:11:86:8F:2F:8B:9B:62:D7:B1:20:48:F6:7A`.
 - **iOS**: not on the App Store (it did not pass review), so build it yourself with Xcode (see below). A free Apple ID is enough to install it on your own phone; such installs expire after 7 days.
 
 ### Highlights
@@ -167,10 +167,10 @@ No network permission on Android and no network code on iOS. No accounts, purcha
 ```bash
 cd app
 xcodegen generate
-open TuneBeatChord.xcodeproj
+open StrumCoach.xcodeproj
 ```
 
-Choose your own team in Xcode and replace the placeholder bundle ID `com.example.tunebeatchord` in `app/project.yml`.
+Choose your own team in Xcode and replace the placeholder bundle ID `com.example.strumcoach` in `app/project.yml`.
 
 **Android.** You need JDK 17 or newer (the one bundled with Android Studio works) and the Android SDK. Native Kotlin with Jetpack Compose, no NDK.
 

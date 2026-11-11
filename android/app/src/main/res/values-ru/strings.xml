@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">TuneBeatChord</string>
+    <string name="app_name">StrumCoach</string>
     <string name="mic_usage">Микрофон нужен тюнеру, для оценки упражнений на бой и для записи собственного звука метронома. Звук анализируется только на устройстве.</string>
     <string name="s_072b71d079">Аппликатура %s</string>
     <string name="s_9a04fc4c72">Тоны аккорда %s на басу</string>
@@ -414,7 +414,7 @@
     <string name="s_27877b5554">Случайно</string>
     <string name="s_707d4dcaee">Случайно без звука: %s долей</string>
     <string name="s_a21efda2fb">Случайно без звука: %s долей · первая доля звучит</string>
-    <string name="s_a56b5ea79a">Чтобы слышать ваш бой, TuneBeatChord нужен доступ к микрофону. Разрешите его в Настройках.</string>
+    <string name="s_98a876d758">Чтобы слышать ваш бой, StrumCoach нужен доступ к микрофону. Разрешите его в Настройках.</string>
     <string name="s_1961a8f711">Для настройки нужен доступ к микрофону</string>
     <string name="s_afdbd1ddec">Без звука</string>
     <string name="s_7244d3079d">Такты без звука</string>

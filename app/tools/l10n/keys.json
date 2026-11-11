@@ -1,5 +1,5 @@
 {
- "TuneBeatChord": {
+ "StrumCoach": {
   "%@切分": [
    "MetronomeScreen.swift:63"
   ],
@@ -1016,7 +1016,7 @@
   "隐藏邮箱（Apple 转发）": [
    "ProfileScreen.swift:403"
   ],
-  "需要麦克风权限才能听你扫弦：请到系统设置里允许“调音节拍和弦库”使用麦克风。": [
+  "需要麦克风权限才能听你扫弦：请到系统设置里允许“扫弦教练”使用麦克风。": [
    "StrumTrainer.swift:758"
   ],
   "静音": [

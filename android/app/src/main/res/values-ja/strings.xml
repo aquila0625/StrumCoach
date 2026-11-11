@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">TuneBeatChord</string>
+    <string name="app_name">StrumCoach</string>
     <string name="mic_usage">チューナー、ストローク練習の採点、自分の声でメトロノーム音を録音するためにマイクを使用します。音声は端末内でのみ解析されます。</string>
     <string name="s_072b71d079">%s の運指</string>
     <string name="s_9a04fc4c72">ベースでの %s の構成音の位置</string>
@@ -408,7 +408,7 @@
     <string name="s_27877b5554">ランダムミュート</string>
     <string name="s_707d4dcaee">拍の %s をランダムにミュート</string>
     <string name="s_a21efda2fb">拍の %s をランダムにミュート · 1拍目は残す</string>
-    <string name="s_a56b5ea79a">ストロークを聴き取るにはマイクへのアクセスが必要です。「設定」で TuneBeatChord のマイクを許可してください。</string>
+    <string name="s_98a876d758">ストロークを聴き取るにはマイクへのアクセスが必要です。「設定」で StrumCoach のマイクを許可してください。</string>
     <string name="s_1961a8f711">チューニングにはマイクへのアクセスが必要です</string>
     <string name="s_afdbd1ddec">ミュート</string>
     <string name="s_7244d3079d">ミュート小節</string>

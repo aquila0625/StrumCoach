@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">TuneBeatChord</string>
+    <string name="app_name">StrumCoach</string>
     <string name="mic_usage">Il microfono serve all’accordatore, a valutare i tuoi esercizi di strumming e a registrare il tuo suono del metronomo. L’audio viene analizzato sul dispositivo.</string>
     <string name="s_072b71d079">Diteggiatura %s</string>
     <string name="s_9a04fc4c72">Note dell\'accordo %s sul basso</string>
@@ -411,7 +411,7 @@
     <string name="s_27877b5554">Muto casuale</string>
     <string name="s_707d4dcaee">Silenzia a caso il %s dei battiti</string>
     <string name="s_a21efda2fb">Silenzia a caso il %s dei battiti · mantiene il primo battito</string>
-    <string name="s_a56b5ea79a">TuneBeatChord ha bisogno del microfono per ascoltare il tuo strumming. Vai in Impostazioni e consenti l’accesso.</string>
+    <string name="s_98a876d758">StrumCoach ha bisogno del microfono per ascoltare il tuo strumming. Vai in Impostazioni e consenti l’accesso.</string>
     <string name="s_1961a8f711">Per accordare serve l\'accesso al microfono</string>
     <string name="s_afdbd1ddec">Muto</string>
     <string name="s_7244d3079d">Battute mute</string>

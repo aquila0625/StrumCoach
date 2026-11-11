@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tunebeatchord"
+    namespace = "com.example.strumcoach"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
         // 占位包名：自己发布时改成自己的
-        applicationId = "com.example.tunebeatchord"
+        applicationId = "com.example.strumcoach"
         minSdk = 26
         targetSdk = 37
         versionCode = 21

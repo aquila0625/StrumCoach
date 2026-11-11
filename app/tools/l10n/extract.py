@@ -6,7 +6,7 @@
 import json, os, re, sys
 
 dd, out = sys.argv[1], sys.argv[2]
-modules = {"TuneBeatChord": "TuneBeatChord.build", "MetronomeCore": "MetronomeCore-t.build",
+modules = {"StrumCoach": "StrumCoach.build", "MetronomeCore": "MetronomeCore-t.build",
            "TunerKit": "TunerKit-t.build", "ChordKit": "ChordKit-t.build"}
 result = {m: {} for m in modules}
 root = os.path.join(dd, "Build", "Intermediates.noindex")

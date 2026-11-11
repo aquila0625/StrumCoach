@@ -1,5 +1,5 @@
 #!/usr/bin/env python3 -I
-"""从 iOS 版的应用图标（app/TuneBeatChord/Assets.xcassets/AppIcon.appiconset/icon-1024.png）生成安卓的自适应图标图层。
+"""从 iOS 版的应用图标（app/StrumCoach/Assets.xcassets/AppIcon.appiconset/icon-1024.png）生成安卓的自适应图标图层。
 
 输出（都在 android/app/src/main/res/）：
   drawable-nodpi/ic_launcher_foreground.png   前景：把原图的纯渐变底去掉，只留三块图形，缩到安全区里（108dp 画布的中间约 59%）
@@ -14,7 +14,7 @@ from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 ANDROID = os.path.dirname(HERE)
 REPO = os.path.dirname(ANDROID)
-SRC = os.path.join(REPO, "app", "TuneBeatChord", "Assets.xcassets", "AppIcon.appiconset", "icon-1024.png")
+SRC = os.path.join(REPO, "app", "StrumCoach", "Assets.xcassets", "AppIcon.appiconset", "icon-1024.png")
 RES = os.path.join(ANDROID, "app", "src", "main", "res")
 
 CANVAS = 648           # 108dp × 6

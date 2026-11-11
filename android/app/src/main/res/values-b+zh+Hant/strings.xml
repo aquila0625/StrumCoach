@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 自动生成：android/tools/l10n_to_android.py。要改文案请改 app/tools/l10n/translations/*.json 后重新生成。 -->
 <resources>
-    <string name="app_name">調音節拍和弦庫</string>
+    <string name="app_name">掃弦教練</string>
     <string name="mic_usage">調音器、掃弦練習評分和錄製自己的節拍音色需要使用麥克風，聲音只在手機上即時分析。</string>
     <string name="s_072b71d079">%s 指法</string>
     <string name="s_9a04fc4c72">%s 貝斯和弦音位置</string>
@@ -408,7 +408,7 @@
     <string name="s_27877b5554">隨機靜音</string>
     <string name="s_707d4dcaee">隨機靜音 %s 的拍</string>
     <string name="s_a21efda2fb">隨機靜音 %s 的拍 · 保留首拍</string>
-    <string name="s_a56b5ea79a">需要麥克風權限才能聽你掃弦：請到系統設定裡允許「調音節拍和弦庫」使用麥克風。</string>
+    <string name="s_98a876d758">需要麥克風權限才能聽你掃弦：請到系統設定裡允許「掃弦教練」使用麥克風。</string>
     <string name="s_1961a8f711">需要麥克風權限才能調音</string>
     <string name="s_afdbd1ddec">靜音</string>
     <string name="s_7244d3079d">靜音小節</string>
