@@ -5,11 +5,22 @@ iOS 和 Android 两个版本，免费、开源、不联网、不收集任何数�
 
 [简体中文](#简体中文) · [English](#english)
 
+iOS（深色）：
+
 <p>
-  <img src="docs/screenshots/training-main.png" width="170" alt="训练页：扫弦节奏型和和弦进行">
-  <img src="docs/screenshots/training-strum-result.png" width="170" alt="扫弦成绩">
-  <img src="docs/screenshots/metronome-rhythm.png" width="170" alt="节拍器：拍号和切分">
-  <img src="docs/screenshots/chords-main.png" width="170" alt="和弦库：指法图">
+  <img src="docs/screenshots/training-main.png" width="170" alt="iOS 训练页：扫弦节奏型和和弦进行">
+  <img src="docs/screenshots/training-strum-result.png" width="170" alt="iOS 扫弦成绩">
+  <img src="docs/screenshots/metronome-rhythm.png" width="170" alt="iOS 节拍器：拍号和切分">
+  <img src="docs/screenshots/chords-main.png" width="170" alt="iOS 和弦库：指法图">
+</p>
+
+Android（浅色）：
+
+<p>
+  <img src="docs/screenshots/android-training.png" width="170" alt="Android 训练页">
+  <img src="docs/screenshots/android-metronome.png" width="170" alt="Android 节拍器">
+  <img src="docs/screenshots/android-tuner.png" width="170" alt="Android 调音器">
+  <img src="docs/screenshots/android-chords.png" width="170" alt="Android 和弦库">
 </p>
 
 ## 简体中文
