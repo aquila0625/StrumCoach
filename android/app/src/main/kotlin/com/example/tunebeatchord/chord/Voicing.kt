@@ -21,7 +21,11 @@ data class ChordVoicing(
     val pitches: List<Pitch?>,
 ) {
     /** 横按：食指（1 指）压住 `fromString`…`toString`（含）这几根弦的 `fret` 品。 */
-    data class Barre(val fret: Int, val fromString: Int, val toString: Int, val finger: Int = 1)
+    data class Barre(
+        val fret: Int, val fromString: Int, val toString: Int, val finger: Int = 1,
+        /** 只按 4 个以内的音、为了好按才用食指压住同一品的几根弦（比如尤克里里 Bm7 2222、吉他 Dm7 的 1 弦 2 弦）。不影响“开放把位”的判定和排序。 */
+        val small: Boolean = false,
+    )
 
     constructor(frets: List<Int>, fingers: List<Int>, barre: Barre?, tuning: Tuning) : this(
         frets, fingers, barre,
@@ -56,7 +60,7 @@ data class ChordVoicing(
     val fingerCount get() = fingers.filter { it > 0 }.toSet().size
 
     /** “开放把位”：带空弦且最高不超过 4 品，不用横按。 */
-    val isOpenPosition get() = openCount > 0 && maxFret <= 4 && barre == null
+    val isOpenPosition get() = openCount > 0 && maxFret <= 4 && (barre == null || barre.small)
 
     /** 发声的最低音（按音高）。 */
     val lowestPitch: Pitch? get() = pitches.filterNotNull().minOrNull()
@@ -91,6 +95,7 @@ internal object FingerAssigner {
         fun order(idx: List<Int>) = idx.sortedWith(compareBy({ frets[it] }, { it }))
 
         if (fretted.size <= 4) {
+            smallBarre(frets, fretted)?.let { return it }
             val n = fretted.size
             val first = if (n <= 2) maxOf(1, minOf(fretted.minOf { frets[it] }, 5 - n)) else 1
             for ((k, i) in order(fretted).withIndex()) fingers[i] = first + k
@@ -108,6 +113,35 @@ internal object FingerAssigner {
         for (i in lo..hi) if (frets[i] == f0) fingers[i] = 1
         for ((n, i) in order(rest).withIndex()) fingers[i] = n + 2
         return Result(fingers.toList(), ChordVoicing.Barre(f0, lo, hi, 1))
+    }
+
+    /**
+     * 按弦不超过 4 个时，像和弦图上的标准按法那样用食指小横按：
+     * - 最低品上有 3 根以上的弦，而且还有别的音要按（尤克里里 D7 2223、C# 1114），或者 4 根弦全在同一品（Bm7 2222）；
+     * - 最低品上正好是最细的两根相邻弦，而且还有别的音要按（尤克里里 Bb 3211、吉他 Dm7 xx0211）。
+     * 横按范围里每根弦都要按（不能夹空弦或不弹的弦）。其余的音按“一指一品”分 2、3、4 指（同一品的几根弦依次往后排）。
+     * 不符合就返回 null，照旧每个音一根手指（尤克里里 D 2220、吉他 A x02220 仍是 1、2、3 指）。
+     */
+    private fun smallBarre(frets: List<Int>, fretted: List<Int>): Result? {
+        val f0 = fretted.minOf { frets[it] }
+        val atF0 = fretted.filter { frets[it] == f0 }
+        val rest = fretted.filter { frets[it] > f0 }.sortedWith(compareBy({ frets[it] }, { it }))
+        val lo = atF0.first()
+        val hi = atF0.last()
+        val useBarre = (atF0.size >= 3 && (rest.isNotEmpty() || atF0.size == frets.size)) ||
+            (atF0.size == 2 && hi == lo + 1 && hi == frets.lastIndex && rest.isNotEmpty())
+        if (!useBarre) return null
+        for (i in lo..hi) if (frets[i] < f0) return null
+        val fingers = IntArray(frets.size)
+        for (i in lo..hi) if (frets[i] == f0) fingers[i] = 1
+        var previous = 1
+        for (i in rest) {
+            val finger = maxOf(1 + (frets[i] - f0), previous + 1)
+            if (finger > 4) return null
+            fingers[i] = finger
+            previous = finger
+        }
+        return Result(fingers.toList(), ChordVoicing.Barre(f0, lo, hi, 1, small = true))
     }
 }
 
@@ -289,8 +323,9 @@ internal object VoicingGenerator {
             fun walk(i: Int) {
                 if (i == n) {
                     val fretted = current.filter { it > 0 }
+                    // b = 0 这一轮只要全空弦的按法；其余轮次按弦的最低品必须正好是 b
                     if (b == 0) {
-                        if (fretted.isEmpty()) return
+                        if (fretted.isNotEmpty()) return
                     } else if (fretted.minOrNull() != b) return
                     val key = current.toList()
                     if (key in seen) return
@@ -334,7 +369,8 @@ internal object VoicingGenerator {
             if (v.isOpenPosition) 0 else 1,
             v.minFret,
             v.mutedCount,
-            v.fingerCount,
+            // 小横按只是改了手指分配，排序仍按“每个音一根手指”算，和 iOS 版的顺序保持一致
+            if (v.barre?.small == true) v.frets.count { it > 0 } else v.fingerCount,
             v.frets.filter { it > 0 }.sum(),
         ) + v.frets
 
