@@ -261,10 +261,15 @@ fun CustomArpeggioEditor(state: ChordLibraryState, player: ChordPlayer, editing:
 // 自定义扫弦节奏型 ---------------------------------------------------------------
 
 @Composable
-fun CustomRhythmEditor(state: ChordLibraryState, player: ChordPlayer, editing: CustomStrumRhythm?, onClose: () -> Unit) {
+fun CustomRhythmEditor(
+    state: ChordLibraryState, player: ChordPlayer, editing: CustomStrumRhythm?,
+    family: com.example.tunebeatchord.tuner.InstrumentFamily = state.instrument.family,
+    selectsOnSave: Boolean = true,
+    onSave: ((CustomStrumRhythm) -> Unit)? = null,
+    onClose: () -> Unit,
+) {
     val c = AppTheme.colors
     val strings = LocalStrings.current
-    val family = state.instrument.family
     var text by remember { mutableStateOf(editing?.code ?: "") }
     var name by remember { mutableStateOf(editing?.name ?: "") }
     var cellsPerBeat by remember { mutableStateOf(editing?.cellsPerBeat ?: 2) }
@@ -279,7 +284,7 @@ fun CustomRhythmEditor(state: ChordLibraryState, player: ChordPlayer, editing: C
     }
     EditorSheet(
         strings.t("自定义节奏型"), parsed.isValid && !isNewAndFull, onClose,
-        onSave = { if (state.saveCustomRhythm(editing?.id, name, text, cellsPerBeat, family) != null) onClose() },
+        onSave = { state.saveCustomRhythm(editing?.id, name, text, cellsPerBeat, family, selectsOnSave)?.let { onSave?.invoke(it); onClose() } },
     ) {
         SymbolField(text, "D.DU.UDU", capitalizeAll = false) { text = it }
         QuickKeyPad(rhythmKeys()) { text = apply(it, text) { t -> ArpeggioInput.deletingLastToken(t) } }
@@ -296,6 +301,6 @@ fun CustomRhythmEditor(state: ChordLibraryState, player: ChordPlayer, editing: C
         } else if (parsed.cells.isNotEmpty()) CellStrip(parsed.cells, cellsPerBeat, null)
         Message(message.first, message.second)
         NameField(name, if (parsed.isValid) parsed.normalized else strings.t("名称")) { name = it }
-        EditorFooter(parsed.isValid && state.supportsStrum, { player.previewRhythm(text, cellsPerBeat) }, editing?.let { e -> { state.deleteCustomRhythm(e.id, family); onClose() } })
+        EditorFooter(parsed.isValid && family in com.example.tunebeatchord.chord.ChordLibrary.strummableFamilies, { player.previewRhythm(text, cellsPerBeat, family) }, editing?.let { e -> { state.deleteCustomRhythm(e.id, family); onClose() } })
     }
 }

@@ -61,6 +61,8 @@ class StrumTrainer(
     private val store: KeyValueStore = MemoryStore(),
     private val scope: CoroutineScope,
     private val naming: () -> NoteNaming = { NoteNaming.Letters },
+    /** 某类乐器的自定义节奏型（和和弦库共用同一份存储）。 */
+    private val customRhythms: (com.example.tunebeatchord.tuner.InstrumentFamily) -> List<StrumRhythm> = { emptyList() },
 ) {
     enum class Phase { IDLE, DEMO, PRACTICE, CALIBRATING }
 
@@ -82,6 +84,10 @@ class StrumTrainer(
     var message by mutableStateOf<Message?>(null)
     var latencyOffset by mutableStateOf(0.0); private set
     val history = StrumHistory(store)
+    val marks = RhythmMarks(store)
+    var filter by mutableStateOf(RhythmMarks.Filter.fromId(store.getString(K_FILTER))); private set
+    /** 连续 3 次 ≥ 90 分后建议标为“已掌握”的节奏型；界面问一次，答完清掉。 */
+    var masterySuggestion by mutableStateOf<StrumRhythm?>(null); private set
     private val progressionStore = ProgressionStore(store)
     var saved by mutableStateOf(progressionStore.loadSaved()); private set
 
@@ -105,7 +111,26 @@ class StrumTrainer(
         progressionStore.loadCurrent()?.let { progression = it }
         val inst = store.getString(K_INSTRUMENT)?.let { id -> ChordLibrary.strummableInstruments.firstOrNull { it.id == id } }
         if (inst != null) instrument = inst
-        rhythm = store.getString(K_RHYTHM)?.let { StrumRhythm.preset(it) }?.takeIf { it in StrumRhythm.presets(instrument.family) } ?: StrumRhythm.presets(instrument.family)[0]
+        rhythm = store.getString(K_RHYTHM)?.let { id -> patterns.firstOrNull { it.id == id } } ?: patterns[0]
+    }
+
+    /** 当前乐器能用的节奏型：预设在前，自定义在后。 */
+    val patterns: List<StrumRhythm> get() = StrumRhythm.presets(instrument.family) + customRhythms(instrument.family)
+
+    /** 按筛选和标记排好序的节奏型（训练页卡片里滑动的那些）。 */
+    val visiblePatterns: List<StrumRhythm> get() = marks.filtered(patterns, filter, instrument.family)
+
+    fun updateFilter(f: RhythmMarks.Filter) { filter = f; store.putString(K_FILTER, f.id) }
+    fun isFavorite(r: StrumRhythm) = marks.isFavorite(r.id, instrument.family)
+    fun isMastered(r: StrumRhythm) = marks.isMastered(r.id, instrument.family)
+    fun setFavorite(on: Boolean, r: StrumRhythm) = marks.setFavorite(on, r.id, instrument.family)
+    fun setMastered(on: Boolean, r: StrumRhythm) = marks.setMastered(on, r.id, instrument.family)
+
+    /** 回答“标记为已掌握？”：同意就标，不同意就记下不再问。 */
+    fun answerMastery(accept: Boolean) {
+        val r = masterySuggestion ?: return
+        if (accept) marks.setMastered(true, r.id, instrument.family) else marks.decline(r.id, instrument.family)
+        masterySuggestion = null
     }
 
     // 设置 ---------------------------------------------------------------
@@ -114,7 +139,7 @@ class StrumTrainer(
         if (inst.id == instrument.id) return
         instrument = inst
         // 当前节奏型不在新乐器的列表里就换成它的默认节奏型
-        if (rhythm !in StrumRhythm.presets(inst.family)) rhythm = StrumRhythm.presets(inst.family)[0]
+        if (rhythm !in patterns) rhythm = patterns[0]
         store.putString(K_INSTRUMENT, inst.id); store.putString(K_RHYTHM, rhythm.id)
     }
 
@@ -288,6 +313,7 @@ class StrumTrainer(
         val seconds = run.passes.size * p.bars * tl.barDuration
         practiceLog.record(startedAtMillis, seconds, bpm..bpm, PracticeMode.STRUM)
         history.add(StrumHistory.Entry(System.currentTimeMillis(), rhythm.id, progression.label { naming().chordName(it) }, bpm, run.averageScore ?: 0, instrument.family.id))
+        if (marks.suggestsMastered(rhythm.id, instrument.family, history.entries)) masterySuggestion = rhythm
     }
 
     // 延迟校准 -----------------------------------------------------------
@@ -377,5 +403,6 @@ class StrumTrainer(
         private const val K_LATENCY = "strum.latencyOffset"
         private const val K_INSTRUMENT = "strum.instrument"
         private const val K_RHYTHM = "strum.rhythm"
+        private const val K_FILTER = "strum.rhythmFilter"
     }
 }

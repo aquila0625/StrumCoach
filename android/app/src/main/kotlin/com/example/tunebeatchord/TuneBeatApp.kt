@@ -55,7 +55,8 @@ class AppContainer(app: Application) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     val strumTrainer: StrumTrainer by lazy {
-        StrumTrainer(app, engine, chordSound, practiceLog, PrefsStore(app, "strum"), scope, naming = { settings.noteNaming() })
+        StrumTrainer(app, engine, chordSound, practiceLog, PrefsStore(app, "strum"), scope, naming = { settings.noteNaming() },
+            customRhythms = { family -> chordLibrary.customRhythms(family).mapNotNull { it.rhythm } })
     }
     val tuner: TunerController by lazy {
         TunerController(engine, { sampleBank }, TunerModel(InstrumentSelection.Default, settings.a4, PrefsStore(app, "tuner")))

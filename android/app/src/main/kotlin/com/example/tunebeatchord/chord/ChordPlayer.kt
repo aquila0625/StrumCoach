@@ -108,14 +108,16 @@ class ChordPlayer(
         sound.play(loop.playback.copy(tail = 1.4))
     }
 
-    /** 编辑自定义节奏型时试听一小节（当前和弦的当前把位，只放一遍）。 */
-    fun previewRhythm(text: String, cellsPerBeat: Int) {
+    /** 编辑自定义节奏型时试听一小节（当前和弦的第一个把位，只放一遍）。`family` 不是和弦库当前的乐器时用那类乐器的默认定弦。 */
+    fun previewRhythm(text: String, cellsPerBeat: Int, family: com.example.tunebeatchord.tuner.InstrumentFamily = state.instrument.family) {
         val parsed = StrumInput.parse(text, cellsPerBeat)
-        val v = state.voicing
-        if (!parsed.isValid || v == null || !state.supportsStrum) return
+        if (!parsed.isValid || family !in ChordLibrary.strummableFamilies) return
+        val same = family == state.instrument.family
+        val v = if (same) state.voicing else ChordLibrary.instruments.firstOrNull { it.family == family }?.let { ChordLibrary.voicings(state.chord, it, it.defaultTuning).firstOrNull() }
+        v ?: return
         val rhythm = StrumRhythm.create(StrumRhythm.CUSTOM_PREFIX + "preview", parsed.normalized, cellsPerBeat) ?: return
         stop()
-        val voice = Voice.fromFamily(state.instrument.family)
+        val voice = Voice.fromFamily(family)
         val bpm = effectiveBpm
         val start = frameAt(now() + 0.05)
         for ((i, t, cell) in rhythm.strokes(bpm)) {

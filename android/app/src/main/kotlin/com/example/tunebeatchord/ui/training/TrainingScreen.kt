@@ -62,7 +62,7 @@ private enum class TrainingSheet { RAMP, MUTE, TIMER }
 
 /** 训练页，布局和 iOS 版一致：标题、扫弦英雄卡片、“节拍器训练”下的渐进提速和静音小节两张卡片（开关、点卡片改参数）、底部大按钮“开始训练”。 */
 @Composable
-fun TrainingScreen(trainer: StrumTrainer, metronome: MetronomeController, settings: Settings, onOpenStrum: (start: Boolean) -> Unit, modifier: Modifier = Modifier) {
+fun TrainingScreen(trainer: StrumTrainer, metronome: MetronomeController, settings: Settings, chords: com.example.tunebeatchord.chord.ChordLibraryState, player: com.example.tunebeatchord.chord.ChordPlayer, onOpenStrum: (start: Boolean) -> Unit, modifier: Modifier = Modifier) {
     val c = AppTheme.colors
     val strings = LocalStrings.current
     val o = metronome.options
@@ -75,7 +75,7 @@ fun TrainingScreen(trainer: StrumTrainer, metronome: MetronomeController, settin
             Text(tr("训练"), color = c.text, fontSize = 30.sp, fontWeight = FontWeight.Bold)
         }
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = 20.dp).padding(top = 8.dp, bottom = 12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            StrumHeroCard(trainer, settings, onOpenStrum)
+            StrumHeroCard(trainer, settings, chords, player, onOpenStrum)
             Text(tr("节拍器训练"), color = c.sub, fontSize = 13.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(horizontal = 4.dp).padding(top = 8.dp))
             RampCard(metronome, o, strings, onEdit = { sheet = TrainingSheet.RAMP })
             MuteCard(metronome, o, strings, onEdit = { sheet = TrainingSheet.MUTE })

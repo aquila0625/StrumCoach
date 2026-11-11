@@ -105,6 +105,16 @@ fun StrumScreen(trainer: StrumTrainer, settings: Settings, autoStart: Boolean, o
         if (granted) pendingAction?.let { run(it) }
         pendingAction = null
     }
+    // 连续 3 次 ≥ 90 分：建议标记为已掌握（用户确认才标）
+    trainer.masterySuggestion?.let { r ->
+        AlertDialog(
+            onDismissRequest = { trainer.answerMastery(false) },
+            title = { Text(tr("标记为已掌握？")) },
+            text = { Text(strings.t("“%@”最近 3 次都在 90 分以上。", if (r.isCustom) r.title.ifEmpty { r.arrows } else strings.t(r.title))) },
+            confirmButton = { TextButton(onClick = { trainer.answerMastery(true) }) { Text(tr("标记")) } },
+            dismissButton = { TextButton(onClick = { trainer.answerMastery(false) }) { Text(tr("暂不")) } },
+        )
+    }
     fun needMic(action: String) {
         if (hasMic()) { denied = false; run(action) } else { pendingAction = action; launcher.launch(Manifest.permission.RECORD_AUDIO) }
     }
