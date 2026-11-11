@@ -20,6 +20,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -63,6 +64,7 @@ fun AppRoot(container: AppContainer, onLanguageChanged: () -> Unit) {
                     AppTab.PROFILE -> ProfileScreen(container.practiceLog, container.settings, container.metronome, onLanguageChanged)
                 }
             }
+            NoticeBanner(container.metronome)
             TabBar(current) { strumOpen = false; tab = it.name }
         }
     }
@@ -83,4 +85,39 @@ private fun TabBar(selected: AppTab, onSelect: (AppTab) -> Unit) {
             }
         }
     }
+}
+
+/** 节拍器自己停下来或练习目标达成时，在标签栏上方显示几秒的提示（iOS 版的 showBanner）。 */
+@Composable
+private fun NoticeBanner(metronome: com.example.tunebeatchord.metronome.MetronomeController) {
+    val c = AppTheme.colors
+    val strings = com.example.tunebeatchord.i18n.LocalStrings.current
+    val notice = metronome.notice
+    androidx.compose.runtime.LaunchedEffect(notice) {
+        if (notice != null) { kotlinx.coroutines.delay(4000); metronome.notice = null }
+    }
+    if (notice == null) return
+    val goal = metronome.options.timerMinutes
+    val text = when (notice) {
+        com.example.tunebeatchord.metronome.MetronomeController.Notice.RAMP_FINISHED -> strings.t("渐进提速完成，已停止")
+        com.example.tunebeatchord.metronome.MetronomeController.Notice.TIMER_REACHED_STOPPED -> strings.t("今天已练够 %@，已自动停止", minutesLabel(goal))
+        com.example.tunebeatchord.metronome.MetronomeController.Notice.TIMER_REACHED -> strings.t("今天已练够 %@", minutesLabel(goal))
+    }
+    Box(Modifier.fillMaxWidth().padding(horizontal = 20.dp).padding(bottom = 8.dp), contentAlignment = Alignment.Center) {
+        Text(
+            text, color = c.text, fontSize = 14.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.Medium,
+            modifier = Modifier.clip(androidx.compose.foundation.shape.RoundedCornerShape(50)).background(c.sheet).clickable { metronome.notice = null }.padding(horizontal = 18.dp, vertical = 10.dp),
+        )
+    }
+}
+
+@Composable
+private fun minutesLabel(v: Int): String {
+    val locale = androidx.compose.ui.platform.LocalContext.current.resources.configuration.locales[0]
+    val fmt = android.icu.text.MeasureFormat.getInstance(locale, android.icu.text.MeasureFormat.FormatWidth.SHORT)
+    val parts = buildList {
+        if (v / 60 > 0) add(android.icu.util.Measure(v / 60, android.icu.util.MeasureUnit.HOUR))
+        if (v % 60 > 0 || v / 60 == 0) add(android.icu.util.Measure(v % 60, android.icu.util.MeasureUnit.MINUTE))
+    }
+    return fmt.formatMeasures(*parts.toTypedArray())
 }

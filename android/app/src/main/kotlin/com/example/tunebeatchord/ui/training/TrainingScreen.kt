@@ -58,7 +58,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToInt
 
-private enum class TrainingSheet { RAMP, MUTE }
+private enum class TrainingSheet { RAMP, MUTE, TIMER }
 
 /** 训练页，布局和 iOS 版一致：标题、扫弦英雄卡片、“节拍器训练”下的渐进提速和静音小节两张卡片（开关、点卡片改参数）、底部大按钮“开始训练”。 */
 @Composable
@@ -79,6 +79,7 @@ fun TrainingScreen(trainer: StrumTrainer, metronome: MetronomeController, settin
             Text(tr("节拍器训练"), color = c.sub, fontSize = 13.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(horizontal = 4.dp).padding(top = 8.dp))
             RampCard(metronome, o, strings, onEdit = { sheet = TrainingSheet.RAMP })
             MuteCard(metronome, o, strings, onEdit = { sheet = TrainingSheet.MUTE })
+            TimerCard(metronome, o, strings, onEdit = { sheet = TrainingSheet.TIMER })
         }
         Box(Modifier.padding(horizontal = 20.dp).padding(bottom = 14.dp)) {
             Row(
@@ -94,6 +95,7 @@ fun TrainingScreen(trainer: StrumTrainer, metronome: MetronomeController, settin
     when (sheet) {
         TrainingSheet.RAMP -> RampEditor(metronome) { sheet = null }
         TrainingSheet.MUTE -> MuteEditor(metronome) { sheet = null }
+        TrainingSheet.TIMER -> TimerEditor(metronome) { sheet = null }
         null -> {}
     }
 }
@@ -267,5 +269,81 @@ private fun Circle(symbol: String, onClick: () -> Unit) {
     val c = AppTheme.colors
     Box(Modifier.size(36.dp).clip(CircleShape).background(c.card2).clickable(onClick = onClick), contentAlignment = Alignment.Center) {
         Text(symbol, color = c.text, fontSize = 20.sp, fontWeight = FontWeight.Light)
+    }
+}
+
+
+// 练习计时 -------------------------------------------------------------------
+
+/** “20 分钟”“1 小时 30 分钟”：按应用当前语言写。 */
+@Composable
+private fun minutesText(v: Int): String {
+    val locale = androidx.compose.ui.platform.LocalContext.current.resources.configuration.locales[0]
+    val fmt = android.icu.text.MeasureFormat.getInstance(locale, android.icu.text.MeasureFormat.FormatWidth.SHORT)
+    val hours = v / 60
+    val minutes = v % 60
+    val parts = buildList {
+        if (hours > 0) add(android.icu.util.Measure(hours, android.icu.util.MeasureUnit.HOUR))
+        if (minutes > 0 || hours == 0) add(android.icu.util.Measure(minutes, android.icu.util.MeasureUnit.MINUTE))
+    }
+    return fmt.formatMeasures(*parts.toTypedArray())
+}
+
+private fun clock(seconds: Int) =
+    if (seconds >= 3600) String.format("%d:%02d:%02d", seconds / 3600, seconds / 60 % 60, seconds % 60) else String.format("%d:%02d", seconds / 60, seconds % 60)
+
+@Composable
+private fun TimerCard(metronome: MetronomeController, o: TrainingOptions, strings: Strings, onEdit: () -> Unit) {
+    val c = AppTheme.colors
+    val goal = o.timerMinutes * 60
+    val done = metronome.todaySeconds
+    val ratio = if (goal > 0) minOf(1.0, done.toDouble() / goal) else 0.0
+    val goalText = minutesText(o.timerMinutes)
+    val percent = java.text.NumberFormat.getPercentInstance(androidx.compose.ui.platform.LocalContext.current.resources.configuration.locales[0]).format(ratio)
+    val summary = strings.t(if (o.timerAutoStop) "目标 %@，到时提醒并停止" else "目标 %@，到时提醒", goalText)
+    TrainingCard(strings.t("练习计时"), summary, o.timerEnabled, { v -> metronome.updateOptions { it.copy(timerEnabled = v) } }, onEdit) {
+        Row(Modifier.fillMaxWidth().padding(top = 12.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            androidx.compose.foundation.Canvas(Modifier.padding(5.dp).size(54.dp)) {
+                val w = 7.dp.toPx()
+                val inset = w / 2
+                val arcSize = androidx.compose.ui.geometry.Size(size.width - w, size.height - w)
+                drawArc(c.line, 0f, 360f, false, androidx.compose.ui.geometry.Offset(inset, inset), arcSize, style = androidx.compose.ui.graphics.drawscope.Stroke(w))
+                drawArc(c.accent, -90f, (360 * ratio).toFloat(), false, androidx.compose.ui.geometry.Offset(inset, inset), arcSize, style = androidx.compose.ui.graphics.drawscope.Stroke(w, cap = androidx.compose.ui.graphics.StrokeCap.Round))
+            }
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(clock(done), color = c.text, fontSize = 30.sp, fontWeight = FontWeight.Light)
+                    Text("/ ${clock(goal)}", color = c.sub, fontSize = 15.sp, modifier = Modifier.padding(bottom = 4.dp))
+                }
+                Text(strings.t("今天已练 %@", percent), color = c.sub, fontSize = 12.sp)
+            }
+        }
+    }
+}
+
+@Composable
+private fun TimerEditor(metronome: MetronomeController, onClose: () -> Unit) {
+    val c = AppTheme.colors
+    val strings = LocalStrings.current
+    val o = metronome.options
+    AppSheet(strings.t("练习计时"), onClose) {
+        com.example.tunebeatchord.ui.metronome.SectionLabel(tr("今天的目标"), tr("按当天累计的练习时间算"))
+        EditorCard {
+            StepperRow(
+                tr("目标"), minutesText(o.timerMinutes),
+                { metronome.updateOptions { it.copy(timerMinutes = (it.timerMinutes - 5).coerceAtLeast(5)) } },
+                { metronome.updateOptions { it.copy(timerMinutes = (it.timerMinutes + 5).coerceAtMost(180)) } },
+            )
+        }
+        com.example.tunebeatchord.ui.metronome.SectionLabel(tr("到时"))
+        EditorCard {
+            Row(Modifier.fillMaxWidth().height(60.dp), verticalAlignment = Alignment.CenterVertically) {
+                Column(Modifier.weight(1f)) {
+                    Text(tr("自动停止"), color = c.text, fontSize = 15.sp)
+                    Text(tr("到点时先提醒，再停止节拍器"), color = c.sub, fontSize = 12.sp)
+                }
+                Switch(o.timerAutoStop, { v -> metronome.updateOptions { it.copy(timerAutoStop = v) } }, colors = SwitchDefaults.colors(checkedTrackColor = c.green, checkedThumbColor = Color.White, checkedBorderColor = c.green))
+            }
+        }
     }
 }

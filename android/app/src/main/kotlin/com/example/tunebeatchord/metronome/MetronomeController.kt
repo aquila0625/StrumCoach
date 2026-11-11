@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.example.tunebeatchord.audio.AudioEngine
 import com.example.tunebeatchord.practice.PracticeLog
+import com.example.tunebeatchord.practice.PracticeRecording
 import com.example.tunebeatchord.rhythm.AccentLevel
 import com.example.tunebeatchord.rhythm.MuteSettings
 import com.example.tunebeatchord.rhythm.PracticeMode
@@ -37,8 +38,9 @@ data class TrainingOptions(
     val muteProbability: Double = 0.3,
     val muteSeed: Long = 1,
     val muteKeepsDownbeat: Boolean = true,
-    /** 练习计时：今天累计到这么多分钟时提醒；0 为关。 */
-    val timerMinutes: Int = 0,
+    /** 练习计时：今天累计到 `timerMinutes` 分钟时提醒一次（每天一次），可选自动停止。 */
+    val timerEnabled: Boolean = false,
+    val timerMinutes: Int = 20,
     val timerAutoStop: Boolean = false,
 ) {
     fun plan(baseBPM: Int): TrainingPlan? {
@@ -95,6 +97,13 @@ class MetronomeController(
     /** 最近一次自动停止的原因，界面显示一句提示后清掉。 */
     var notice by mutableStateOf<Notice?>(null)
 
+    /** 今天累计练了多少秒：今天已记录的练习 + 正在播放的这一段。 */
+    var todaySeconds by mutableStateOf(0); private set
+    private var todayBaseline = 0.0
+
+    /** 今天的练习目标达成时回调一次（震动用）。 */
+    var onGoalReached: (() -> Unit)? = null
+
     /** 每个主拍响起时回调一次（跟拍震动用）。参数是小节内第几拍。 */
     var onMainBeat: ((Int) -> Unit)? = null
     private var lastMainKey = -1L
@@ -109,6 +118,7 @@ class MetronomeController(
 
     init {
         load()
+        refreshToday()
         liveBpm = config.bpm
         engine?.let { /* 来源在第一次播放时才接进去 */ }
     }
@@ -168,6 +178,7 @@ class MetronomeController(
         val e = engine ?: return
         if (isPlaying) return
         notice = null
+        refreshToday()
         lastMainKey = -1L
         e.add(source)
         source.start(config)
@@ -191,6 +202,7 @@ class MetronomeController(
         val plan = config.training
         val range = if (plan?.ramp != null) plan.bpmRange(liveBar) else minBpmSeen..maxBpmSeen
         log.record(startedAtMillis, seconds, range, plan?.mode ?: PracticeMode.FREE)
+        refreshToday()
         if (reason != null) notice = reason
     }
 
@@ -205,6 +217,7 @@ class MetronomeController(
         }
         val secs = timerCarry + (nowNanos - timerBaseNanos) / 1e9
         if (secs.toInt() != elapsedSeconds) elapsedSeconds = secs.toInt()
+        updateToday((nowNanos - startedAtNanos) / 1e9)
         var best: PlayedClick? = null
         for (c in source.recentClicks()) if (e.frameToNanos(c.engineFrame) <= nowNanos) best = c
         if (best != null) {
@@ -218,6 +231,28 @@ class MetronomeController(
             liveBar = best.bar
             noteBpm(best.bpm)
         }
+    }
+
+    /** 今天已记录的练习总秒数（不含正在播放的这一段）；换了一天就从 0 开始。 */
+    private fun refreshToday() {
+        val zone = java.time.ZoneId.systemDefault()
+        val start = java.time.Instant.ofEpochMilli(wallClockMillis()).atZone(zone).toLocalDate().atStartOfDay(zone).toInstant()
+        todayBaseline = log.sessions.filter { !it.startedAt.isBefore(start) && PracticeRecording.shouldRecord(it.duration) }.sumOf { it.duration }
+        if (!isPlaying) todaySeconds = todayBaseline.toInt()
+    }
+
+    /** 播放中每帧调用：`played` 是这一段已播的秒数。累计到目标就提醒（每天一次），可选自动停止。 */
+    internal fun updateToday(played: Double) {
+        val today = (todayBaseline + played).toInt()
+        if (today == todaySeconds) return
+        todaySeconds = today
+        val o = options
+        if (!o.timerEnabled || today < o.timerMinutes * 60) return
+        val day = java.time.Instant.ofEpochMilli(wallClockMillis()).atZone(java.time.ZoneId.systemDefault()).toLocalDate().toString()
+        if (store.getString(KEY_GOAL_DAY) == day) return
+        store.putString(KEY_GOAL_DAY, day)
+        onGoalReached?.invoke()
+        if (o.timerAutoStop) stop(Notice.TIMER_REACHED_STOPPED) else notice = Notice.TIMER_REACHED
     }
 
     fun resetTimer() {
@@ -246,7 +281,8 @@ class MetronomeController(
 
     private fun load() {
         val saved = store.getString(KEY)?.let { runCatching { json.decodeFromString<SavedMetronome>(it) }.getOrNull() } ?: return
-        options = saved.training
+        // 早先的版本把练习计时的分钟数默认存成 0（表示关）：读到小于 5 的值就回到 20 分钟
+        options = saved.training.let { if (it.timerMinutes < 5) it.copy(timerMinutes = 20) else it }
         val ts = TimeSignature.of(saved.beats, saved.unit)
         val accents = RhythmSettings.normalized(saved.accents.map { AccentLevel.fromRaw(it.coerceIn(0, 3)) }, ts)
             .let { if (saved.accents.isEmpty()) AccentPreset.GROUPED.accents(ts) else it }
@@ -257,6 +293,7 @@ class MetronomeController(
     }
 
     private companion object {
+        const val KEY_GOAL_DAY = "practice.goalDay"
         const val KEY = "metronome.config"
         @Suppress("unused") val tempoRange = Tempo.range
     }

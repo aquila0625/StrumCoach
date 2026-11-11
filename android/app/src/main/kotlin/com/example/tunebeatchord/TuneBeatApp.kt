@@ -37,6 +37,9 @@ class AppContainer(app: Application) {
     val practiceLog = PracticeLog(FileStore(java.io.File(app.filesDir, "practice")))
     val metronome = MetronomeController(engine, PrefsStore(app, "metronome"), practiceLog).also { m ->
         val vibrator = app.getSystemService(android.os.Vibrator::class.java)
+        m.onGoalReached = {
+            if (vibrator?.hasVibrator() == true) vibrator.vibrate(android.os.VibrationEffect.createWaveform(longArrayOf(0, 80, 70, 80, 70, 160), -1))
+        }
         m.onMainBeat = { beat ->
             // 跟拍震动：首拍重一点
             if (settings.vibrateOnBeat && vibrator?.hasVibrator() == true) {
