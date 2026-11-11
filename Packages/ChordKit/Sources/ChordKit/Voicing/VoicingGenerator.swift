@@ -123,7 +123,8 @@ enum VoicingGenerator {
             v.isOpenPosition ? 0 : 1,
             v.minFret,
             v.mutedCount,
-            v.fingerCount,
+            // 小横按只是改了手指分配，排序仍按“每个音一根手指”算
+            v.barre?.small == true ? v.frets.filter { $0 > 0 }.count : v.fingerCount,
             v.frets.filter { $0 > 0 }.reduce(0, +),
         ] + v.frets
     }

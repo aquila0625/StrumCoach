@@ -60,6 +60,36 @@ final class VoicingTests: XCTestCase {
         XCTAssertEqual(first("F", .major, ukulele).fingers, [2, 0, 1, 0])
     }
 
+    /// 按弦不超过 4 个时，像标准和弦图那样用食指小横按；只有同品的三个音时仍是 1、2、3 指。
+    /// 小横按不改变“开放把位”的判定，也不改变排序。
+    func testSmallBarresFollowStandardCharts() {
+        func check(_ v: ChordVoicing, _ frets: String, _ fingers: String, barre: Bool, line: UInt = #line) {
+            XCTAssertEqual(v.shorthand, frets, line: line)
+            XCTAssertEqual(v.fingers.map(String.init).joined(), fingers, line: line)
+            XCTAssertEqual(v.barre != nil, barre, line: line)
+        }
+        check(first("B", .minor7, ukulele), "2222", "1111", barre: true)
+        check(first("D", .dominant7, ukulele), "2223", "1112", barre: true)
+        check(first("A#", .major, ukulele), "3211", "3211", barre: true)
+        check(first("B", .major, ukulele), "4322", "3211", barre: true)
+        check(first("G", .minor7, ukulele), "0211", "0211", barre: true)
+        check(first("D", .major, ukulele), "2220", "1230", barre: false)
+        check(first("D", .minor7, guitar), "xx0211", "000211", barre: true)
+        check(first("C", .sus4, guitar), "x33011", "034011", barre: true)
+        check(first("A", .major, guitar), "x02220", "001230", barre: false)
+        XCTAssertTrue(first("D", .minor7, guitar).isOpenPosition)
+        XCTAssertFalse(first("B", .minor7, ukulele).isOpenPosition)
+        XCTAssertEqual(first("B", .minor7, ukulele).barre?.small, true)
+    }
+
+    /// 旧数据里的横按没有 `small` 字段，按 false 读。
+    func testBarreDecodesWithoutSmallField() throws {
+        let json = #"{"fret":1,"fromString":0,"toString":5,"finger":1}"#.data(using: .utf8)!
+        let barre = try JSONDecoder().decode(ChordVoicing.Barre.self, from: json)
+        XCTAssertEqual(barre, ChordVoicing.Barre(fret: 1, fromString: 0, toString: 5))
+        XCTAssertFalse(barre.small)
+    }
+
     func testFMajorIsABarreChord() throws {
         let f = first("F", .major, guitar)
         XCTAssertEqual(f.shorthand, "133211")

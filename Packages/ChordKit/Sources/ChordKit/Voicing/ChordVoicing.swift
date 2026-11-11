@@ -12,9 +12,23 @@ public struct ChordVoicing: Hashable, Codable, Sendable {
         public let fromString: Int
         public let toString: Int
         public let finger: Int
+        /// 只按 4 个以内的音、为了好按才用食指压住同一品的几根弦（比如尤克里里 Bm7 2222、吉他 Dm7 的 1 弦 2 弦）。
+        /// 不影响“开放把位”的判定和排序。
+        public let small: Bool
 
-        public init(fret: Int, fromString: Int, toString: Int, finger: Int = 1) {
-            self.fret = fret; self.fromString = fromString; self.toString = toString; self.finger = finger
+        public init(fret: Int, fromString: Int, toString: Int, finger: Int = 1, small: Bool = false) {
+            self.fret = fret; self.fromString = fromString; self.toString = toString; self.finger = finger; self.small = small
+        }
+
+        private enum CodingKeys: String, CodingKey { case fret, fromString, toString, finger, small }
+
+        public init(from decoder: Decoder) throws {
+            let c = try decoder.container(keyedBy: CodingKeys.self)
+            fret = try c.decode(Int.self, forKey: .fret)
+            fromString = try c.decode(Int.self, forKey: .fromString)
+            toString = try c.decode(Int.self, forKey: .toString)
+            finger = try c.decode(Int.self, forKey: .finger)
+            small = try c.decodeIfPresent(Bool.self, forKey: .small) ?? false      // 旧数据没有这个字段
         }
     }
 
@@ -58,7 +72,7 @@ public struct ChordVoicing: Hashable, Codable, Sendable {
     /// 用到几根手指。
     public var fingerCount: Int { Set(fingers.filter { $0 > 0 }).count }
     /// “开放把位”：带空弦且最高不超过 4 品，不用横按。
-    public var isOpenPosition: Bool { openCount > 0 && maxFret <= 4 && barre == nil }
+    public var isOpenPosition: Bool { openCount > 0 && maxFret <= 4 && (barre == nil || barre!.small) }
 
     /// 发声的最低音（按音高）。
     public var lowestPitch: Pitch? { pitches.compactMap { $0 }.min() }
